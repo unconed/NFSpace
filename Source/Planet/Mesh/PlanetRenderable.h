@@ -15,7 +15,7 @@ namespace NFSpace {
     class PlanetRenderable;
 };
 
-#include "DynamicRenderable.h"
+#include "Ogre/OgreSimpleRenderable.h"
 #include "SimpleFrustum.h"
 #include "PlanetCube.h"
 
@@ -26,12 +26,13 @@ namespace NFSpace {
 /**
  * Renderable entity representing a single planet tile at a given face, grid square and scale.
  */
-class PlanetRenderable : public DynamicRenderable {
+class PlanetRenderable : public SimpleRenderable {
 public:
     /**
      * Constructor
      */
     PlanetRenderable(QuadTreeNode* node, Image* map);
+    virtual ~PlanetRenderable();
 
     virtual void setProxy(MovableObject* proxy);
     virtual void getWorldTransforms(Matrix4* xform) const;
@@ -47,7 +48,19 @@ public:
     const bool isClipped() const;
     
 protected:
+    static int sInstances;
+    static VertexData* sVertexData;
+    static IndexData* sIndexData;
+    static HardwareVertexBufferSharedPtr sVertexBuffer;
+    static HardwareIndexBufferSharedPtr sIndexBuffer;
+    static int sVertexBufferCapacity;
+    static int sIndexBufferCapacity;
+    static int sGridSize;
+    static VertexDeclaration *sVertexDeclaration;
     
+    static void addInstance();
+    static void removeInstance();
+        
     Real mBoundingRadius;
     Vector3 mCenter;
     Vector3 mSurfaceNormal;
@@ -69,23 +82,27 @@ protected:
     bool mIsClipped;
     
     const QuadTreeNode* mQuadTreeNode;
-    int mGridSize;
-    VertexDeclaration *mDeclaration;
 
     /**
      * Creates the vertex declaration.
      */
-    virtual void createVertexDeclaration();
-
+    static void createVertexDeclaration();
+    
     /**
      * Fills the hardware vertex and index buffers with data.
      */
-    virtual void fillHardwareBuffers();
+    static void fillHardwareBuffers();
+
     virtual const String& getMovableType(void) const;
 
     virtual bool preRender(SceneManager* sm, RenderSystem* rsys);
     virtual void postRender(SceneManager* sm, RenderSystem* rsys);
     virtual void _updateRenderQueue(RenderQueue* queue);
+
+    Real PlanetRenderable::getBoundingRadius(void) const;    
+    Real getSquaredViewDepth(const Camera* cam) const;
+    
+    virtual void analyseTerrain();
 };
 
 };

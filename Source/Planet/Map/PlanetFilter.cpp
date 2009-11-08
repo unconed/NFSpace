@@ -37,6 +37,7 @@ namespace NFSpace {
     }
     
     PlanetFilter::~PlanetFilter() {
+        delete mRenderOp.vertexData;
     }
     
     void PlanetFilter::initRenderOp(int face) {    
