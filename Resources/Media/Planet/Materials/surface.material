@@ -1,0 +1,25 @@
+// Planet Surface
+material Planet/Surface
+{
+  technique
+  {
+    pass
+    {
+      ambient 1.0 1.0 1.0
+      diffuse 1.0 1.0 1.0
+
+      cull_hardware none 
+      lighting off
+      depth_write on
+      scene_blend alpha_blend
+      
+      texture_unit
+      {
+        cubic_texture cube-Buffer1.png combinedUVW
+        tex_address_mode clamp
+        filtering linear linear none
+        colour_op replace
+      }
+    }
+  }
+}

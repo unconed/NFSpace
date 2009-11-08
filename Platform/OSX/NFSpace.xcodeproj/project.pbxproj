@@ -1,0 +1,489 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 44;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D0C4E8D0486CD37000505A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0867D6AAFE840B52C02AAC07 /* InfoPlist.strings */; };
+		8D0C4E920486CD37000505A6 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20286C33FDCF999611CA2CEA /* Carbon.framework */; };
+		B00B7B2E109E789A00578B8B /* PlanetCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B00B7B1A109E789A00578B8B /* PlanetCube.cpp */; };
+		B00B7B2F109E789A00578B8B /* PlanetCubeTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B00B7B1C109E789A00578B8B /* PlanetCubeTree.cpp */; };
+		B00B7B30109E789A00578B8B /* PlanetRenderable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B00B7B1E109E789A00578B8B /* PlanetRenderable.cpp */; };
+		B00B7B31109E789A00578B8B /* PlanetMovable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B00B7B21109E789A00578B8B /* PlanetMovable.cpp */; };
+		B00B7B32109E789A00578B8B /* PlanetBrush.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B00B7B24109E789A00578B8B /* PlanetBrush.cpp */; };
+		B00B7B33109E789A00578B8B /* PlanetEdgeFixup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B00B7B26109E789A00578B8B /* PlanetEdgeFixup.cpp */; };
+		B00B7B34109E789A00578B8B /* PlanetFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B00B7B28109E789A00578B8B /* PlanetFilter.cpp */; };
+		B00B7B35109E789A00578B8B /* PlanetMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B00B7B2A109E789A00578B8B /* PlanetMap.cpp */; };
+		B00B7B36109E789A00578B8B /* PlanetMapBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B00B7B2C109E789A00578B8B /* PlanetMapBuffer.cpp */; };
+		B01A4FE10FDF95C900CDAD16 /* libois.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B01A4FE00FDF95C900CDAD16 /* libois.a */; };
+		B01A50E60FDF967300CDAD16 /* Cg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01A50E40FDF967300CDAD16 /* Cg.framework */; };
+		B01A54460FDF9C4400CDAD16 /* Ogre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01A54450FDF9C4400CDAD16 /* Ogre.framework */; };
+		B01A55430FDF9C7300CDAD16 /* Ogre.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B01A54450FDF9C4400CDAD16 /* Ogre.framework */; };
+		B01A55440FDF9C7300CDAD16 /* Cg.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B01A50E40FDF967300CDAD16 /* Cg.framework */; };
+		B01A55B70FDFA9B600CDAD16 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B01A55B60FDFA9B600CDAD16 /* MainMenu.xib */; };
+		B02F7BBB0F234FDD00275423 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02F7BBA0F234FDD00275423 /* IOKit.framework */; };
+		B050B0D3103D4C9700F67E15 /* Utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B050B0D2103D4C9700F67E15 /* Utility.cpp */; };
+		B050B48B104266AC00F67E15 /* EngineState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B050B48A104266AC00F67E15 /* EngineState.cpp */; };
+		B0842D79103555250066010B /* ApplicationFrameListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0842D78103555250066010B /* ApplicationFrameListener.cpp */; };
+		B0A332BE0FDE510E00A04706 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0A332BD0FDE510E00A04706 /* Application.cpp */; };
+		B0D0248E1045275C00D503C3 /* SimpleFrustum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0D0248D1045275C00D503C3 /* SimpleFrustum.cpp */; };
+		B0ED56F91022AAF200F19F2F /* DynamicRenderable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0ED56F81022AAF200F19F2F /* DynamicRenderable.cpp */; };
+		B0F02FA8109E43CD00D6E865 /* Media in Resources */ = {isa = PBXBuildFile; fileRef = B0F02FA6109E43CD00D6E865 /* Media */; };
+		B0F02FA9109E43CD00D6E865 /* Config in Resources */ = {isa = PBXBuildFile; fileRef = B0F02FA7109E43CD00D6E865 /* Config */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B02F7BB70F234F4A00275423 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B01A55430FDF9C7300CDAD16 /* Ogre.framework in CopyFiles */,
+				B01A55440FDF9C7300CDAD16 /* Cg.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0867D6ABFE840B52C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		20286C33FDCF999611CA2CEA /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		32DBCF6D0370B57F00C91783 /* NFSpace_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NFSpace_Prefix.pch; sourceTree = "<group>"; };
+		8D0C4E960486CD37000505A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D0C4E970486CD37000505A6 /* NFSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NFSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B00B7B1A109E789A00578B8B /* PlanetCube.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlanetCube.cpp; sourceTree = "<group>"; };
+		B00B7B1B109E789A00578B8B /* PlanetCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanetCube.h; sourceTree = "<group>"; };
+		B00B7B1C109E789A00578B8B /* PlanetCubeTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlanetCubeTree.cpp; sourceTree = "<group>"; };
+		B00B7B1D109E789A00578B8B /* PlanetCubeTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanetCubeTree.h; sourceTree = "<group>"; };
+		B00B7B1E109E789A00578B8B /* PlanetRenderable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlanetRenderable.cpp; sourceTree = "<group>"; };
+		B00B7B1F109E789A00578B8B /* PlanetRenderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanetRenderable.h; sourceTree = "<group>"; };
+		B00B7B20109E789A00578B8B /* Planet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Planet.h; path = ../../Source/Planet/Planet.h; sourceTree = SOURCE_ROOT; };
+		B00B7B21109E789A00578B8B /* PlanetMovable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlanetMovable.cpp; path = ../../Source/Planet/PlanetMovable.cpp; sourceTree = SOURCE_ROOT; };
+		B00B7B22109E789A00578B8B /* PlanetMovable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlanetMovable.h; path = ../../Source/Planet/PlanetMovable.h; sourceTree = SOURCE_ROOT; };
+		B00B7B24109E789A00578B8B /* PlanetBrush.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlanetBrush.cpp; sourceTree = "<group>"; };
+		B00B7B25109E789A00578B8B /* PlanetBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanetBrush.h; sourceTree = "<group>"; };
+		B00B7B26109E789A00578B8B /* PlanetEdgeFixup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlanetEdgeFixup.cpp; sourceTree = "<group>"; };
+		B00B7B27109E789A00578B8B /* PlanetEdgeFixup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanetEdgeFixup.h; sourceTree = "<group>"; };
+		B00B7B28109E789A00578B8B /* PlanetFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlanetFilter.cpp; sourceTree = "<group>"; };
+		B00B7B29109E789A00578B8B /* PlanetFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanetFilter.h; sourceTree = "<group>"; };
+		B00B7B2A109E789A00578B8B /* PlanetMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlanetMap.cpp; sourceTree = "<group>"; };
+		B00B7B2B109E789A00578B8B /* PlanetMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanetMap.h; sourceTree = "<group>"; };
+		B00B7B2C109E789A00578B8B /* PlanetMapBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlanetMapBuffer.cpp; sourceTree = "<group>"; };
+		B00B7B2D109E789A00578B8B /* PlanetMapBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanetMapBuffer.h; sourceTree = "<group>"; };
+		B01A4FE00FDF95C900CDAD16 /* libois.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libois.a; path = ../../../../OgreSDK/Dependencies/lib/Release/libois.a; sourceTree = SOURCE_ROOT; };
+		B01A50E40FDF967300CDAD16 /* Cg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cg.framework; path = Frameworks/Cg.framework; sourceTree = "<group>"; };
+		B01A54450FDF9C4400CDAD16 /* Ogre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ogre.framework; path = Frameworks/Ogre.framework; sourceTree = "<group>"; };
+		B01A55B60FDFA9B600CDAD16 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		B02F7BBA0F234FDD00275423 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
+		B050B0D1103D4C9700F67E15 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utility.h; path = ../../Source/Core/Utility.h; sourceTree = "<group>"; };
+		B050B0D2103D4C9700F67E15 /* Utility.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Utility.cpp; path = ../../Source/Core/Utility.cpp; sourceTree = "<group>"; };
+		B050B489104266AC00F67E15 /* EngineState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineState.h; path = ../../Source/Core/EngineState.h; sourceTree = "<group>"; };
+		B050B48A104266AC00F67E15 /* EngineState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EngineState.cpp; path = ../../Source/Core/EngineState.cpp; sourceTree = "<group>"; };
+		B0842D77103555250066010B /* ApplicationFrameListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApplicationFrameListener.h; path = ../../Source/Core/ApplicationFrameListener.h; sourceTree = SOURCE_ROOT; };
+		B0842D78103555250066010B /* ApplicationFrameListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ApplicationFrameListener.cpp; path = ../../Source/Core/ApplicationFrameListener.cpp; sourceTree = SOURCE_ROOT; };
+		B0A332BC0FDE510E00A04706 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Application.h; path = ../../Source/Core/Application.h; sourceTree = "<group>"; };
+		B0A332BD0FDE510E00A04706 /* Application.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Application.cpp; path = ../../Source/Core/Application.cpp; sourceTree = "<group>"; };
+		B0D0248C1045275C00D503C3 /* SimpleFrustum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleFrustum.h; path = ../../Source/Core/SimpleFrustum.h; sourceTree = SOURCE_ROOT; };
+		B0D0248D1045275C00D503C3 /* SimpleFrustum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SimpleFrustum.cpp; path = ../../Source/Core/SimpleFrustum.cpp; sourceTree = SOURCE_ROOT; };
+		B0ED56F71022AAF200F19F2F /* DynamicRenderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamicRenderable.h; path = ../../Source/Core/DynamicRenderable.h; sourceTree = SOURCE_ROOT; };
+		B0ED56F81022AAF200F19F2F /* DynamicRenderable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DynamicRenderable.cpp; path = ../../Source/Core/DynamicRenderable.cpp; sourceTree = SOURCE_ROOT; };
+		B0F02FA6109E43CD00D6E865 /* Media */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Media; path = ../../Resources/Media; sourceTree = SOURCE_ROOT; };
+		B0F02FA7109E43CD00D6E865 /* Config */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Config; path = ../../Resources/Config; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D0C4E910486CD37000505A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D0C4E920486CD37000505A6 /* Carbon.framework in Frameworks */,
+				B02F7BBB0F234FDD00275423 /* IOKit.framework in Frameworks */,
+				B01A4FE10FDF95C900CDAD16 /* libois.a in Frameworks */,
+				B01A50E60FDF967300CDAD16 /* Cg.framework in Frameworks */,
+				B01A54460FDF9C4400CDAD16 /* Ogre.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		195DF8CFFE9D517E11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF6D0370B57F00C91783 /* NFSpace_Prefix.pch */,
+				8D0C4E970486CD37000505A6 /* NFSpace.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		20286C29FDCF999611CA2CEA /* NFSpace */ = {
+			isa = PBXGroup;
+			children = (
+				20286C2AFDCF999611CA2CEA /* Sources */,
+				20286C2CFDCF999611CA2CEA /* Resources */,
+				20286C32FDCF999611CA2CEA /* Frameworks */,
+				195DF8CFFE9D517E11CA2CBB /* Products */,
+			);
+			name = NFSpace;
+			sourceTree = "<group>";
+		};
+		20286C2AFDCF999611CA2CEA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B0717A3C10005EB800D7DE22 /* Planet */,
+				B0717A3B10005E9B00D7DE22 /* Core */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		20286C2CFDCF999611CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B0F02FA6109E43CD00D6E865 /* Media */,
+				B0F02FA7109E43CD00D6E865 /* Config */,
+				8D0C4E960486CD37000505A6 /* Info.plist */,
+				0867D6AAFE840B52C02AAC07 /* InfoPlist.strings */,
+				B01A55B60FDFA9B600CDAD16 /* MainMenu.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		20286C32FDCF999611CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B01A54450FDF9C4400CDAD16 /* Ogre.framework */,
+				B01A50E40FDF967300CDAD16 /* Cg.framework */,
+				B01A4FE00FDF95C900CDAD16 /* libois.a */,
+				20286C33FDCF999611CA2CEA /* Carbon.framework */,
+				B02F7BBA0F234FDD00275423 /* IOKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B00B7B19109E789A00578B8B /* Mesh */ = {
+			isa = PBXGroup;
+			children = (
+				B00B7B1A109E789A00578B8B /* PlanetCube.cpp */,
+				B00B7B1B109E789A00578B8B /* PlanetCube.h */,
+				B00B7B1C109E789A00578B8B /* PlanetCubeTree.cpp */,
+				B00B7B1D109E789A00578B8B /* PlanetCubeTree.h */,
+				B00B7B1E109E789A00578B8B /* PlanetRenderable.cpp */,
+				B00B7B1F109E789A00578B8B /* PlanetRenderable.h */,
+			);
+			name = Mesh;
+			path = ../../Source/Planet/Mesh;
+			sourceTree = SOURCE_ROOT;
+		};
+		B00B7B23109E789A00578B8B /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				B00B7B24109E789A00578B8B /* PlanetBrush.cpp */,
+				B00B7B25109E789A00578B8B /* PlanetBrush.h */,
+				B00B7B26109E789A00578B8B /* PlanetEdgeFixup.cpp */,
+				B00B7B27109E789A00578B8B /* PlanetEdgeFixup.h */,
+				B00B7B28109E789A00578B8B /* PlanetFilter.cpp */,
+				B00B7B29109E789A00578B8B /* PlanetFilter.h */,
+				B00B7B2A109E789A00578B8B /* PlanetMap.cpp */,
+				B00B7B2B109E789A00578B8B /* PlanetMap.h */,
+				B00B7B2C109E789A00578B8B /* PlanetMapBuffer.cpp */,
+				B00B7B2D109E789A00578B8B /* PlanetMapBuffer.h */,
+			);
+			name = Map;
+			path = ../../Source/Planet/Map;
+			sourceTree = SOURCE_ROOT;
+		};
+		B0717A3B10005E9B00D7DE22 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B0A332BD0FDE510E00A04706 /* Application.cpp */,
+				B0A332BC0FDE510E00A04706 /* Application.h */,
+				B0842D78103555250066010B /* ApplicationFrameListener.cpp */,
+				B0842D77103555250066010B /* ApplicationFrameListener.h */,
+				B0ED56F81022AAF200F19F2F /* DynamicRenderable.cpp */,
+				B0ED56F71022AAF200F19F2F /* DynamicRenderable.h */,
+				B050B48A104266AC00F67E15 /* EngineState.cpp */,
+				B050B489104266AC00F67E15 /* EngineState.h */,
+				B0D0248D1045275C00D503C3 /* SimpleFrustum.cpp */,
+				B0D0248C1045275C00D503C3 /* SimpleFrustum.h */,
+				B050B0D2103D4C9700F67E15 /* Utility.cpp */,
+				B050B0D1103D4C9700F67E15 /* Utility.h */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		B0717A3C10005EB800D7DE22 /* Planet */ = {
+			isa = PBXGroup;
+			children = (
+				B00B7B23109E789A00578B8B /* Map */,
+				B00B7B19109E789A00578B8B /* Mesh */,
+				B00B7B20109E789A00578B8B /* Planet.h */,
+				B00B7B21109E789A00578B8B /* PlanetMovable.cpp */,
+				B00B7B22109E789A00578B8B /* PlanetMovable.h */,
+			);
+			name = Planet;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D0C4E890486CD37000505A6 /* NFSpace */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0E91AC508A95435008D54AB /* Build configuration list for PBXNativeTarget "NFSpace" */;
+			buildPhases = (
+				B00B7938109E48F300578B8B /* ShellScript */,
+				8D0C4E8C0486CD37000505A6 /* Resources */,
+				8D0C4E8F0486CD37000505A6 /* Sources */,
+				B02F7BB70F234F4A00275423 /* CopyFiles */,
+				8D0C4E910486CD37000505A6 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NFSpace;
+			productInstallPath = "$(HOME)/Applications";
+			productName = NFSpace;
+			productReference = 8D0C4E970486CD37000505A6 /* NFSpace.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		20286C28FDCF999611CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C0E91AC908A95435008D54AB /* Build configuration list for PBXProject "NFSpace" */;
+			compatibilityVersion = "Xcode 3.0";
+			hasScannedForEncodings = 1;
+			mainGroup = 20286C29FDCF999611CA2CEA /* NFSpace */;
+			projectDirPath = "";
+			projectRoot = ../..;
+			targets = (
+				8D0C4E890486CD37000505A6 /* NFSpace */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D0C4E8C0486CD37000505A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D0C4E8D0486CD37000505A6 /* InfoPlist.strings in Resources */,
+				B01A55B70FDFA9B600CDAD16 /* MainMenu.xib in Resources */,
+				B0F02FA8109E43CD00D6E865 /* Media in Resources */,
+				B0F02FA9109E43CD00D6E865 /* Config in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B00B7938109E48F300578B8B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "touch ../../Resources/Media\ntouch ../../Resources/Config";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D0C4E8F0486CD37000505A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0A332BE0FDE510E00A04706 /* Application.cpp in Sources */,
+				B0ED56F91022AAF200F19F2F /* DynamicRenderable.cpp in Sources */,
+				B0842D79103555250066010B /* ApplicationFrameListener.cpp in Sources */,
+				B050B0D3103D4C9700F67E15 /* Utility.cpp in Sources */,
+				B050B48B104266AC00F67E15 /* EngineState.cpp in Sources */,
+				B0D0248E1045275C00D503C3 /* SimpleFrustum.cpp in Sources */,
+				B00B7B2E109E789A00578B8B /* PlanetCube.cpp in Sources */,
+				B00B7B2F109E789A00578B8B /* PlanetCubeTree.cpp in Sources */,
+				B00B7B30109E789A00578B8B /* PlanetRenderable.cpp in Sources */,
+				B00B7B31109E789A00578B8B /* PlanetMovable.cpp in Sources */,
+				B00B7B32109E789A00578B8B /* PlanetBrush.cpp in Sources */,
+				B00B7B33109E789A00578B8B /* PlanetEdgeFixup.cpp in Sources */,
+				B00B7B34109E789A00578B8B /* PlanetFilter.cpp in Sources */,
+				B00B7B35109E789A00578B8B /* PlanetMap.cpp in Sources */,
+				B00B7B36109E789A00578B8B /* PlanetMapBuffer.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0867D6AAFE840B52C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0867D6ABFE840B52C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B0956BA8104A1FAB006B48DD /* Debug (optimized) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_MODEL_TUNING = G4;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				PREBINDING = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				USER_HEADER_SEARCH_PATHS = /Users/steven/Projects/OgreSDK/Dependencies/include;
+			};
+			name = "Debug (optimized)";
+		};
+		B0956BA9104A1FAB006B48DD /* Debug (optimized) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = NFSpace_Prefix.pch;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../OgreSDK/Dependencies/include\"";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../OgreSDK/Dependencies/lib/Release\"",
+					"\"$(SRCROOT)/../../../../OgreSDK/Dependencies/lib/Release\"",
+				);
+				PRODUCT_NAME = NFSpace;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = "Debug (optimized)";
+		};
+		C0E91AC608A95435008D54AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = NFSpace_Prefix.pch;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../OgreSDK/Dependencies/include\"";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../OgreSDK/Dependencies/lib/Release\"",
+					"\"$(SRCROOT)/../../../../OgreSDK/Dependencies/lib/Release\"",
+				);
+				PRODUCT_NAME = NFSpace;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		C0E91AC708A95435008D54AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = NFSpace_Prefix.pch;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../OgreSDK/Dependencies/include\"";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../OgreSDK/Dependencies/lib/Release\"",
+					"\"$(SRCROOT)/../../../../OgreSDK/Dependencies/lib/Release\"",
+				);
+				PRODUCT_NAME = NFSpace;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		C0E91ACA08A95435008D54AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				PREBINDING = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				USER_HEADER_SEARCH_PATHS = /Users/steven/Projects/OgreSDK/Dependencies/include;
+			};
+			name = Debug;
+		};
+		C0E91ACB08A95435008D54AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				PREBINDING = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				USER_HEADER_SEARCH_PATHS = /Users/steven/Projects/OgreSDK/Dependencies/include;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C0E91AC508A95435008D54AB /* Build configuration list for PBXNativeTarget "NFSpace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0E91AC608A95435008D54AB /* Debug */,
+				B0956BA9104A1FAB006B48DD /* Debug (optimized) */,
+				C0E91AC708A95435008D54AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0E91AC908A95435008D54AB /* Build configuration list for PBXProject "NFSpace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0E91ACA08A95435008D54AB /* Debug */,
+				B0956BA8104A1FAB006B48DD /* Debug (optimized) */,
+				C0E91ACB08A95435008D54AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 20286C28FDCF999611CA2CEA /* Project object */;
+}

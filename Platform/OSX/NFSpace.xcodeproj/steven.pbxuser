@@ -1,0 +1,4153 @@
+// !$*UTF8*$!
+{
+	0867D6ABFE840B52C02AAC07 /* English */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {932, 395}}";
+			sepNavSelRange = "{98, 0}";
+			sepNavVisRange = "{0, 98}";
+		};
+	};
+	20286C28FDCF999611CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = B02F7A9B0F234E4A00275423 /* NFSpace */;
+		activeTarget = 8D0C4E890486CD37000505A6 /* NFSpace */;
+		addToTargets = (
+			8D0C4E890486CD37000505A6 /* NFSpace */,
+		);
+		breakpoints = (
+		);
+		codeSenseManager = B02F7AA30F234E5A00275423 /* Code sense */;
+		executables = (
+			B02F7A9B0F234E4A00275423 /* NFSpace */,
+		);
+		expressions = (
+			"(Material*)0x1d40e0",
+			"*pMapCorner",
+			"*(pMapCorner + 100)",
+			"*(pMapCorner + 200)",
+			"*(pMapCorner + 400)",
+			"*(pMapCorner + 3000)",
+			"*(pMapCorner + 101)",
+			"*(pMapCorner + 102)",
+			"*(pMapCorner + 103)",
+			"*(pMapCorner + 105)",
+			"*(pMapCorner + 108)",
+			"*(pMapCorner + 130)",
+			"*(pMapCorner + 150)",
+			"*(pMapCorner + 140)",
+			"*(pMapCorner + 132)",
+			"*(pMapCorner + 133)",
+		);
+		perUserDictionary = {
+			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA1AED706398EBD00589147" = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBreakpointsDataSource_BreakpointID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					198,
+					20,
+					99,
+					99,
+					29,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBreakpointsDataSource_ActionID,
+					PBXBreakpointsDataSource_TypeID,
+					PBXBreakpointsDataSource_BreakpointID,
+					PBXBreakpointsDataSource_UseID,
+					PBXBreakpointsDataSource_LocationID,
+					PBXBreakpointsDataSource_ConditionID,
+					PBXBreakpointsDataSource_IgnoreCountID,
+					PBXBreakpointsDataSource_ContinueID,
+				);
+			};
+			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA23EDF0692099D00951B8B" = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBreakpointsDataSource_BreakpointID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					296,
+					20,
+					197,
+					197,
+					128,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBreakpointsDataSource_ActionID,
+					PBXBreakpointsDataSource_TypeID,
+					PBXBreakpointsDataSource_BreakpointID,
+					PBXBreakpointsDataSource_UseID,
+					PBXBreakpointsDataSource_LocationID,
+					PBXBreakpointsDataSource_ConditionID,
+					PBXBreakpointsDataSource_IgnoreCountID,
+					PBXBreakpointsDataSource_ContinueID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXErrorsWarningsDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXErrorsWarningsDataSource_LocationID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					300,
+					414,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXErrorsWarningsDataSource_TypeID,
+					PBXErrorsWarningsDataSource_MessageID,
+					PBXErrorsWarningsDataSource_LocationID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					607,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFindDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFindDataSource_LocationID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					200,
+					378,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFindDataSource_MessageID,
+					PBXFindDataSource_LocationID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXSymbolsDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXSymbolsDataSource_SymbolNameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					16,
+					200,
+					50,
+					542,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXSymbolsDataSource_SymbolTypeIconID,
+					PBXSymbolsDataSource_SymbolNameID,
+					PBXSymbolsDataSource_SymbolTypeID,
+					PBXSymbolsDataSource_ReferenceNameID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.XCSCMDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					623,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_SCM_ColumnID,
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = 1;
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					714,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 279316376;
+			PBXWorkspaceStateSaveDate = 279316376;
+		};
+		perUserProjectItems = {
+			B005AEB910A29A180072222C /* PBXTextBookmark */ = B005AEB910A29A180072222C /* PBXTextBookmark */;
+			B005AEDC10A29C3B0072222C /* PBXTextBookmark */ = B005AEDC10A29C3B0072222C /* PBXTextBookmark */;
+			B005AFDD10A2B26A0072222C /* PBXTextBookmark */ = B005AFDD10A2B26A0072222C /* PBXTextBookmark */;
+			B005B01A10A2B57E0072222C /* PBXTextBookmark */ = B005B01A10A2B57E0072222C /* PBXTextBookmark */;
+			B005B01F10A2B57E0072222C /* PBXTextBookmark */ = B005B01F10A2B57E0072222C /* PBXTextBookmark */;
+			B00B791D109E469500578B8B /* PBXTextBookmark */ = B00B791D109E469500578B8B /* PBXTextBookmark */;
+			B00B7921109E469500578B8B /* PBXTextBookmark */ = B00B7921109E469500578B8B /* PBXTextBookmark */;
+			B00B7925109E469500578B8B /* PBXTextBookmark */ = B00B7925109E469500578B8B /* PBXTextBookmark */;
+			B00B7997109E50B600578B8B /* PBXTextBookmark */ = B00B7997109E50B600578B8B /* PBXTextBookmark */;
+			B00B79DB109E59B500578B8B /* PBXTextBookmark */ = B00B79DB109E59B500578B8B /* PBXTextBookmark */;
+			B00B79E4109E59B500578B8B /* PBXTextBookmark */ = B00B79E4109E59B500578B8B /* PBXTextBookmark */;
+			B00B79EF109E5A1400578B8B /* PBXTextBookmark */ = B00B79EF109E5A1400578B8B /* PBXTextBookmark */;
+			B00B79F0109E5A1400578B8B /* PBXTextBookmark */ = B00B79F0109E5A1400578B8B /* PBXTextBookmark */;
+			B00B7B56109E7B3500578B8B /* PBXTextBookmark */ = B00B7B56109E7B3500578B8B /* PBXTextBookmark */;
+			B00B7B78109E7D2000578B8B /* PBXTextBookmark */ = B00B7B78109E7D2000578B8B /* PBXTextBookmark */;
+			B00B7B87109E809C00578B8B /* PBXTextBookmark */ = B00B7B87109E809C00578B8B /* PBXTextBookmark */;
+			B00B7C71109ECC4F00578B8B /* PBXTextBookmark */ = B00B7C71109ECC4F00578B8B /* PBXTextBookmark */;
+			B018BA8D104D2B88009BD2CF /* PBXTextBookmark */ = B018BA8D104D2B88009BD2CF /* PBXTextBookmark */;
+			B018BAE9104D2E03009BD2CF /* PBXTextBookmark */ = B018BAE9104D2E03009BD2CF /* PBXTextBookmark */;
+			B018BAFC104D2F13009BD2CF /* PBXTextBookmark */ = B018BAFC104D2F13009BD2CF /* PBXTextBookmark */;
+			B018BB76104D354C009BD2CF /* PBXTextBookmark */ = B018BB76104D354C009BD2CF /* PBXTextBookmark */;
+			B01A55540FDF9CC900CDAD16 /* PBXTextBookmark */ = B01A55540FDF9CC900CDAD16 /* PBXTextBookmark */;
+			B01A556D0FDF9E9700CDAD16 /* PBXTextBookmark */ = B01A556D0FDF9E9700CDAD16 /* PBXTextBookmark */;
+			B01A55790FDF9EC500CDAD16 /* PBXTextBookmark */ = B01A55790FDF9EC500CDAD16 /* PBXTextBookmark */;
+			B01A55800FDFA01100CDAD16 /* PBXTextBookmark */ = B01A55800FDFA01100CDAD16 /* PBXTextBookmark */;
+			B01A55880FDFA01100CDAD16 /* PBXTextBookmark */ = B01A55880FDFA01100CDAD16 /* PBXTextBookmark */;
+			B01A55C90FDFACF500CDAD16 /* PlistBookmark */ = B01A55C90FDFACF500CDAD16 /* PlistBookmark */;
+			B027219310A54660008833C4 /* PBXTextBookmark */ = B027219310A54660008833C4 /* PBXTextBookmark */;
+			B027219410A54660008833C4 /* PBXTextBookmark */ = B027219410A54660008833C4 /* PBXTextBookmark */;
+			B02721C810A546A1008833C4 /* PBXTextBookmark */ = B02721C810A546A1008833C4 /* PBXTextBookmark */;
+			B02721DC10A54A97008833C4 /* PBXTextBookmark */ = B02721DC10A54A97008833C4 /* PBXTextBookmark */;
+			B02721DD10A54A97008833C4 /* PBXTextBookmark */ = B02721DD10A54A97008833C4 /* PBXTextBookmark */;
+			B02721DF10A54A97008833C4 /* PBXTextBookmark */ = B02721DF10A54A97008833C4 /* PBXTextBookmark */;
+			B02721E010A54A97008833C4 /* PBXTextBookmark */ = B02721E010A54A97008833C4 /* PBXTextBookmark */;
+			B02721E810A54A97008833C4 /* PBXTextBookmark */ = B02721E810A54A97008833C4 /* PBXTextBookmark */;
+			B027221D10A54DEA008833C4 /* PBXTextBookmark */ = B027221D10A54DEA008833C4 /* PBXTextBookmark */;
+			B027221E10A54DEA008833C4 /* PBXTextBookmark */ = B027221E10A54DEA008833C4 /* PBXTextBookmark */;
+			B027222610A54DEA008833C4 /* PBXTextBookmark */ = B027222610A54DEA008833C4 /* PBXTextBookmark */;
+			B027222C10A54DEA008833C4 /* PBXTextBookmark */ = B027222C10A54DEA008833C4 /* PBXTextBookmark */;
+			B027223710A54E2F008833C4 /* PBXTextBookmark */ = B027223710A54E2F008833C4 /* PBXTextBookmark */;
+			B027223810A54E2F008833C4 /* PBXTextBookmark */ = B027223810A54E2F008833C4 /* PBXTextBookmark */;
+			B027224210A54F53008833C4 /* PBXTextBookmark */ = B027224210A54F53008833C4 /* PBXTextBookmark */;
+			B027224610A54F53008833C4 /* PBXTextBookmark */ = B027224610A54F53008833C4 /* PBXTextBookmark */;
+			B027224910A54F53008833C4 /* PBXTextBookmark */ = B027224910A54F53008833C4 /* PBXTextBookmark */;
+			B027225210A54F53008833C4 /* PBXTextBookmark */ = B027225210A54F53008833C4 /* PBXTextBookmark */;
+			B027226110A5500A008833C4 /* PBXTextBookmark */ = B027226110A5500A008833C4 /* PBXTextBookmark */;
+			B027226D10A55066008833C4 /* PBXTextBookmark */ = B027226D10A55066008833C4 /* PBXTextBookmark */;
+			B027226E10A55066008833C4 /* PBXTextBookmark */ = B027226E10A55066008833C4 /* PBXTextBookmark */;
+			B027227410A55066008833C4 /* PBXTextBookmark */ = B027227410A55066008833C4 /* PBXTextBookmark */;
+			B027227510A55066008833C4 /* PBXTextBookmark */ = B027227510A55066008833C4 /* PBXTextBookmark */;
+			B027227E10A55066008833C4 /* PBXTextBookmark */ = B027227E10A55066008833C4 /* PBXTextBookmark */;
+			B02722AD10A5824D008833C4 /* PBXTextBookmark */ = B02722AD10A5824D008833C4 /* PBXTextBookmark */;
+			B02722D210A58932008833C4 /* PBXTextBookmark */ = B02722D210A58932008833C4 /* PBXTextBookmark */;
+			B02722EF10A58B6F008833C4 /* PBXTextBookmark */ = B02722EF10A58B6F008833C4 /* PBXTextBookmark */;
+			B02722FF10A58C04008833C4 /* PBXTextBookmark */ = B02722FF10A58C04008833C4 /* PBXTextBookmark */;
+			B027233310A58E5B008833C4 /* PBXTextBookmark */ = B027233310A58E5B008833C4 /* PBXTextBookmark */;
+			B027236310A59119008833C4 /* PBXTextBookmark */ = B027236310A59119008833C4 /* PBXTextBookmark */;
+			B027236410A59119008833C4 /* PBXTextBookmark */ = B027236410A59119008833C4 /* PBXTextBookmark */;
+			B027236710A59119008833C4 /* PBXTextBookmark */ = B027236710A59119008833C4 /* PBXTextBookmark */;
+			B027237B10A59172008833C4 /* PBXTextBookmark */ = B027237B10A59172008833C4 /* PBXTextBookmark */;
+			B027239110A591F1008833C4 /* PBXTextBookmark */ = B027239110A591F1008833C4 /* PBXTextBookmark */;
+			B027239310A591F1008833C4 /* PBXTextBookmark */ = B027239310A591F1008833C4 /* PBXTextBookmark */;
+			B027239E10A59217008833C4 /* PBXTextBookmark */ = B027239E10A59217008833C4 /* PBXTextBookmark */;
+			B02723A210A59298008833C4 /* PBXTextBookmark */ = B02723A210A59298008833C4 /* PBXTextBookmark */;
+			B02F08B0109ACBB400F5A7CB /* PBXTextBookmark */ = B02F08B0109ACBB400F5A7CB /* PBXTextBookmark */;
+			B02F08C6109ACD0C00F5A7CB /* PBXTextBookmark */ = B02F08C6109ACD0C00F5A7CB /* PBXTextBookmark */;
+			B02F09B6109AE5BC00F5A7CB /* PBXTextBookmark */ = B02F09B6109AE5BC00F5A7CB /* PBXTextBookmark */;
+			B02F09BD109AE62900F5A7CB /* PBXTextBookmark */ = B02F09BD109AE62900F5A7CB /* PBXTextBookmark */;
+			B035C146104A8076002959DB /* PBXTextBookmark */ = B035C146104A8076002959DB /* PBXTextBookmark */;
+			B035C149104A8076002959DB /* PBXTextBookmark */ = B035C149104A8076002959DB /* PBXTextBookmark */;
+			B035C429104AB69B002959DB /* PBXTextBookmark */ = B035C429104AB69B002959DB /* PBXTextBookmark */;
+			B035C557104B296C002959DB /* PBXTextBookmark */ = B035C557104B296C002959DB /* PBXTextBookmark */;
+			B035C595104B2BCF002959DB /* PBXTextBookmark */ = B035C595104B2BCF002959DB /* PBXTextBookmark */;
+			B035C69D104B406D002959DB /* PBXTextBookmark */ = B035C69D104B406D002959DB /* PBXTextBookmark */;
+			B035C6A4104B406D002959DB /* PBXTextBookmark */ = B035C6A4104B406D002959DB /* PBXTextBookmark */;
+			B035C6DE104B4756002959DB /* PBXTextBookmark */ = B035C6DE104B4756002959DB /* PBXTextBookmark */;
+			B035C72D104B6678002959DB /* PBXTextBookmark */ = B035C72D104B6678002959DB /* PBXTextBookmark */;
+			B035C735104B6678002959DB /* PBXTextBookmark */ = B035C735104B6678002959DB /* PBXTextBookmark */;
+			B035C759104B6806002959DB /* PBXTextBookmark */ = B035C759104B6806002959DB /* PBXTextBookmark */;
+			B035C823104B767B002959DB /* PBXTextBookmark */ = B035C823104B767B002959DB /* PBXTextBookmark */;
+			B035C824104B767B002959DB /* PBXTextBookmark */ = B035C824104B767B002959DB /* PBXTextBookmark */;
+			B03C0FC410A673820043DAD9 /* PBXTextBookmark */ = B03C0FC410A673820043DAD9 /* PBXTextBookmark */;
+			B03C0FC510A673820043DAD9 /* PBXTextBookmark */ = B03C0FC510A673820043DAD9 /* PBXTextBookmark */;
+			B03C0FC610A673820043DAD9 /* PBXTextBookmark */ = B03C0FC610A673820043DAD9 /* PBXTextBookmark */;
+			B03C0FC710A673820043DAD9 /* PBXTextBookmark */ = B03C0FC710A673820043DAD9 /* PBXTextBookmark */;
+			B03C0FC810A673820043DAD9 /* PBXTextBookmark */ = B03C0FC810A673820043DAD9 /* PBXTextBookmark */;
+			B03C0FC910A673820043DAD9 /* PBXTextBookmark */ = B03C0FC910A673820043DAD9 /* PBXTextBookmark */;
+			B03C0FCA10A673820043DAD9 /* PBXTextBookmark */ = B03C0FCA10A673820043DAD9 /* PBXTextBookmark */;
+			B03C0FCB10A673820043DAD9 /* PBXTextBookmark */ = B03C0FCB10A673820043DAD9 /* PBXTextBookmark */;
+			B03C0FCC10A673820043DAD9 /* PBXTextBookmark */ = B03C0FCC10A673820043DAD9 /* PBXTextBookmark */;
+			B03C0FCD10A673820043DAD9 /* PBXTextBookmark */ = B03C0FCD10A673820043DAD9 /* PBXTextBookmark */;
+			B03C0FCE10A673820043DAD9 /* PBXTextBookmark */ = B03C0FCE10A673820043DAD9 /* PBXTextBookmark */;
+			B03C0FCF10A673820043DAD9 /* PBXTextBookmark */ = B03C0FCF10A673820043DAD9 /* PBXTextBookmark */;
+			B03C0FD010A673820043DAD9 /* PBXTextBookmark */ = B03C0FD010A673820043DAD9 /* PBXTextBookmark */;
+			B03C0FD110A673820043DAD9 /* PBXTextBookmark */ = B03C0FD110A673820043DAD9 /* PBXTextBookmark */;
+			B04D3CF21092CCB400F57FA2 /* PBXTextBookmark */ = B04D3CF21092CCB400F57FA2 /* PBXTextBookmark */;
+			B04D3CFE1092CCB400F57FA2 /* PBXTextBookmark */ = B04D3CFE1092CCB400F57FA2 /* PBXTextBookmark */;
+			B04D3D001092CCB400F57FA2 /* PBXTextBookmark */ = B04D3D001092CCB400F57FA2 /* PBXTextBookmark */;
+			B050AE33103D26A800F67E15 /* PBXTextBookmark */ = B050AE33103D26A800F67E15 /* PBXTextBookmark */;
+			B050AE34103D26A800F67E15 /* PBXTextBookmark */ = B050AE34103D26A800F67E15 /* PBXTextBookmark */;
+			B050AE3B103D287600F67E15 /* PBXTextBookmark */ = B050AE3B103D287600F67E15 /* PBXTextBookmark */;
+			B050AE40103D287600F67E15 /* PBXTextBookmark */ = B050AE40103D287600F67E15 /* PBXTextBookmark */;
+			B050AE83103D2B9600F67E15 /* PBXTextBookmark */ = B050AE83103D2B9600F67E15 /* PBXTextBookmark */;
+			B050AEB6103D2F2200F67E15 /* PBXTextBookmark */ = B050AEB6103D2F2200F67E15 /* PBXTextBookmark */;
+			B050AEB8103D2F2200F67E15 /* PBXTextBookmark */ = B050AEB8103D2F2200F67E15 /* PBXTextBookmark */;
+			B050AEF7103D39F100F67E15 /* PlistBookmark */ = B050AEF7103D39F100F67E15 /* PlistBookmark */;
+			B050AF55103D411200F67E15 /* PBXTextBookmark */ = B050AF55103D411200F67E15 /* PBXTextBookmark */;
+			B050AF94103D449A00F67E15 /* PBXTextBookmark */ = B050AF94103D449A00F67E15 /* PBXTextBookmark */;
+			B050AF9B103D449A00F67E15 /* PBXTextBookmark */ = B050AF9B103D449A00F67E15 /* PBXTextBookmark */;
+			B050AF9C103D449A00F67E15 /* PBXTextBookmark */ = B050AF9C103D449A00F67E15 /* PBXTextBookmark */;
+			B050B0B4103D4AE400F67E15 /* PBXTextBookmark */ = B050B0B4103D4AE400F67E15 /* PBXTextBookmark */;
+			B050B0E4103D4E3B00F67E15 /* PBXTextBookmark */ = B050B0E4103D4E3B00F67E15 /* PBXTextBookmark */;
+			B050B10E103D4F6F00F67E15 /* PBXTextBookmark */ = B050B10E103D4F6F00F67E15 /* PBXTextBookmark */;
+			B050B196103D5A5500F67E15 /* PBXTextBookmark */ = B050B196103D5A5500F67E15 /* PBXTextBookmark */;
+			B050B198103D5A5500F67E15 /* PBXTextBookmark */ = B050B198103D5A5500F67E15 /* PBXTextBookmark */;
+			B050B19C103D5A5500F67E15 /* PBXTextBookmark */ = B050B19C103D5A5500F67E15 /* PBXTextBookmark */;
+			B050B1A2103D5A5500F67E15 /* PBXTextBookmark */ = B050B1A2103D5A5500F67E15 /* PBXTextBookmark */;
+			B050B1A6103D5A5500F67E15 /* PBXTextBookmark */ = B050B1A6103D5A5500F67E15 /* PBXTextBookmark */;
+			B050B1A8103D5A5500F67E15 /* PBXTextBookmark */ = B050B1A8103D5A5500F67E15 /* PBXTextBookmark */;
+			B050B1AB103D5A5500F67E15 /* PBXTextBookmark */ = B050B1AB103D5A5500F67E15 /* PBXTextBookmark */;
+			B050B1AF103D5A5500F67E15 /* PBXTextBookmark */ = B050B1AF103D5A5500F67E15 /* PBXTextBookmark */;
+			B050B2D8103EA39B00F67E15 /* PBXTextBookmark */ = B050B2D8103EA39B00F67E15 /* PBXTextBookmark */;
+			B050B2DF103EA39B00F67E15 /* PBXTextBookmark */ = B050B2DF103EA39B00F67E15 /* PBXTextBookmark */;
+			B050B373103EACDF00F67E15 /* PBXTextBookmark */ = B050B373103EACDF00F67E15 /* PBXTextBookmark */;
+			B050B376103EACDF00F67E15 /* PBXTextBookmark */ = B050B376103EACDF00F67E15 /* PBXTextBookmark */;
+			B050B4C51042785D00F67E15 /* PBXTextBookmark */ = B050B4C51042785D00F67E15 /* PBXTextBookmark */;
+			B050B4C71042785D00F67E15 /* PBXTextBookmark */ = B050B4C71042785D00F67E15 /* PBXTextBookmark */;
+			B050B4DC1042785D00F67E15 /* PBXTextBookmark */ = B050B4DC1042785D00F67E15 /* PBXTextBookmark */;
+			B050B4F11042785D00F67E15 /* PBXTextBookmark */ = B050B4F11042785D00F67E15 /* PBXTextBookmark */;
+			B050B4F31042785D00F67E15 /* PBXTextBookmark */ = B050B4F31042785D00F67E15 /* PBXTextBookmark */;
+			B050B4FB1042785D00F67E15 /* PBXTextBookmark */ = B050B4FB1042785D00F67E15 /* PBXTextBookmark */;
+			B050B4FC1042785D00F67E15 /* PBXTextBookmark */ = B050B4FC1042785D00F67E15 /* PBXTextBookmark */;
+			B050B4FF1042785D00F67E15 /* PBXTextBookmark */ = B050B4FF1042785D00F67E15 /* PBXTextBookmark */;
+			B050B5311042789E00F67E15 /* PBXTextBookmark */ = B050B5311042789E00F67E15 /* PBXTextBookmark */;
+			B050B53D1042798E00F67E15 /* PBXTextBookmark */ = B050B53D1042798E00F67E15 /* PBXTextBookmark */;
+			B050B53E1042798E00F67E15 /* PBXTextBookmark */ = B050B53E1042798E00F67E15 /* PBXTextBookmark */;
+			B050B5401042798E00F67E15 /* PBXTextBookmark */ = B050B5401042798E00F67E15 /* PBXTextBookmark */;
+			B050B5421042798E00F67E15 /* PBXTextBookmark */ = B050B5421042798E00F67E15 /* PBXTextBookmark */;
+			B050B5471042798E00F67E15 /* PBXTextBookmark */ = B050B5471042798E00F67E15 /* PBXTextBookmark */;
+			B050B5491042798E00F67E15 /* PBXTextBookmark */ = B050B5491042798E00F67E15 /* PBXTextBookmark */;
+			B050B54B1042798E00F67E15 /* PBXTextBookmark */ = B050B54B1042798E00F67E15 /* PBXTextBookmark */;
+			B050B60A1042800100F67E15 /* PBXTextBookmark */ = B050B60A1042800100F67E15 /* PBXTextBookmark */;
+			B050B64D1042821000F67E15 /* PBXTextBookmark */ = B050B64D1042821000F67E15 /* PBXTextBookmark */;
+			B050B6BD1042884200F67E15 /* PBXTextBookmark */ = B050B6BD1042884200F67E15 /* PBXTextBookmark */;
+			B050B6DA1042891D00F67E15 /* PBXTextBookmark */ = B050B6DA1042891D00F67E15 /* PBXTextBookmark */;
+			B050B6DB1042891D00F67E15 /* PBXTextBookmark */ = B050B6DB1042891D00F67E15 /* PBXTextBookmark */;
+			B050B6E41042891D00F67E15 /* PBXTextBookmark */ = B050B6E41042891D00F67E15 /* PBXTextBookmark */;
+			B050B70A10428C7D00F67E15 /* PBXTextBookmark */ = B050B70A10428C7D00F67E15 /* PBXTextBookmark */;
+			B050B71410428C7D00F67E15 /* PBXTextBookmark */ = B050B71410428C7D00F67E15 /* PBXTextBookmark */;
+			B05A198510A4BC3E003FC521 /* PBXTextBookmark */ = B05A198510A4BC3E003FC521 /* PBXTextBookmark */;
+			B07178160FF8663900D7DE22 /* PBXTextBookmark */ = B07178160FF8663900D7DE22 /* PBXTextBookmark */;
+			B071781B0FF8663900D7DE22 /* PBXTextBookmark */ = B071781B0FF8663900D7DE22 /* PBXTextBookmark */;
+			B071781D0FF8663900D7DE22 /* PBXTextBookmark */ = B071781D0FF8663900D7DE22 /* PBXTextBookmark */;
+			B07178270FF8663900D7DE22 /* PBXTextBookmark */ = B07178270FF8663900D7DE22 /* PBXTextBookmark */;
+			B0717B98100088BD00D7DE22 /* PBXTextBookmark */ = B0717B98100088BD00D7DE22 /* PBXTextBookmark */;
+			B083789E10144ECB0064B1B9 /* PBXTextBookmark */ = B083789E10144ECB0064B1B9 /* PBXTextBookmark */;
+			B08378A310144ECB0064B1B9 /* PBXTextBookmark */ = B08378A310144ECB0064B1B9 /* PBXTextBookmark */;
+			B08378D810145A660064B1B9 /* PBXTextBookmark */ = B08378D810145A660064B1B9 /* PBXTextBookmark */;
+			B08378E210145D780064B1B9 /* PBXTextBookmark */ = B08378E210145D780064B1B9 /* PBXTextBookmark */;
+			B08378EA10145D780064B1B9 /* PBXTextBookmark */ = B08378EA10145D780064B1B9 /* PBXTextBookmark */;
+			B08378F210145DEC0064B1B9 /* PBXTextBookmark */ = B08378F210145DEC0064B1B9 /* PBXTextBookmark */;
+			B08378FD10145FF70064B1B9 /* PBXTextBookmark */ = B08378FD10145FF70064B1B9 /* PBXTextBookmark */;
+			B083790810145FF70064B1B9 /* PBXTextBookmark */ = B083790810145FF70064B1B9 /* PBXTextBookmark */;
+			B0842E711038C7BC0066010B /* PBXTextBookmark */ = B0842E711038C7BC0066010B /* PBXTextBookmark */;
+			B0842EB41038CB500066010B /* PBXTextBookmark */ = B0842EB41038CB500066010B /* PBXTextBookmark */;
+			B0842F001038CEEE0066010B /* PBXTextBookmark */ = B0842F001038CEEE0066010B /* PBXTextBookmark */;
+			B0842F5C1038D67F0066010B /* PBXTextBookmark */ = B0842F5C1038D67F0066010B /* PBXTextBookmark */;
+			B0842F5F1038D67F0066010B /* PBXTextBookmark */ = B0842F5F1038D67F0066010B /* PBXTextBookmark */;
+			B087511510242CBD00054A39 /* PBXTextBookmark */ = B087511510242CBD00054A39 /* PBXTextBookmark */;
+			B087512210242CBD00054A39 /* PBXTextBookmark */ = B087512210242CBD00054A39 /* PBXTextBookmark */;
+			B087522D102674F800054A39 /* PBXTextBookmark */ = B087522D102674F800054A39 /* PBXTextBookmark */;
+			B087527D1026768300054A39 /* PBXTextBookmark */ = B087527D1026768300054A39 /* PBXTextBookmark */;
+			B08752871026768300054A39 /* PBXTextBookmark */ = B08752871026768300054A39 /* PBXTextBookmark */;
+			B08752DD10267B7C00054A39 /* PBXTextBookmark */ = B08752DD10267B7C00054A39 /* PBXTextBookmark */;
+			B08752E110267B7C00054A39 /* PBXTextBookmark */ = B08752E110267B7C00054A39 /* PBXTextBookmark */;
+			B08752EC10267B7C00054A39 /* PBXTextBookmark */ = B08752EC10267B7C00054A39 /* PBXTextBookmark */;
+			B08752F410267B7C00054A39 /* PBXTextBookmark */ = B08752F410267B7C00054A39 /* PBXTextBookmark */;
+			B08753D61026850F00054A39 /* PBXTextBookmark */ = B08753D61026850F00054A39 /* PBXTextBookmark */;
+			B08754541026870900054A39 /* PBXTextBookmark */ = B08754541026870900054A39 /* PBXTextBookmark */;
+			B08754BA1026894C00054A39 /* PBXTextBookmark */ = B08754BA1026894C00054A39 /* PBXTextBookmark */;
+			B08754E6102689ED00054A39 /* PBXTextBookmark */ = B08754E6102689ED00054A39 /* PBXTextBookmark */;
+			B08756E21026EB2100054A39 /* PBXTextBookmark */ = B08756E21026EB2100054A39 /* PBXTextBookmark */;
+			B08756FB1028B11400054A39 /* PBXTextBookmark */ = B08756FB1028B11400054A39 /* PBXTextBookmark */;
+			B095695E1049EDDC006B48DD /* PBXTextBookmark */ = B095695E1049EDDC006B48DD /* PBXTextBookmark */;
+			B09569661049EDDC006B48DD /* PBXTextBookmark */ = B09569661049EDDC006B48DD /* PBXTextBookmark */;
+			B0956A051049FB19006B48DD /* PBXTextBookmark */ = B0956A051049FB19006B48DD /* PBXTextBookmark */;
+			B0956AD7104A0543006B48DD /* PBXTextBookmark */ = B0956AD7104A0543006B48DD /* PBXTextBookmark */;
+			B0956ADB104A0543006B48DD /* PBXTextBookmark */ = B0956ADB104A0543006B48DD /* PBXTextBookmark */;
+			B0956AE1104A0543006B48DD /* PBXTextBookmark */ = B0956AE1104A0543006B48DD /* PBXTextBookmark */;
+			B0956AEF104A0588006B48DD /* PBXTextBookmark */ = B0956AEF104A0588006B48DD /* PBXTextBookmark */;
+			B0956E8B104A3C92006B48DD /* PBXTextBookmark */ = B0956E8B104A3C92006B48DD /* PBXTextBookmark */;
+			B0956EDF104A4413006B48DD /* PBXTextBookmark */ = B0956EDF104A4413006B48DD /* PBXTextBookmark */;
+			B0956F7A104A4939006B48DD /* PBXTextBookmark */ = B0956F7A104A4939006B48DD /* PBXTextBookmark */;
+			B0956FC4104A576B006B48DD /* PBXTextBookmark */ = B0956FC4104A576B006B48DD /* PBXTextBookmark */;
+			B0957011104A5DBC006B48DD /* PBXTextBookmark */ = B0957011104A5DBC006B48DD /* PBXTextBookmark */;
+			B0957062104A6584006B48DD /* PBXTextBookmark */ = B0957062104A6584006B48DD /* PBXTextBookmark */;
+			B0957063104A6584006B48DD /* PBXTextBookmark */ = B0957063104A6584006B48DD /* PBXTextBookmark */;
+			B095710C104A6D76006B48DD /* PBXTextBookmark */ = B095710C104A6D76006B48DD /* PBXTextBookmark */;
+			B0957111104A6D76006B48DD /* PBXTextBookmark */ = B0957111104A6D76006B48DD /* PBXTextBookmark */;
+			B097347110A141BE00530C60 /* PBXTextBookmark */ = B097347110A141BE00530C60 /* PBXTextBookmark */;
+			B097347210A141BE00530C60 /* PBXTextBookmark */ = B097347210A141BE00530C60 /* PBXTextBookmark */;
+			B09734C810A1933E00530C60 /* PBXTextBookmark */ = B09734C810A1933E00530C60 /* PBXTextBookmark */;
+			B097350810A1974000530C60 /* PBXTextBookmark */ = B097350810A1974000530C60 /* PBXTextBookmark */;
+			B0A4D2B910A0150900009B23 /* PBXTextBookmark */ = B0A4D2B910A0150900009B23 /* PBXTextBookmark */;
+			B0A4D2C110A0150900009B23 /* PBXTextBookmark */ = B0A4D2C110A0150900009B23 /* PBXTextBookmark */;
+			B0A4D2C310A0150900009B23 /* PBXTextBookmark */ = B0A4D2C310A0150900009B23 /* PBXTextBookmark */;
+			B0A4D2CB10A0150900009B23 /* PBXTextBookmark */ = B0A4D2CB10A0150900009B23 /* PBXTextBookmark */;
+			B0A4D2CC10A0150900009B23 /* PBXTextBookmark */ = B0A4D2CC10A0150900009B23 /* PBXTextBookmark */;
+			B0A4D2D110A0150900009B23 /* PBXTextBookmark */ = B0A4D2D110A0150900009B23 /* PBXTextBookmark */;
+			B0A4D2D410A0150900009B23 /* PBXTextBookmark */ = B0A4D2D410A0150900009B23 /* PBXTextBookmark */;
+			B0A4D2E310A0150900009B23 /* PBXTextBookmark */ = B0A4D2E310A0150900009B23 /* PBXTextBookmark */;
+			B0A4D2E610A0150900009B23 /* PBXTextBookmark */ = B0A4D2E610A0150900009B23 /* PBXTextBookmark */;
+			B0A4D2EC10A0150900009B23 /* PBXTextBookmark */ = B0A4D2EC10A0150900009B23 /* PBXTextBookmark */;
+			B0A4D2ED10A0150900009B23 /* PBXTextBookmark */ = B0A4D2ED10A0150900009B23 /* PBXTextBookmark */;
+			B0A4D2FF10A0150900009B23 /* PBXTextBookmark */ = B0A4D2FF10A0150900009B23 /* PBXTextBookmark */;
+			B0A4D31110A0150900009B23 /* PBXTextBookmark */ = B0A4D31110A0150900009B23 /* PBXTextBookmark */;
+			B0A4D32C10A0150900009B23 /* PBXTextBookmark */ = B0A4D32C10A0150900009B23 /* PBXTextBookmark */;
+			B0A4D36110A0170800009B23 /* PBXTextBookmark */ = B0A4D36110A0170800009B23 /* PBXTextBookmark */;
+			B0A4D36F10A0170800009B23 /* PBXTextBookmark */ = B0A4D36F10A0170800009B23 /* PBXTextBookmark */;
+			B0A4D39610A0192C00009B23 /* PBXTextBookmark */ = B0A4D39610A0192C00009B23 /* PBXTextBookmark */;
+			B0A4D49A10A026CC00009B23 /* PBXTextBookmark */ = B0A4D49A10A026CC00009B23 /* PBXTextBookmark */;
+			B0D0249E104527CB00D503C3 /* PBXTextBookmark */ = B0D0249E104527CB00D503C3 /* PBXTextBookmark */;
+			B0D0249F104527CB00D503C3 /* PBXTextBookmark */ = B0D0249F104527CB00D503C3 /* PBXTextBookmark */;
+			B0D024F510452C1D00D503C3 /* PBXTextBookmark */ = B0D024F510452C1D00D503C3 /* PBXTextBookmark */;
+			B0D0254410452FD200D503C3 /* PBXTextBookmark */ = B0D0254410452FD200D503C3 /* PBXTextBookmark */;
+			B0D0254510452FD200D503C3 /* PBXTextBookmark */ = B0D0254510452FD200D503C3 /* PBXTextBookmark */;
+			B0D0254A10452FD200D503C3 /* PBXTextBookmark */ = B0D0254A10452FD200D503C3 /* PBXTextBookmark */;
+			B0D0254E10452FD200D503C3 /* PBXTextBookmark */ = B0D0254E10452FD200D503C3 /* PBXTextBookmark */;
+			B0D0255210452FD200D503C3 /* PBXTextBookmark */ = B0D0255210452FD200D503C3 /* PBXTextBookmark */;
+			B0D0256010452FD200D503C3 /* PBXTextBookmark */ = B0D0256010452FD200D503C3 /* PBXTextBookmark */;
+			B0DC0A41102FE9AB002315B5 /* PBXTextBookmark */ = B0DC0A41102FE9AB002315B5 /* PBXTextBookmark */;
+			B0DC0A4A102FE9AB002315B5 /* PBXTextBookmark */ = B0DC0A4A102FE9AB002315B5 /* PBXTextBookmark */;
+			B0E2182E109E459C00831FD4 /* PBXTextBookmark */ = B0E2182E109E459C00831FD4 /* PBXTextBookmark */;
+			B0EA7C6D10A02A65007C28A4 /* PBXTextBookmark */ = B0EA7C6D10A02A65007C28A4 /* PBXTextBookmark */;
+			B0F02CF8109BD22A00D6E865 /* PBXTextBookmark */ = B0F02CF8109BD22A00D6E865 /* PBXTextBookmark */;
+			B0F02CFC109BD22A00D6E865 /* PBXTextBookmark */ = B0F02CFC109BD22A00D6E865 /* PBXTextBookmark */;
+			B0F02D1E109BD75500D6E865 /* PBXTextBookmark */ = B0F02D1E109BD75500D6E865 /* PBXTextBookmark */;
+			B0F02D83109BEE5700D6E865 /* PBXTextBookmark */ = B0F02D83109BEE5700D6E865 /* PBXTextBookmark */;
+			B0F02DB3109BF53100D6E865 /* PBXTextBookmark */ = B0F02DB3109BF53100D6E865 /* PBXTextBookmark */;
+			B0F02DB4109BF53100D6E865 /* PBXTextBookmark */ = B0F02DB4109BF53100D6E865 /* PBXTextBookmark */;
+			B0F02DB5109BF53100D6E865 /* PBXTextBookmark */ = B0F02DB5109BF53100D6E865 /* PBXTextBookmark */;
+			B0F02E1B109D1F5600D6E865 /* PBXTextBookmark */ = B0F02E1B109D1F5600D6E865 /* PBXTextBookmark */;
+			B0F02F3B109D30D300D6E865 /* PBXTextBookmark */ = B0F02F3B109D30D300D6E865 /* PBXTextBookmark */;
+			B0F02F3C109D30D300D6E865 /* PBXTextBookmark */ = B0F02F3C109D30D300D6E865 /* PBXTextBookmark */;
+			B0F02F47109D30D300D6E865 /* PBXTextBookmark */ = B0F02F47109D30D300D6E865 /* PBXTextBookmark */;
+			B0F1E7E1105366EF0099EDFA /* PBXTextBookmark */ = B0F1E7E1105366EF0099EDFA /* PBXTextBookmark */;
+			B0F1E7F81053672C0099EDFA /* PBXTextBookmark */ = B0F1E7F81053672C0099EDFA /* PBXTextBookmark */;
+			B0F1E8001053672C0099EDFA /* PBXTextBookmark */ = B0F1E8001053672C0099EDFA /* PBXTextBookmark */;
+			B0F1E926105376910099EDFA /* PBXTextBookmark */ = B0F1E926105376910099EDFA /* PBXTextBookmark */;
+			B0F1E92A105376910099EDFA /* PBXTextBookmark */ = B0F1E92A105376910099EDFA /* PBXTextBookmark */;
+		};
+		sourceControlManager = B02F7AA20F234E5A00275423 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	8D0C4E890486CD37000505A6 /* NFSpace */ = {
+		activeExec = 0;
+		executables = (
+			B02F7A9B0F234E4A00275423 /* NFSpace */,
+		);
+	};
+	B005AEB910A29A180072222C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0AE0E4510A1411E008EB47E /* normalMapper_VP.glsl */;
+		name = "normalMapper_VP.glsl: 5";
+		rLen = 0;
+		rLoc = 155;
+		rType = 0;
+		vrLen = 159;
+		vrLoc = 0;
+	};
+	B005AEDC10A29C3B0072222C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B29109E789A00578B8B /* PlanetFilter.h */;
+		name = "PlanetFilter.h: 30";
+		rLen = 0;
+		rLoc = 577;
+		rType = 0;
+		vrLen = 860;
+		vrLoc = 0;
+	};
+	B005AFDD10A2B26A0072222C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B1F109E789A00578B8B /* PlanetRenderable.h */;
+		name = "PlanetRenderable.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1314;
+		vrLoc = 0;
+	};
+	B005B01A10A2B57E0072222C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B25109E789A00578B8B /* PlanetBrush.h */;
+		name = "PlanetBrush.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 734;
+		vrLoc = 0;
+	};
+	B005B01F10A2B57E0072222C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B25109E789A00578B8B /* PlanetBrush.h */;
+		name = "PlanetBrush.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 734;
+		vrLoc = 0;
+	};
+	B00B791D109E469500578B8B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B071781E0FF8663900D7DE22 /* plugins.cfg */;
+		name = "plugins.cfg: 13";
+		rLen = 0;
+		rLoc = 427;
+		rType = 0;
+		vrLen = 428;
+		vrLoc = 0;
+	};
+	B00B7921109E469500578B8B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0E21833109E459C00831FD4 /* brushCarver.cg */;
+		name = "brushCarver.cg: 1";
+		rLen = 0;
+		rLoc = 1176;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	B00B7925109E469500578B8B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7926109E469500578B8B /* brush.material */;
+		name = "brush.material: 8";
+		rLen = 0;
+		rLoc = 176;
+		rType = 0;
+		vrLen = 538;
+		vrLoc = 0;
+	};
+	B00B7926109E469500578B8B /* brush.material */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text;
+		name = brush.material;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Resources/Media/Planet/Materials/brush.material;
+		sourceTree = "<absolute>";
+	};
+	B00B798B109E4DAE00578B8B /* surface.material */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text;
+		name = surface.material;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Resources/Media/Planet/Materials/surface.material;
+		sourceTree = "<absolute>";
+	};
+	B00B7997109E50B600578B8B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B798B109E4DAE00578B8B /* surface.material */;
+		name = "surface.material: 15";
+		rLen = 0;
+		rLoc = 230;
+		rType = 0;
+		vrLen = 422;
+		vrLoc = 0;
+	};
+	B00B79DB109E59B500578B8B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B79DC109E59B500578B8B /* OgreGLHardwarePixelBuffer.cpp */;
+		name = "OgreGLHardwarePixelBuffer.cpp: 171";
+		rLen = 19;
+		rLoc = 5924;
+		rType = 0;
+		vrLen = 1713;
+		vrLoc = 1403;
+	};
+	B00B79DC109E59B500578B8B /* OgreGLHardwarePixelBuffer.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreGLHardwarePixelBuffer.cpp;
+		path = /Users/steven/Projects/OgreSource/RenderSystems/GL/src/OgreGLHardwarePixelBuffer.cpp;
+		sourceTree = "<absolute>";
+	};
+	B00B79E4109E59B500578B8B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B79E5109E59B500578B8B /* OgreGLHardwarePixelBuffer.cpp */;
+		name = "OgreGLHardwarePixelBuffer.cpp: 171";
+		rLen = 19;
+		rLoc = 5924;
+		rType = 0;
+		vrLen = 1713;
+		vrLoc = 1403;
+	};
+	B00B79E5109E59B500578B8B /* OgreGLHardwarePixelBuffer.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreGLHardwarePixelBuffer.cpp;
+		path = /Users/steven/Projects/OgreSource/RenderSystems/GL/src/OgreGLHardwarePixelBuffer.cpp;
+		sourceTree = "<absolute>";
+	};
+	B00B79EA109E59B500578B8B /* OgrePixelFormat.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgrePixelFormat.h;
+		path = /Users/steven/Projects/OgreSource/OgreMain/include/OgrePixelFormat.h;
+		sourceTree = "<absolute>";
+	};
+	B00B79EF109E5A1400578B8B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B79EA109E59B500578B8B /* OgrePixelFormat.h */;
+		name = "OgrePixelFormat.h: 460";
+		rLen = 130;
+		rLoc = 21294;
+		rType = 0;
+		vrLen = 3012;
+		vrLoc = 18574;
+	};
+	B00B79F0109E5A1400578B8B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B79EA109E59B500578B8B /* OgrePixelFormat.h */;
+		name = "OgrePixelFormat.h: 460";
+		rLen = 130;
+		rLoc = 21294;
+		rType = 0;
+		vrLen = 3012;
+		vrLoc = 18574;
+	};
+	B00B7B1A109E789A00578B8B /* PlanetCube.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {984, 1617}}";
+			sepNavSelRange = "{761, 0}";
+			sepNavVisRange = "{501, 2013}";
+		};
+	};
+	B00B7B1B109E789A00578B8B /* PlanetCube.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {886, 715}}";
+			sepNavSelRange = "{956, 0}";
+			sepNavVisRange = "{143, 1081}";
+		};
+	};
+	B00B7B1C109E789A00578B8B /* PlanetCubeTree.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1068, 1397}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{346, 1738}";
+		};
+	};
+	B00B7B1E109E789A00578B8B /* PlanetRenderable.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1068, 5115}}";
+			sepNavSelRange = "{5866, 0}";
+			sepNavVisRange = "{4050, 2967}";
+		};
+	};
+	B00B7B1F109E789A00578B8B /* PlanetRenderable.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {886, 1045}}";
+			sepNavSelRange = "{697, 0}";
+			sepNavVisRange = "{314, 1351}";
+		};
+	};
+	B00B7B21109E789A00578B8B /* PlanetMovable.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {886, 1375}}";
+			sepNavSelRange = "{590, 0}";
+			sepNavVisRange = "{40, 1146}";
+		};
+	};
+	B00B7B24109E789A00578B8B /* PlanetBrush.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {886, 1221}}";
+			sepNavSelRange = "{356, 0}";
+			sepNavVisRange = "{0, 1584}";
+		};
+	};
+	B00B7B25109E789A00578B8B /* PlanetBrush.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {886, 612}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 734}";
+		};
+	};
+	B00B7B26109E789A00578B8B /* PlanetEdgeFixup.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {886, 2002}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{2952, 2897}";
+		};
+	};
+	B00B7B27109E789A00578B8B /* PlanetEdgeFixup.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {886, 612}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1016}";
+		};
+	};
+	B00B7B28109E789A00578B8B /* PlanetFilter.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {886, 1452}}";
+			sepNavSelRange = "{703, 0}";
+			sepNavVisRange = "{36, 2059}";
+		};
+	};
+	B00B7B29109E789A00578B8B /* PlanetFilter.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {886, 612}}";
+			sepNavSelRange = "{577, 0}";
+			sepNavVisRange = "{0, 860}";
+		};
+	};
+	B00B7B2A109E789A00578B8B /* PlanetMap.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {646, 1771}}";
+			sepNavSelRange = "{4712, 0}";
+			sepNavVisRange = "{447, 1748}";
+		};
+	};
+	B00B7B2B109E789A00578B8B /* PlanetMap.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {886, 612}}";
+			sepNavSelRange = "{609, 0}";
+			sepNavVisRange = "{0, 943}";
+		};
+	};
+	B00B7B2C109E789A00578B8B /* PlanetMapBuffer.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {886, 2805}}";
+			sepNavSelRange = "{1402, 0}";
+			sepNavVisRange = "{0, 1850}";
+		};
+	};
+	B00B7B2D109E789A00578B8B /* PlanetMapBuffer.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {886, 902}}";
+			sepNavSelRange = "{1841, 16}";
+			sepNavVisRange = "{534, 1474}";
+		};
+	};
+	B00B7B56109E7B3500578B8B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B24109E789A00578B8B /* PlanetBrush.cpp */;
+		name = "PlanetBrush.cpp: 33";
+		rLen = 0;
+		rLoc = 1070;
+		rType = 0;
+		vrLen = 1686;
+		vrLoc = 0;
+	};
+	B00B7B78109E7D2000578B8B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B2C109E789A00578B8B /* PlanetMapBuffer.cpp */;
+		name = "PlanetMapBuffer.cpp: 211";
+		rLen = 0;
+		rLoc = 8791;
+		rType = 0;
+		vrLen = 1917;
+		vrLoc = 5445;
+	};
+	B00B7B87109E809C00578B8B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B2A109E789A00578B8B /* PlanetMap.cpp */;
+		name = "PlanetMap.cpp: 77";
+		rLen = 0;
+		rLoc = 4894;
+		rType = 0;
+		vrLen = 1807;
+		vrLoc = 839;
+	};
+	B00B7C71109ECC4F00578B8B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B2B109E789A00578B8B /* PlanetMap.h */;
+		name = "PlanetMap.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 856;
+		vrLoc = 0;
+	};
+	B018BA8D104D2B88009BD2CF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0D024F610452C1D00D503C3 /* OgreNode.h */;
+		name = "OgreNode.h: 561";
+		rLen = 0;
+		rLoc = 25958;
+		rType = 0;
+		vrLen = 2420;
+		vrLoc = 24546;
+	};
+	B018BAE9104D2E03009BD2CF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B4F21042785D00F67E15 /* OgreRoot.h */;
+		name = "OgreRoot.h: 369";
+		rLen = 19;
+		rLoc = 15663;
+		rType = 0;
+		vrLen = 2398;
+		vrLoc = 13549;
+	};
+	B018BAFC104D2F13009BD2CF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B035C558104B296C002959DB /* OgreMaterial.h */;
+		name = "OgreMaterial.h: 662";
+		rLen = 0;
+		rLoc = 33663;
+		rType = 0;
+		vrLen = 1748;
+		vrLoc = 33283;
+	};
+	B018BB76104D354C009BD2CF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B018BB77104D354C009BD2CF /* OgreResourceManager.h */;
+		name = "OgreResourceManager.h: 94";
+		rLen = 0;
+		rLoc = 4166;
+		rType = 0;
+		vrLen = 2932;
+		vrLoc = 2953;
+	};
+	B018BB77104D354C009BD2CF /* OgreResourceManager.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreResourceManager.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreResourceManager.h;
+		sourceTree = "<absolute>";
+	};
+	B01A55540FDF9CC900CDAD16 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0867D6ABFE840B52C02AAC07 /* English */;
+		name = "InfoPlist.strings: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 98;
+		vrLoc = 0;
+	};
+	B01A556D0FDF9E9700CDAD16 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B01A556E0FDF9E9700CDAD16 /* stl_tree.h */;
+		name = "stl_tree.h: 462";
+		rLen = 0;
+		rLoc = 13043;
+		rType = 0;
+		vrLen = 543;
+		vrLoc = 12719;
+	};
+	B01A556E0FDF9E9700CDAD16 /* stl_tree.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = stl_tree.h;
+		path = "/Developer/SDKs/MacOSX10.5.sdk/usr/include/c++/4.0.0/bits/stl_tree.h";
+		sourceTree = "<absolute>";
+	};
+	B01A55790FDF9EC500CDAD16 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B01A557A0FDF9EC500CDAD16 /* engine.cfg */;
+		name = "engine.cfg: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 98;
+		vrLoc = 0;
+	};
+	B01A557A0FDF9EC500CDAD16 /* engine.cfg */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text;
+		name = engine.cfg;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Resources/Config/engine.cfg;
+		sourceTree = "<absolute>";
+	};
+	B01A55800FDFA01100CDAD16 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B01A55810FDFA01100CDAD16 /* stl_iterator.h */;
+		name = "stl_iterator.h: 603";
+		rLen = 0;
+		rLoc = 19181;
+		rType = 0;
+		vrLen = 780;
+		vrLoc = 18821;
+	};
+	B01A55810FDFA01100CDAD16 /* stl_iterator.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = stl_iterator.h;
+		path = "/Developer/SDKs/MacOSX10.5.sdk/usr/include/c++/4.0.0/bits/stl_iterator.h";
+		sourceTree = "<absolute>";
+	};
+	B01A55880FDFA01100CDAD16 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B01A55890FDFA01100CDAD16 /* stl_iterator.h */;
+		name = "stl_iterator.h: 603";
+		rLen = 0;
+		rLoc = 19181;
+		rType = 0;
+		vrLen = 780;
+		vrLoc = 18821;
+	};
+	B01A55890FDFA01100CDAD16 /* stl_iterator.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = stl_iterator.h;
+		path = "/Developer/SDKs/MacOSX10.5.sdk/usr/include/c++/4.0.0/bits/stl_iterator.h";
+		sourceTree = "<absolute>";
+	};
+	B01A55C90FDFACF500CDAD16 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D0C4E960486CD37000505A6 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleIconFile,
+		);
+		name = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	B027219310A54660008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0957012104A5DBC006B48DD /* OgreSceneNode.h */;
+		name = "OgreSceneNode.h: 143";
+		rLen = 67;
+		rLoc = 5304;
+		rType = 0;
+		vrLen = 2320;
+		vrLoc = 3480;
+	};
+	B027219410A54660008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0A332BC0FDE510E00A04706 /* Application.h */;
+		name = "Application.h: 16";
+		rLen = 25;
+		rLoc = 235;
+		rType = 0;
+		vrLen = 1111;
+		vrLoc = 0;
+	};
+	B02721C810A546A1008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0956EE0104A4413006B48DD /* OgreSceneManager.h */;
+		name = "OgreSceneManager.h: 2896";
+		rLen = 20;
+		rLoc = 142580;
+		rType = 0;
+		vrLen = 2748;
+		vrLoc = 140768;
+	};
+	B02721DC10A54A97008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B018BB77104D354C009BD2CF /* OgreResourceManager.h */;
+		name = "OgreResourceManager.h: 262";
+		rLen = 46;
+		rLoc = 12552;
+		rType = 0;
+		vrLen = 2800;
+		vrLoc = 11288;
+	};
+	B02721DD10A54A97008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B02721DE10A54A97008833C4 /* OgreTextureManager.h */;
+		name = "OgreTextureManager.h: 156";
+		rLen = 10;
+		rLoc = 7967;
+		rType = 0;
+		vrLen = 2947;
+		vrLoc = 6283;
+	};
+	B02721DE10A54A97008833C4 /* OgreTextureManager.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreTextureManager.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreTextureManager.h;
+		sourceTree = "<absolute>";
+	};
+	B02721DF10A54A97008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0956FC5104A576B006B48DD /* OgreTexture.h */;
+		name = "OgreTexture.h: 99";
+		rLen = 0;
+		rLoc = 3765;
+		rType = 0;
+		vrLen = 2089;
+		vrLoc = 2858;
+	};
+	B02721E010A54A97008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B035C14A104A8076002959DB /* OgreTextureUnitState.h */;
+		name = "OgreTextureUnitState.h: 197";
+		rLen = 14;
+		rLoc = 7285;
+		rType = 0;
+		vrLen = 2837;
+		vrLoc = 6641;
+	};
+	B02721E810A54A97008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B02721E910A54A97008833C4 /* OgreTextureManager.h */;
+		name = "OgreTextureManager.h: 326";
+		rLen = 74;
+		rLoc = 17707;
+		rType = 0;
+		vrLen = 3375;
+		vrLoc = 11954;
+	};
+	B02721E910A54A97008833C4 /* OgreTextureManager.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreTextureManager.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreTextureManager.h;
+		sourceTree = "<absolute>";
+	};
+	B027221D10A54DEA008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0956E73104A3C92006B48DD /* OgreImage.cpp */;
+		name = "OgreImage.cpp: 242";
+		rLen = 19;
+		rLoc = 6876;
+		rType = 0;
+		vrLen = 1491;
+		vrLoc = 6306;
+	};
+	B027221E10A54DEA008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B35F103EAA5700F67E15 /* OgreImage.h */;
+		name = "OgreImage.h: 162";
+		rLen = 0;
+		rLoc = 6072;
+		rType = 0;
+		vrLen = 2378;
+		vrLoc = 4851;
+	};
+	B027222610A54DEA008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0956E73104A3C92006B48DD /* OgreImage.cpp */;
+		name = "OgreImage.cpp: 242";
+		rLen = 19;
+		rLoc = 6876;
+		rType = 0;
+		vrLen = 1491;
+		vrLoc = 6306;
+	};
+	B027222C10A54DEA008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B1B109E789A00578B8B /* PlanetCube.h */;
+		name = "PlanetCube.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1041;
+		vrLoc = 139;
+	};
+	B027223710A54E2F008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B2B109E789A00578B8B /* PlanetMap.h */;
+		name = "PlanetMap.h: 37";
+		rLen = 0;
+		rLoc = 609;
+		rType = 0;
+		vrLen = 943;
+		vrLoc = 0;
+	};
+	B027223810A54E2F008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B2D109E789A00578B8B /* PlanetMapBuffer.h */;
+		name = "PlanetMapBuffer.h: 73";
+		rLen = 16;
+		rLoc = 1841;
+		rType = 0;
+		vrLen = 1474;
+		vrLoc = 534;
+	};
+	B027224210A54F53008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B1C109E789A00578B8B /* PlanetCubeTree.cpp */;
+		name = "PlanetCubeTree.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1738;
+		vrLoc = 346;
+	};
+	B027224610A54F53008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B027224710A54F53008833C4 /* OgreHardwareBufferManager.h */;
+		name = "OgreHardwareBufferManager.h: 188";
+		rLen = 0;
+		rLoc = 8274;
+		rType = 0;
+		vrLen = 2559;
+		vrLoc = 2255;
+	};
+	B027224710A54F53008833C4 /* OgreHardwareBufferManager.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreHardwareBufferManager.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreHardwareBufferManager.h;
+		sourceTree = "<absolute>";
+	};
+	B027224910A54F53008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B08378BC101454BA0064B1B9 /* PlanetMovable.h */;
+		name = "PlanetMovable.h: 52";
+		rLen = 0;
+		rLoc = 1174;
+		rType = 0;
+		vrLen = 1698;
+		vrLoc = 677;
+	};
+	B027225210A54F53008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B027225310A54F53008833C4 /* OgreHardwareBufferManager.h */;
+		name = "OgreHardwareBufferManager.h: 188";
+		rLen = 0;
+		rLoc = 8274;
+		rType = 0;
+		vrLen = 2559;
+		vrLoc = 2255;
+	};
+	B027225310A54F53008833C4 /* OgreHardwareBufferManager.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreHardwareBufferManager.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreHardwareBufferManager.h;
+		sourceTree = "<absolute>";
+	};
+	B027226110A5500A008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B1B109E789A00578B8B /* PlanetCube.h */;
+		name = "PlanetCube.h: 49";
+		rLen = 0;
+		rLoc = 956;
+		rType = 0;
+		vrLen = 1081;
+		vrLoc = 143;
+	};
+	B027226D10A55066008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B28109E789A00578B8B /* PlanetFilter.cpp */;
+		name = "PlanetFilter.cpp: 29";
+		rLen = 0;
+		rLoc = 703;
+		rType = 0;
+		vrLen = 2059;
+		vrLoc = 36;
+	};
+	B027226E10A55066008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B27109E789A00578B8B /* PlanetEdgeFixup.h */;
+		name = "PlanetEdgeFixup.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1016;
+		vrLoc = 0;
+	};
+	B027227410A55066008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B0D2103D4C9700F67E15 /* Utility.cpp */;
+		name = "Utility.cpp: 40";
+		rLen = 0;
+		rLoc = 1235;
+		rType = 0;
+		vrLen = 1702;
+		vrLoc = 19;
+	};
+	B027227510A55066008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B0D1103D4C9700F67E15 /* Utility.h */;
+		name = "Utility.h: 25";
+		rLen = 0;
+		rLoc = 478;
+		rType = 0;
+		vrLen = 1172;
+		vrLoc = 3;
+	};
+	B027227E10A55066008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B27109E789A00578B8B /* PlanetEdgeFixup.h */;
+		name = "PlanetEdgeFixup.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1016;
+		vrLoc = 0;
+	};
+	B02722AD10A5824D008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0842D77103555250066010B /* ApplicationFrameListener.h */;
+		name = "ApplicationFrameListener.h: 57";
+		rLen = 0;
+		rLoc = 1478;
+		rType = 0;
+		vrLen = 1458;
+		vrLoc = 229;
+	};
+	B02722D210A58932008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B01A557A0FDF9EC500CDAD16 /* engine.cfg */;
+		name = "engine.cfg: 9";
+		rLen = 0;
+		rLoc = 112;
+		rType = 0;
+		vrLen = 112;
+		vrLoc = 0;
+	};
+	B02722EF10A58B6F008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B1F109E789A00578B8B /* PlanetRenderable.h */;
+		name = "PlanetRenderable.h: 35";
+		rLen = 0;
+		rLoc = 697;
+		rType = 0;
+		vrLen = 1351;
+		vrLoc = 314;
+	};
+	B02722FF10A58C04008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B1E109E789A00578B8B /* PlanetRenderable.cpp */;
+		name = "PlanetRenderable.cpp: 157";
+		rLen = 0;
+		rLoc = 5866;
+		rType = 0;
+		vrLen = 2967;
+		vrLoc = 4050;
+	};
+	B027233310A58E5B008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0ED56F71022AAF200F19F2F /* DynamicRenderable.h */;
+		name = "DynamicRenderable.h: 86";
+		rLen = 0;
+		rLoc = 3157;
+		rType = 0;
+		vrLen = 1880;
+		vrLoc = 0;
+	};
+	B027236310A59119008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B05A199F10A4BC3E003FC521 /* normalMapper_FP.glsl */;
+		name = "normalMapper_FP.glsl: 59";
+		rLen = 0;
+		rLoc = 2045;
+		rType = 0;
+		vrLen = 1938;
+		vrLoc = 215;
+	};
+	B027236410A59119008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0E21833109E459C00831FD4 /* brushCarver.cg */;
+		name = "brushCarver.cg: 36";
+		rLen = 0;
+		rLoc = 1154;
+		rType = 0;
+		vrLen = 1176;
+		vrLoc = 0;
+	};
+	B027236710A59119008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B489104266AC00F67E15 /* EngineState.h */;
+		name = "EngineState.h: 204";
+		rLen = 6;
+		rLoc = 5754;
+		rType = 0;
+		vrLen = 1441;
+		vrLoc = 141;
+	};
+	B027237B10A59172008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7926109E469500578B8B /* brush.material */;
+		name = "brush.material: 60";
+		rLen = 0;
+		rLoc = 1000;
+		rType = 0;
+		vrLen = 1088;
+		vrLoc = 599;
+	};
+	B027239110A591F1008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B26109E789A00578B8B /* PlanetEdgeFixup.cpp */;
+		name = "PlanetEdgeFixup.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2897;
+		vrLoc = 2952;
+	};
+	B027239310A591F1008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B2C109E789A00578B8B /* PlanetMapBuffer.cpp */;
+		name = "PlanetMapBuffer.cpp: 48";
+		rLen = 0;
+		rLoc = 1402;
+		rType = 0;
+		vrLen = 1850;
+		vrLoc = 0;
+	};
+	B027239E10A59217008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0A4D2D510A0150900009B23 /* normalMapper.cg */;
+		name = "normalMapper.cg: 11";
+		rLen = 0;
+		rLoc = 206;
+		rType = 0;
+		vrLen = 814;
+		vrLoc = 0;
+	};
+	B02723A210A59298008833C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B2A109E789A00578B8B /* PlanetMap.cpp */;
+		name = "PlanetMap.cpp: 138";
+		rLen = 0;
+		rLoc = 4674;
+		rType = 0;
+		vrLen = 1899;
+		vrLoc = 3421;
+	};
+	B02F08B0109ACBB400F5A7CB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B071781C0FF8663900D7DE22 /* resources.cfg */;
+		name = "resources.cfg: 4";
+		rLen = 0;
+		rLoc = 164;
+		rType = 0;
+		vrLen = 327;
+		vrLoc = 0;
+	};
+	B02F08C6109ACD0C00F5A7CB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B02F08C7109ACD0C00F5A7CB /* OgrePass.cpp */;
+		name = "OgrePass.cpp: 524";
+		rLen = 14;
+		rLoc = 17042;
+		rType = 0;
+		vrLen = 2118;
+		vrLoc = 15939;
+	};
+	B02F08C7109ACD0C00F5A7CB /* OgrePass.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgrePass.cpp;
+		path = /Users/steven/Projects/OgreSource/OgreMain/src/OgrePass.cpp;
+		sourceTree = "<absolute>";
+	};
+	B02F09B6109AE5BC00F5A7CB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B035C147104A8076002959DB /* OgrePass.h */;
+		name = "OgrePass.h: 485";
+		rLen = 0;
+		rLoc = 21606;
+		rType = 0;
+		vrLen = 2280;
+		vrLoc = 20745;
+	};
+	B02F09BD109AE62900F5A7CB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B02F08C7109ACD0C00F5A7CB /* OgrePass.cpp */;
+		name = "OgrePass.cpp: 524";
+		rLen = 14;
+		rLoc = 17042;
+		rType = 0;
+		vrLen = 2273;
+		vrLoc = 16766;
+	};
+	B02F7A9B0F234E4A00275423 /* NFSpace */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = NFSpace;
+		savedGlobals = {
+		};
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+			"*(pMapCorner + 100)-HeightMapPixel-NFSpace::PlanetRenderable::fillHardwareBuffers" = 1;
+			"*(pMapCorner + 101)-HeightMapPixel-NFSpace::PlanetRenderable::fillHardwareBuffers" = 1;
+			"*(pMapCorner + 102)-HeightMapPixel-NFSpace::PlanetRenderable::fillHardwareBuffers" = 1;
+			"*(pMapCorner + 103)-HeightMapPixel-NFSpace::PlanetRenderable::fillHardwareBuffers" = 1;
+			"*(pMapCorner + 105)-HeightMapPixel-NFSpace::PlanetRenderable::fillHardwareBuffers" = 1;
+			"*(pMapCorner + 108)-HeightMapPixel-NFSpace::PlanetRenderable::fillHardwareBuffers" = 1;
+			"*(pMapCorner + 130)-HeightMapPixel-NFSpace::PlanetRenderable::fillHardwareBuffers" = 1;
+			"*(pMapCorner + 132)-HeightMapPixel-NFSpace::PlanetRenderable::fillHardwareBuffers" = 1;
+			"*(pMapCorner + 133)-HeightMapPixel-NFSpace::PlanetRenderable::fillHardwareBuffers" = 1;
+			"*(pMapCorner + 140)-HeightMapPixel-NFSpace::PlanetRenderable::fillHardwareBuffers" = 1;
+			"*(pMapCorner + 150)-HeightMapPixel-NFSpace::PlanetRenderable::fillHardwareBuffers" = 1;
+			"*(pMapCorner + 200)-HeightMapPixel-NFSpace::PlanetRenderable::fillHardwareBuffers" = 1;
+			"*(pMapCorner + 3000)-HeightMapPixel-NFSpace::PlanetRenderable::fillHardwareBuffers" = 1;
+			"*(pMapCorner + 400)-HeightMapPixel-NFSpace::PlanetRenderable::fillHardwareBuffers" = 1;
+			"*pMapCorner-HeightMapPixel-NFSpace::PlanetRenderable::fillHardwareBuffers" = 1;
+		};
+	};
+	B02F7AA20F234E5A00275423 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	B02F7AA30F234E5A00275423 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	B035C146104A8076002959DB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B035C147104A8076002959DB /* OgrePass.h */;
+		name = "OgrePass.h: 486";
+		rLen = 56;
+		rLoc = 21561;
+		rType = 0;
+		vrLen = 2081;
+		vrLoc = 20342;
+	};
+	B035C147104A8076002959DB /* OgrePass.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgrePass.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgrePass.h;
+		sourceTree = "<absolute>";
+	};
+	B035C149104A8076002959DB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B035C14A104A8076002959DB /* OgreTextureUnitState.h */;
+		name = "OgreTextureUnitState.h: 612";
+		rLen = 7;
+		rLoc = 26708;
+		rType = 0;
+		vrLen = 2438;
+		vrLoc = 25462;
+	};
+	B035C14A104A8076002959DB /* OgreTextureUnitState.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreTextureUnitState.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreTextureUnitState.h;
+		sourceTree = "<absolute>";
+	};
+	B035C429104AB69B002959DB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B1A7103D5A5500F67E15 /* OgreFrustum.h */;
+		name = "OgreFrustum.h: 190";
+		rLen = 50;
+		rLoc = 7577;
+		rType = 0;
+		vrLen = 3007;
+		vrLoc = 6432;
+	};
+	B035C557104B296C002959DB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B035C558104B296C002959DB /* OgreMaterial.h */;
+		name = "OgreMaterial.h: 536";
+		rLen = 20;
+		rLoc = 26944;
+		rType = 0;
+		vrLen = 2104;
+		vrLoc = 26050;
+	};
+	B035C558104B296C002959DB /* OgreMaterial.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreMaterial.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreMaterial.h;
+		sourceTree = "<absolute>";
+	};
+	B035C595104B2BCF002959DB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0842F011038CEEE0066010B /* OgreMatrix3.h */;
+		name = "OgreMatrix3.h: 64";
+		rLen = 0;
+		rLoc = 2496;
+		rType = 0;
+		vrLen = 1792;
+		vrLoc = 3385;
+	};
+	B035C69D104B406D002959DB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B035C69E104B406D002959DB /* OgreBlendMode.h */;
+		name = "OgreBlendMode.h: 217";
+		rLen = 7;
+		rLoc = 8785;
+		rType = 0;
+		vrLen = 2010;
+		vrLoc = 7581;
+	};
+	B035C69E104B406D002959DB /* OgreBlendMode.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreBlendMode.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreBlendMode.h;
+		sourceTree = "<absolute>";
+	};
+	B035C6A4104B406D002959DB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B035C6A5104B406D002959DB /* OgreBlendMode.h */;
+		name = "OgreBlendMode.h: 217";
+		rLen = 7;
+		rLoc = 8785;
+		rType = 0;
+		vrLen = 2010;
+		vrLoc = 7581;
+	};
+	B035C6A5104B406D002959DB /* OgreBlendMode.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreBlendMode.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreBlendMode.h;
+		sourceTree = "<absolute>";
+	};
+	B035C6DE104B4756002959DB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B035C6DF104B4756002959DB /* OgreRenderTexture.h */;
+		name = "OgreRenderTexture.h: 49";
+		rLen = 0;
+		rLoc = 1981;
+		rType = 0;
+		vrLen = 1859;
+		vrLoc = 1043;
+	};
+	B035C6DF104B4756002959DB /* OgreRenderTexture.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreRenderTexture.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreRenderTexture.h;
+		sourceTree = "<absolute>";
+	};
+	B035C72D104B6678002959DB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B084301F103943210066010B /* Planet.h */;
+		name = "Planet.h: 12";
+		rLen = 0;
+		rLoc = 175;
+		rType = 0;
+		vrLen = 295;
+		vrLoc = 0;
+	};
+	B035C735104B6678002959DB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B035C736104B6678002959DB /* OgreMemoryAllocatorConfig.h */;
+		name = "OgreMemoryAllocatorConfig.h: 377";
+		rLen = 12;
+		rLoc = 20782;
+		rType = 0;
+		vrLen = 5721;
+		vrLoc = 19093;
+	};
+	B035C736104B6678002959DB /* OgreMemoryAllocatorConfig.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreMemoryAllocatorConfig.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreMemoryAllocatorConfig.h;
+		sourceTree = "<absolute>";
+	};
+	B035C739104B6678002959DB /* OgreMemoryAllocatorConfig.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreMemoryAllocatorConfig.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreMemoryAllocatorConfig.h;
+		sourceTree = "<absolute>";
+	};
+	B035C759104B6806002959DB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B035C739104B6678002959DB /* OgreMemoryAllocatorConfig.h */;
+		name = "OgreMemoryAllocatorConfig.h: 376";
+		rLen = 134;
+		rLoc = 20598;
+		rType = 0;
+		vrLen = 5645;
+		vrLoc = 18661;
+	};
+	B035C823104B767B002959DB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0956F7B104A4939006B48DD /* OgreVector3.h */;
+		name = "OgreVector3.h: 471";
+		rLen = 0;
+		rLoc = 14998;
+		rType = 0;
+		vrLen = 2214;
+		vrLoc = 14140;
+	};
+	B035C824104B767B002959DB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B106103D4F4500F67E15 /* OgreQuaternion.h */;
+		name = "OgreQuaternion.h: 53";
+		rLen = 33;
+		rLoc = 2053;
+		rType = 0;
+		vrLen = 1481;
+		vrLoc = 1767;
+	};
+	B03C0FC410A673820043DAD9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B24109E789A00578B8B /* PlanetBrush.cpp */;
+		name = "PlanetBrush.cpp: 20";
+		rLen = 0;
+		rLoc = 356;
+		rType = 0;
+		vrLen = 1584;
+		vrLoc = 0;
+	};
+	B03C0FC510A673820043DAD9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B1A109E789A00578B8B /* PlanetCube.cpp */;
+		name = "PlanetCube.cpp: 40";
+		rLen = 0;
+		rLoc = 761;
+		rType = 0;
+		vrLen = 2013;
+		vrLoc = 501;
+	};
+	B03C0FC610A673820043DAD9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B21109E789A00578B8B /* PlanetMovable.cpp */;
+		name = "PlanetMovable.cpp: 34";
+		rLen = 0;
+		rLoc = 590;
+		rType = 0;
+		vrLen = 1146;
+		vrLoc = 40;
+	};
+	B03C0FC710A673820043DAD9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0A332BD0FDE510E00A04706 /* Application.cpp */;
+		name = "Application.cpp: 207";
+		rLen = 0;
+		rLoc = 6443;
+		rType = 0;
+		vrLen = 2047;
+		vrLoc = 5376;
+	};
+	B03C0FC810A673820043DAD9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0842D78103555250066010B /* ApplicationFrameListener.cpp */;
+		name = "ApplicationFrameListener.cpp: 85";
+		rLen = 0;
+		rLoc = 2970;
+		rType = 0;
+		vrLen = 1894;
+		vrLoc = 2235;
+	};
+	B03C0FC910A673820043DAD9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0ED56F81022AAF200F19F2F /* DynamicRenderable.cpp */;
+		name = "DynamicRenderable.cpp: 77";
+		rLen = 21;
+		rLoc = 2141;
+		rType = 0;
+		vrLen = 2172;
+		vrLoc = 1405;
+	};
+	B03C0FCA10A673820043DAD9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B48A104266AC00F67E15 /* EngineState.cpp */;
+		name = "EngineState.cpp: 33";
+		rLen = 0;
+		rLoc = 736;
+		rType = 0;
+		vrLen = 1425;
+		vrLoc = 38;
+	};
+	B03C0FCB10A673820043DAD9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B24109E789A00578B8B /* PlanetBrush.cpp */;
+		name = "PlanetBrush.cpp: 20";
+		rLen = 0;
+		rLoc = 356;
+		rType = 0;
+		vrLen = 1584;
+		vrLoc = 0;
+	};
+	B03C0FCC10A673820043DAD9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B1A109E789A00578B8B /* PlanetCube.cpp */;
+		name = "PlanetCube.cpp: 40";
+		rLen = 0;
+		rLoc = 761;
+		rType = 0;
+		vrLen = 2013;
+		vrLoc = 501;
+	};
+	B03C0FCD10A673820043DAD9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B21109E789A00578B8B /* PlanetMovable.cpp */;
+		name = "PlanetMovable.cpp: 34";
+		rLen = 0;
+		rLoc = 590;
+		rType = 0;
+		vrLen = 1146;
+		vrLoc = 40;
+	};
+	B03C0FCE10A673820043DAD9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0A332BD0FDE510E00A04706 /* Application.cpp */;
+		name = "Application.cpp: 207";
+		rLen = 0;
+		rLoc = 6443;
+		rType = 0;
+		vrLen = 2047;
+		vrLoc = 5376;
+	};
+	B03C0FCF10A673820043DAD9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0842D78103555250066010B /* ApplicationFrameListener.cpp */;
+		name = "ApplicationFrameListener.cpp: 85";
+		rLen = 0;
+		rLoc = 2970;
+		rType = 0;
+		vrLen = 1894;
+		vrLoc = 2235;
+	};
+	B03C0FD010A673820043DAD9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0ED56F81022AAF200F19F2F /* DynamicRenderable.cpp */;
+		name = "DynamicRenderable.cpp: 77";
+		rLen = 21;
+		rLoc = 2141;
+		rType = 0;
+		vrLen = 2172;
+		vrLoc = 1405;
+	};
+	B03C0FD110A673820043DAD9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B48A104266AC00F67E15 /* EngineState.cpp */;
+		name = "EngineState.cpp: 33";
+		rLen = 0;
+		rLoc = 736;
+		rType = 0;
+		vrLen = 1425;
+		vrLoc = 38;
+	};
+	B04D3CF21092CCB400F57FA2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B04D3CF31092CCB400F57FA2 /* Ogre.h */;
+		name = "Ogre.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2122;
+		vrLoc = 0;
+	};
+	B04D3CF31092CCB400F57FA2 /* Ogre.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = Ogre.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Headers/Ogre.h;
+		sourceTree = "<absolute>";
+	};
+	B04D3CFE1092CCB400F57FA2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B04D3CFF1092CCB400F57FA2 /* Ogre.h */;
+		name = "Ogre.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2122;
+		vrLoc = 0;
+	};
+	B04D3CFF1092CCB400F57FA2 /* Ogre.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = Ogre.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Headers/Ogre.h;
+		sourceTree = "<absolute>";
+	};
+	B04D3D001092CCB400F57FA2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B04D3D011092CCB400F57FA2 /* OgrePrerequisites.h */;
+		name = "OgrePrerequisites.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2969;
+		vrLoc = 5383;
+	};
+	B04D3D011092CCB400F57FA2 /* OgrePrerequisites.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgrePrerequisites.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Headers/OgrePrerequisites.h;
+		sourceTree = "<absolute>";
+	};
+	B050AE33103D26A800F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0842D77103555250066010B /* ApplicationFrameListener.h */;
+		name = "ApplicationFrameListener.h: 34";
+		rLen = 0;
+		rLoc = 998;
+		rType = 0;
+		vrLen = 1530;
+		vrLoc = 34;
+	};
+	B050AE34103D26A800F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0A332BC0FDE510E00A04706 /* Application.h */;
+		name = "Application.h: 16";
+		rLen = 20;
+		rLoc = 326;
+		rType = 0;
+		vrLen = 922;
+		vrLoc = 0;
+	};
+	B050AE3B103D287600F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050AE3C103D287600F67E15 /* OgreBillboard.h */;
+		name = "OgreBillboard.h: 75";
+		rLen = 183;
+		rLoc = 3468;
+		rType = 0;
+		vrLen = 2623;
+		vrLoc = 1391;
+	};
+	B050AE3C103D287600F67E15 /* OgreBillboard.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreBillboard.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreBillboard.h;
+		sourceTree = "<absolute>";
+	};
+	B050AE40103D287600F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050AE41103D287600F67E15 /* OgreBillboard.h */;
+		name = "OgreBillboard.h: 75";
+		rLen = 183;
+		rLoc = 3468;
+		rType = 0;
+		vrLen = 2623;
+		vrLoc = 1391;
+	};
+	B050AE41103D287600F67E15 /* OgreBillboard.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreBillboard.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreBillboard.h;
+		sourceTree = "<absolute>";
+	};
+	B050AE7D103D2B7100F67E15 /* OgreCamera.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreCamera.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreCamera.h;
+		sourceTree = "<absolute>";
+	};
+	B050AE83103D2B9600F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050AE7D103D2B7100F67E15 /* OgreCamera.h */;
+		name = "OgreCamera.h: 235";
+		rLen = 0;
+		rLoc = 8740;
+		rType = 0;
+		vrLen = 2130;
+		vrLoc = 7313;
+	};
+	B050AEB0103D2EC500F67E15 /* OgreUTFString.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreUTFString.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreUTFString.h;
+		sourceTree = "<absolute>";
+	};
+	B050AEB6103D2F2200F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050AEB0103D2EC500F67E15 /* OgreUTFString.h */;
+		name = "OgreUTFString.h: 518";
+		rLen = 0;
+		rLoc = 17335;
+		rType = 0;
+		vrLen = 2729;
+		vrLoc = 5439;
+	};
+	B050AEB8103D2F2200F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050AEB0103D2EC500F67E15 /* OgreUTFString.h */;
+		name = "OgreUTFString.h: 518";
+		rLen = 0;
+		rLoc = 17335;
+		rType = 0;
+		vrLen = 2729;
+		vrLoc = 5439;
+	};
+	B050AEF7103D39F100F67E15 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D0C4E960486CD37000505A6 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundlePackageType,
+		);
+		name = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	B050AF55103D411200F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050AF56103D411200F67E15 /* OgreHardwareVertexBuffer.h */;
+		name = "OgreHardwareVertexBuffer.h: 486";
+		rLen = 94;
+		rLoc = 21891;
+		rType = 0;
+		vrLen = 2460;
+		vrLoc = 20759;
+	};
+	B050AF56103D411200F67E15 /* OgreHardwareVertexBuffer.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreHardwareVertexBuffer.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreHardwareVertexBuffer.h;
+		sourceTree = "<absolute>";
+	};
+	B050AF94103D449A00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050AF95103D449A00F67E15 /* OgreInstancedGeometry.cpp */;
+		name = "OgreInstancedGeometry.cpp: 1123";
+		rLen = 20;
+		rLoc = 37406;
+		rType = 0;
+		vrLen = 2167;
+		vrLoc = 36120;
+	};
+	B050AF95103D449A00F67E15 /* OgreInstancedGeometry.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreInstancedGeometry.cpp;
+		path = /Users/steven/Projects/OgreSource/OgreMain/src/OgreInstancedGeometry.cpp;
+		sourceTree = "<absolute>";
+	};
+	B050AF9B103D449A00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B08754BC1026894C00054A39 /* OgreSimpleRenderable.h */;
+		name = "OgreSimpleRenderable.h: 63";
+		rLen = 0;
+		rLoc = 2155;
+		rType = 0;
+		vrLen = 1667;
+		vrLoc = 1496;
+	};
+	B050AF9C103D449A00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050AF9D103D449A00F67E15 /* OgreInstancedGeometry.cpp */;
+		name = "OgreInstancedGeometry.cpp: 1693";
+		rLen = 8;
+		rLoc = 56498;
+		rType = 0;
+		vrLen = 2166;
+		vrLoc = 55270;
+	};
+	B050AF9D103D449A00F67E15 /* OgreInstancedGeometry.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreInstancedGeometry.cpp;
+		path = /Users/steven/Projects/OgreSource/OgreMain/src/OgreInstancedGeometry.cpp;
+		sourceTree = "<absolute>";
+	};
+	B050B0B4103D4AE400F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0842D78103555250066010B /* ApplicationFrameListener.cpp */;
+		name = "ApplicationFrameListener.cpp: 138";
+		rLen = 0;
+		rLoc = 4912;
+		rType = 0;
+		vrLen = 1808;
+		vrLoc = 3711;
+	};
+	B050B0D1103D4C9700F67E15 /* Utility.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {886, 638}}";
+			sepNavSelRange = "{478, 0}";
+			sepNavVisRange = "{3, 1172}";
+		};
+	};
+	B050B0D2103D4C9700F67E15 /* Utility.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {886, 638}}";
+			sepNavSelRange = "{1235, 0}";
+			sepNavVisRange = "{19, 1702}";
+		};
+	};
+	B050B0E4103D4E3B00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B0D2103D4C9700F67E15 /* Utility.cpp */;
+		name = "Utility.cpp: 12";
+		rLen = 0;
+		rLoc = 1721;
+		rType = 0;
+		vrLen = 166;
+		vrLoc = 0;
+	};
+	B050B106103D4F4500F67E15 /* OgreQuaternion.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreQuaternion.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreQuaternion.h;
+		sourceTree = "<group>";
+	};
+	B050B10E103D4F6F00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B106103D4F4500F67E15 /* OgreQuaternion.h */;
+		name = "OgreQuaternion.h: 69";
+		rLen = 0;
+		rLoc = 2434;
+		rType = 0;
+		vrLen = 818;
+		vrLoc = 2104;
+	};
+	B050B196103D5A5500F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B197103D5A5500F67E15 /* OgreFrustum.cpp */;
+		name = "OgreFrustum.cpp: 433";
+		rLen = 481;
+		rLoc = 13418;
+		rType = 0;
+		vrLen = 1952;
+		vrLoc = 3567;
+	};
+	B050B197103D5A5500F67E15 /* OgreFrustum.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreFrustum.cpp;
+		path = /Users/steven/Projects/OgreSource/OgreMain/src/OgreFrustum.cpp;
+		sourceTree = "<absolute>";
+	};
+	B050B198103D5A5500F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B199103D5A5500F67E15 /* OgreCamera.cpp */;
+		name = "OgreCamera.cpp: 187";
+		rLen = 12;
+		rLoc = 5728;
+		rType = 0;
+		vrLen = 1913;
+		vrLoc = 4666;
+	};
+	B050B199103D5A5500F67E15 /* OgreCamera.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreCamera.cpp;
+		path = /Users/steven/Projects/OgreSource/OgreMain/src/OgreCamera.cpp;
+		sourceTree = "<absolute>";
+	};
+	B050B19C103D5A5500F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B19D103D5A5500F67E15 /* OgreQuaternion.cpp */;
+		name = "OgreQuaternion.cpp: 57";
+		rLen = 18;
+		rLoc = 2265;
+		rType = 0;
+		vrLen = 2092;
+		vrLoc = 2001;
+	};
+	B050B19D103D5A5500F67E15 /* OgreQuaternion.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreQuaternion.cpp;
+		path = /Users/steven/Projects/OgreSource/OgreMain/src/OgreQuaternion.cpp;
+		sourceTree = "<absolute>";
+	};
+	B050B1A2103D5A5500F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B0D1103D4C9700F67E15 /* Utility.h */;
+		name = "Utility.h: 31";
+		rLen = 0;
+		rLoc = 1169;
+		rType = 0;
+		vrLen = 314;
+		vrLoc = 0;
+	};
+	B050B1A6103D5A5500F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B1A7103D5A5500F67E15 /* OgreFrustum.h */;
+		name = "OgreFrustum.h: 337";
+		rLen = 64;
+		rLoc = 15031;
+		rType = 0;
+		vrLen = 3244;
+		vrLoc = 12930;
+	};
+	B050B1A7103D5A5500F67E15 /* OgreFrustum.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreFrustum.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreFrustum.h;
+		sourceTree = "<absolute>";
+	};
+	B050B1A8103D5A5500F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B1A9103D5A5500F67E15 /* OgreFrustum.cpp */;
+		name = "OgreFrustum.cpp: 433";
+		rLen = 481;
+		rLoc = 13418;
+		rType = 0;
+		vrLen = 1952;
+		vrLoc = 3567;
+	};
+	B050B1A9103D5A5500F67E15 /* OgreFrustum.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreFrustum.cpp;
+		path = /Users/steven/Projects/OgreSource/OgreMain/src/OgreFrustum.cpp;
+		sourceTree = "<absolute>";
+	};
+	B050B1AB103D5A5500F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B1AC103D5A5500F67E15 /* OgreCamera.cpp */;
+		name = "OgreCamera.cpp: 187";
+		rLen = 12;
+		rLoc = 5728;
+		rType = 0;
+		vrLen = 1913;
+		vrLoc = 4666;
+	};
+	B050B1AC103D5A5500F67E15 /* OgreCamera.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreCamera.cpp;
+		path = /Users/steven/Projects/OgreSource/OgreMain/src/OgreCamera.cpp;
+		sourceTree = "<absolute>";
+	};
+	B050B1AF103D5A5500F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B1B0103D5A5500F67E15 /* OgreQuaternion.cpp */;
+		name = "OgreQuaternion.cpp: 57";
+		rLen = 18;
+		rLoc = 2265;
+		rType = 0;
+		vrLen = 2065;
+		vrLoc = 1229;
+	};
+	B050B1B0103D5A5500F67E15 /* OgreQuaternion.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreQuaternion.cpp;
+		path = /Users/steven/Projects/OgreSource/OgreMain/src/OgreQuaternion.cpp;
+		sourceTree = "<absolute>";
+	};
+	B050B2D8103EA39B00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B2D9103EA39B00F67E15 /* OgreRenderTarget.h */;
+		name = "OgreRenderTarget.h: 379";
+		rLen = 29;
+		rLoc = 17089;
+		rType = 0;
+		vrLen = 1846;
+		vrLoc = 16002;
+	};
+	B050B2D9103EA39B00F67E15 /* OgreRenderTarget.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreRenderTarget.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Headers/OgreRenderTarget.h;
+		sourceTree = "<absolute>";
+	};
+	B050B2DF103EA39B00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B2E0103EA39B00F67E15 /* OgreRenderTarget.cpp */;
+		name = "OgreRenderTarget.cpp: 455";
+		rLen = 20;
+		rLoc = 13681;
+		rType = 0;
+		vrLen = 2443;
+		vrLoc = 12345;
+	};
+	B050B2E0103EA39B00F67E15 /* OgreRenderTarget.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreRenderTarget.cpp;
+		path = /Users/steven/Projects/OgreSource/OgreMain/src/OgreRenderTarget.cpp;
+		sourceTree = "<absolute>";
+	};
+	B050B35F103EAA5700F67E15 /* OgreImage.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreImage.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreImage.h;
+		sourceTree = "<absolute>";
+	};
+	B050B36D103EAC5300F67E15 /* OgrePlatform.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgrePlatform.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgrePlatform.h;
+		sourceTree = "<absolute>";
+	};
+	B050B373103EACDF00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B36D103EAC5300F67E15 /* OgrePlatform.h */;
+		name = "OgrePlatform.h: 213";
+		rLen = 0;
+		rLoc = 6762;
+		rType = 0;
+		vrLen = 1540;
+		vrLoc = 5451;
+	};
+	B050B376103EACDF00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B36D103EAC5300F67E15 /* OgrePlatform.h */;
+		name = "OgrePlatform.h: 211";
+		rLen = 0;
+		rLoc = 6706;
+		rType = 0;
+		vrLen = 1965;
+		vrLoc = 0;
+	};
+	B050B489104266AC00F67E15 /* EngineState.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {886, 2321}}";
+			sepNavSelRange = "{5754, 6}";
+			sepNavVisRange = "{141, 1441}";
+		};
+	};
+	B050B48A104266AC00F67E15 /* EngineState.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {785, 1023}}";
+			sepNavSelRange = "{736, 0}";
+			sepNavVisRange = "{38, 1425}";
+		};
+	};
+	B050B4C51042785D00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B4C61042785D00F67E15 /* OgreRoot.cpp */;
+		name = "OgreRoot.cpp: 984";
+		rLen = 19;
+		rLoc = 31671;
+		rType = 0;
+		vrLen = 1927;
+		vrLoc = 30474;
+	};
+	B050B4C61042785D00F67E15 /* OgreRoot.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreRoot.cpp;
+		path = /Users/steven/Projects/OgreSource/OgreMain/src/OgreRoot.cpp;
+		sourceTree = "<absolute>";
+	};
+	B050B4C71042785D00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B4C81042785D00F67E15 /* OgreRenderSystem.h */;
+		name = "OgreRenderSystem.h: 379";
+		rLen = 17;
+		rLoc = 13819;
+		rType = 0;
+		vrLen = 1937;
+		vrLoc = 12917;
+	};
+	B050B4C81042785D00F67E15 /* OgreRenderSystem.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreRenderSystem.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreRenderSystem.h;
+		sourceTree = "<absolute>";
+	};
+	B050B4DC1042785D00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B48A104266AC00F67E15 /* EngineState.cpp */;
+		name = "EngineState.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 174;
+		vrLoc = 0;
+	};
+	B050B4F11042785D00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B4F21042785D00F67E15 /* OgreRoot.h */;
+		name = "OgreRoot.h: 569";
+		rLen = 10;
+		rLoc = 25188;
+		rType = 0;
+		vrLen = 2324;
+		vrLoc = 23895;
+	};
+	B050B4F21042785D00F67E15 /* OgreRoot.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreRoot.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreRoot.h;
+		sourceTree = "<absolute>";
+	};
+	B050B4F31042785D00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B4F41042785D00F67E15 /* OgreRoot.cpp */;
+		name = "OgreRoot.cpp: 984";
+		rLen = 19;
+		rLoc = 31671;
+		rType = 0;
+		vrLen = 2005;
+		vrLoc = 30474;
+	};
+	B050B4F41042785D00F67E15 /* OgreRoot.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreRoot.cpp;
+		path = /Users/steven/Projects/OgreSource/OgreMain/src/OgreRoot.cpp;
+		sourceTree = "<absolute>";
+	};
+	B050B4FB1042785D00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0A332BD0FDE510E00A04706 /* Application.cpp */;
+		name = "Application.cpp: 154";
+		rLen = 18;
+		rLoc = 4622;
+		rType = 0;
+		vrLen = 1973;
+		vrLoc = 2764;
+	};
+	B050B4FC1042785D00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B489104266AC00F67E15 /* EngineState.h */;
+		name = "EngineState.h: 161";
+		rLen = 0;
+		rLoc = 3879;
+		rType = 0;
+		vrLen = 1485;
+		vrLoc = 2788;
+	};
+	B050B4FF1042785D00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B5001042785D00F67E15 /* OgreRenderSystem.h */;
+		name = "OgreRenderSystem.h: 379";
+		rLen = 17;
+		rLoc = 13819;
+		rType = 0;
+		vrLen = 1937;
+		vrLoc = 12917;
+	};
+	B050B5001042785D00F67E15 /* OgreRenderSystem.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreRenderSystem.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreRenderSystem.h;
+		sourceTree = "<absolute>";
+	};
+	B050B5311042789E00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B5321042789E00F67E15 /* OgreProfiler.cpp */;
+		name = "OgreProfiler.cpp: 55";
+		rLen = 268;
+		rLoc = 2131;
+		rType = 0;
+		vrLen = 1598;
+		vrLoc = 1527;
+	};
+	B050B5321042789E00F67E15 /* OgreProfiler.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreProfiler.cpp;
+		path = /Users/steven/Projects/OgreSource/OgreMain/src/OgreProfiler.cpp;
+		sourceTree = "<absolute>";
+	};
+	B050B53D1042798E00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B5321042789E00F67E15 /* OgreProfiler.cpp */;
+		name = "OgreProfiler.cpp: 55";
+		rLen = 12;
+		rLoc = 2177;
+		rType = 0;
+		vrLen = 1716;
+		vrLoc = 1771;
+	};
+	B050B53E1042798E00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B53F1042798E00F67E15 /* OgreCommon.h */;
+		name = "OgreCommon.h: 18";
+		rLen = 0;
+		rLoc = 789;
+		rType = 0;
+		vrLen = 1741;
+		vrLoc = 0;
+	};
+	B050B53F1042798E00F67E15 /* OgreCommon.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreCommon.h;
+		path = /Users/steven/Projects/OgreSource/OgreMain/include/OgreCommon.h;
+		sourceTree = "<absolute>";
+	};
+	B050B5401042798E00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B5411042798E00F67E15 /* OgreRoot.h */;
+		name = "OgreRoot.h: 56";
+		rLen = 9;
+		rLoc = 2339;
+		rType = 0;
+		vrLen = 2010;
+		vrLoc = 1327;
+	};
+	B050B5411042798E00F67E15 /* OgreRoot.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreRoot.h;
+		path = /Users/steven/Projects/OgreSource/OgreMain/include/OgreRoot.h;
+		sourceTree = "<absolute>";
+	};
+	B050B5421042798E00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B5431042798E00F67E15 /* OgreSingleton.h */;
+		name = "OgreSingleton.h: 38";
+		rLen = 9;
+		rLoc = 1715;
+		rType = 0;
+		vrLen = 1368;
+		vrLoc = 1592;
+	};
+	B050B5431042798E00F67E15 /* OgreSingleton.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreSingleton.h;
+		path = /Users/steven/Projects/OgreSource/OgreMain/include/OgreSingleton.h;
+		sourceTree = "<absolute>";
+	};
+	B050B5471042798E00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B5481042798E00F67E15 /* OgreCommon.h */;
+		name = "OgreCommon.h: 18";
+		rLen = 0;
+		rLoc = 789;
+		rType = 0;
+		vrLen = 1741;
+		vrLoc = 0;
+	};
+	B050B5481042798E00F67E15 /* OgreCommon.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreCommon.h;
+		path = /Users/steven/Projects/OgreSource/OgreMain/include/OgreCommon.h;
+		sourceTree = "<absolute>";
+	};
+	B050B5491042798E00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B54A1042798E00F67E15 /* OgreRoot.h */;
+		name = "OgreRoot.h: 56";
+		rLen = 9;
+		rLoc = 2339;
+		rType = 0;
+		vrLen = 2010;
+		vrLoc = 1327;
+	};
+	B050B54A1042798E00F67E15 /* OgreRoot.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreRoot.h;
+		path = /Users/steven/Projects/OgreSource/OgreMain/include/OgreRoot.h;
+		sourceTree = "<absolute>";
+	};
+	B050B54B1042798E00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B54C1042798E00F67E15 /* OgreSingleton.h */;
+		name = "OgreSingleton.h: 38";
+		rLen = 9;
+		rLoc = 1715;
+		rType = 0;
+		vrLen = 1368;
+		vrLoc = 1592;
+	};
+	B050B54C1042798E00F67E15 /* OgreSingleton.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreSingleton.h;
+		path = /Users/steven/Projects/OgreSource/OgreMain/include/OgreSingleton.h;
+		sourceTree = "<absolute>";
+	};
+	B050B60A1042800100F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B01A556E0FDF9E9700CDAD16 /* stl_tree.h */;
+		name = "stl_tree.h: 462";
+		rLen = 0;
+		rLoc = 13043;
+		rType = 0;
+		vrLen = 1619;
+		vrLoc = 10589;
+	};
+	B050B646104281CD00F67E15 /* stl_map.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = stl_map.h;
+		path = "/Developer/SDKs/MacOSX10.5.sdk/usr/include/c++/4.0.0/bits/stl_map.h";
+		sourceTree = "<absolute>";
+	};
+	B050B64D1042821000F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B646104281CD00F67E15 /* stl_map.h */;
+		name = "stl_map.h: 91";
+		rLen = 14;
+		rLoc = 3749;
+		rType = 0;
+		vrLen = 2322;
+		vrLoc = 12063;
+	};
+	B050B6BD1042884200F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B6BE1042884200F67E15 /* stringfwd.h */;
+		name = "stringfwd.h: 48";
+		rLen = 0;
+		rLoc = 1747;
+		rType = 0;
+		vrLen = 1555;
+		vrLoc = 628;
+	};
+	B050B6BE1042884200F67E15 /* stringfwd.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = stringfwd.h;
+		path = "/Developer/SDKs/MacOSX10.5.sdk/usr/include/c++/4.0.0/bits/stringfwd.h";
+		sourceTree = "<absolute>";
+	};
+	B050B6DA1042891D00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B6BE1042884200F67E15 /* stringfwd.h */;
+		name = "stringfwd.h: 60";
+		rLen = 12;
+		rLoc = 2014;
+		rType = 0;
+		vrLen = 1555;
+		vrLoc = 628;
+	};
+	B050B6DB1042891D00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B6DC1042891D00F67E15 /* basic_string.h */;
+		name = "basic_string.h: 2188";
+		rLen = 9;
+		rLoc = 81709;
+		rType = 0;
+		vrLen = 1804;
+		vrLoc = 80720;
+	};
+	B050B6DC1042891D00F67E15 /* basic_string.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = basic_string.h;
+		path = "/Developer/SDKs/MacOSX10.5.sdk/usr/include/c++/4.0.0/bits/basic_string.h";
+		sourceTree = "<absolute>";
+	};
+	B050B6E41042891D00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B6E51042891D00F67E15 /* basic_string.h */;
+		name = "basic_string.h: 2188";
+		rLen = 9;
+		rLoc = 81709;
+		rType = 0;
+		vrLen = 1804;
+		vrLoc = 80720;
+	};
+	B050B6E51042891D00F67E15 /* basic_string.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = basic_string.h;
+		path = "/Developer/SDKs/MacOSX10.5.sdk/usr/include/c++/4.0.0/bits/basic_string.h";
+		sourceTree = "<absolute>";
+	};
+	B050B70A10428C7D00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B70B10428C7D00F67E15 /* OgreSingleton.h */;
+		name = "OgreSingleton.h: 71";
+		rLen = 47;
+		rLoc = 2554;
+		rType = 0;
+		vrLen = 1568;
+		vrLoc = 1310;
+	};
+	B050B70B10428C7D00F67E15 /* OgreSingleton.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreSingleton.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Headers/OgreSingleton.h;
+		sourceTree = "<absolute>";
+	};
+	B050B71410428C7D00F67E15 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B71510428C7D00F67E15 /* OgreSingleton.h */;
+		name = "OgreSingleton.h: 76";
+		rLen = 39;
+		rLoc = 2706;
+		rType = 0;
+		vrLen = 1564;
+		vrLoc = 1307;
+	};
+	B050B71510428C7D00F67E15 /* OgreSingleton.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreSingleton.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Headers/OgreSingleton.h;
+		sourceTree = "<absolute>";
+	};
+	B05A198510A4BC3E003FC521 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0A4D2D210A0150900009B23 /* filter.material */;
+		name = "filter.material: 24";
+		rLen = 0;
+		rLoc = 505;
+		rType = 0;
+		vrLen = 1225;
+		vrLoc = 0;
+	};
+	B05A199F10A4BC3E003FC521 /* normalMapper_FP.glsl */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text;
+		name = normalMapper_FP.glsl;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Resources/Media/Planet/Materials/normalMapper_FP.glsl;
+		sourceTree = "<absolute>";
+	};
+	B07178160FF8663900D7DE22 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B07178170FF8663900D7DE22 /* OgreAlignedAllocator.h */;
+		name = "OgreAlignedAllocator.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2386;
+		vrLoc = 0;
+	};
+	B07178170FF8663900D7DE22 /* OgreAlignedAllocator.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreAlignedAllocator.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Headers/OgreAlignedAllocator.h;
+		sourceTree = "<absolute>";
+	};
+	B071781B0FF8663900D7DE22 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B071781C0FF8663900D7DE22 /* resources.cfg */;
+		name = "resources.cfg: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 298;
+		vrLoc = 0;
+	};
+	B071781C0FF8663900D7DE22 /* resources.cfg */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text;
+		name = resources.cfg;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Resources/Config/resources.cfg;
+		sourceTree = "<absolute>";
+	};
+	B071781D0FF8663900D7DE22 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B071781E0FF8663900D7DE22 /* plugins.cfg */;
+		name = "plugins.cfg: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 428;
+		vrLoc = 0;
+	};
+	B071781E0FF8663900D7DE22 /* plugins.cfg */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text;
+		name = plugins.cfg;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Resources/Config/plugins.cfg;
+		sourceTree = "<absolute>";
+	};
+	B07178270FF8663900D7DE22 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B07178280FF8663900D7DE22 /* OgreAlignedAllocator.h */;
+		name = "OgreAlignedAllocator.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2386;
+		vrLoc = 0;
+	};
+	B07178280FF8663900D7DE22 /* OgreAlignedAllocator.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreAlignedAllocator.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Headers/OgreAlignedAllocator.h;
+		sourceTree = "<absolute>";
+	};
+	B0717B94100088BD00D7DE22 /* OgreTerrainRenderable.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreTerrainRenderable.cpp;
+		path = /Users/steven/Projects/OgreSource/PlugIns/OctreeSceneManager/src/OgreTerrainRenderable.cpp;
+		sourceTree = "<absolute>";
+	};
+	B0717B98100088BD00D7DE22 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0717B99100088BD00D7DE22 /* OgreTerrainRenderable.cpp */;
+		name = "OgreTerrainRenderable.cpp: 1";
+		rLen = 51817;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2352;
+		vrLoc = 0;
+	};
+	B0717B99100088BD00D7DE22 /* OgreTerrainRenderable.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreTerrainRenderable.cpp;
+		path = /Users/steven/Projects/OgreSource/PlugIns/OctreeSceneManager/src/OgreTerrainRenderable.cpp;
+		sourceTree = "<absolute>";
+	};
+	B083789E10144ECB0064B1B9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B083789F10144ECB0064B1B9 /* OgreOctreePlugin.h */;
+		name = "OgreOctreePlugin.h: 3";
+		rLen = 0;
+		rLoc = 113;
+		rType = 0;
+		vrLen = 1506;
+		vrLoc = 543;
+	};
+	B083789F10144ECB0064B1B9 /* OgreOctreePlugin.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreOctreePlugin.h;
+		path = /Users/steven/Projects/OgreSource/PlugIns/OctreeSceneManager/include/OgreOctreePlugin.h;
+		sourceTree = "<absolute>";
+	};
+	B08378A310144ECB0064B1B9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B08378A410144ECB0064B1B9 /* OgreOctreePlugin.h */;
+		name = "OgreOctreePlugin.h: 3";
+		rLen = 0;
+		rLoc = 113;
+		rType = 0;
+		vrLen = 1506;
+		vrLoc = 543;
+	};
+	B08378A410144ECB0064B1B9 /* OgreOctreePlugin.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreOctreePlugin.h;
+		path = /Users/steven/Projects/OgreSource/PlugIns/OctreeSceneManager/include/OgreOctreePlugin.h;
+		sourceTree = "<absolute>";
+	};
+	B08378BC101454BA0064B1B9 /* PlanetMovable.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = PlanetMovable.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Source/Planet/PlanetMovable.h;
+		sourceTree = "<absolute>";
+	};
+	B08378CA10145A660064B1B9 /* Water.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = Water.cpp;
+		path = /Users/steven/Projects/OgreSDK/Samples/src/Water.cpp;
+		sourceTree = "<absolute>";
+	};
+	B08378D810145A660064B1B9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B08378D910145A660064B1B9 /* Water.cpp */;
+		name = "Water.cpp: 565";
+		rLen = 80;
+		rLoc = 17498;
+		rType = 0;
+		vrLen = 1891;
+		vrLoc = 16583;
+	};
+	B08378D910145A660064B1B9 /* Water.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = Water.cpp;
+		path = /Users/steven/Projects/OgreSDK/Samples/src/Water.cpp;
+		sourceTree = "<absolute>";
+	};
+	B08378E210145D780064B1B9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B08378CA10145A660064B1B9 /* Water.cpp */;
+		name = "Water.cpp: 566";
+		rLen = 12;
+		rLoc = 17591;
+		rType = 0;
+		vrLen = 1891;
+		vrLoc = 16583;
+	};
+	B08378E410145D780064B1B9 /* ProceduralManualObject.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = ProceduralManualObject.h;
+		path = /Users/steven/Projects/OgreSDK/Samples/include/ProceduralManualObject.h;
+		sourceTree = "<absolute>";
+	};
+	B08378EA10145D780064B1B9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B08378EB10145D780064B1B9 /* ProceduralManualObject.h */;
+		name = "ProceduralManualObject.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1702;
+		vrLoc = 494;
+	};
+	B08378EB10145D780064B1B9 /* ProceduralManualObject.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = ProceduralManualObject.h;
+		path = /Users/steven/Projects/OgreSDK/Samples/include/ProceduralManualObject.h;
+		sourceTree = "<absolute>";
+	};
+	B08378F210145DEC0064B1B9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B08378E410145D780064B1B9 /* ProceduralManualObject.h */;
+		name = "ProceduralManualObject.h: 55";
+		rLen = 387;
+		rLoc = 1799;
+		rType = 0;
+		vrLen = 1702;
+		vrLoc = 494;
+	};
+	B08378FD10145FF70064B1B9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B08378FE10145FF70064B1B9 /* OgreFactoryObj.h */;
+		name = "OgreFactoryObj.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2051;
+		vrLoc = 0;
+	};
+	B08378FE10145FF70064B1B9 /* OgreFactoryObj.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreFactoryObj.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Headers/OgreFactoryObj.h;
+		sourceTree = "<absolute>";
+	};
+	B083790810145FF70064B1B9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B083790910145FF70064B1B9 /* OgreFactoryObj.h */;
+		name = "OgreFactoryObj.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2051;
+		vrLoc = 0;
+	};
+	B083790910145FF70064B1B9 /* OgreFactoryObj.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreFactoryObj.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Headers/OgreFactoryObj.h;
+		sourceTree = "<absolute>";
+	};
+	B083790B10145FF70064B1B9 /* OgreMovableObject.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreMovableObject.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Headers/OgreMovableObject.h;
+		sourceTree = "<absolute>";
+	};
+	B0842D77103555250066010B /* ApplicationFrameListener.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {886, 770}}";
+			sepNavSelRange = "{1478, 0}";
+			sepNavVisRange = "{229, 1458}";
+		};
+	};
+	B0842D78103555250066010B /* ApplicationFrameListener.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {886, 4103}}";
+			sepNavSelRange = "{2970, 0}";
+			sepNavVisRange = "{2235, 1894}";
+		};
+	};
+	B0842DA5103557B60066010B /* ExampleFrameListener.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = ExampleFrameListener.h;
+		path = /Users/steven/Projects/OgreSource/Samples/Common/include/ExampleFrameListener.h;
+		sourceTree = "<absolute>";
+	};
+	B0842E711038C7BC0066010B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B08753A21026819100054A39 /* OgreSimpleRenderable.cpp */;
+		name = "OgreSimpleRenderable.cpp: 92";
+		rLen = 73;
+		rLoc = 2909;
+		rType = 0;
+		vrLen = 1368;
+		vrLoc = 1973;
+	};
+	B0842EB41038CB500066010B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0842EB51038CB500066010B /* OgreEntity.cpp */;
+		name = "OgreEntity.cpp: 434";
+		rLen = 0;
+		rLoc = 14650;
+		rType = 0;
+		vrLen = 2212;
+		vrLoc = 13588;
+	};
+	B0842EB51038CB500066010B /* OgreEntity.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreEntity.cpp;
+		path = /Users/steven/Projects/OgreSource/OgreMain/src/OgreEntity.cpp;
+		sourceTree = "<absolute>";
+	};
+	B0842F001038CEEE0066010B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0842F011038CEEE0066010B /* OgreMatrix3.h */;
+		name = "OgreMatrix3.h: 63";
+		rLen = 30;
+		rLoc = 2461;
+		rType = 0;
+		vrLen = 1808;
+		vrLoc = 7085;
+	};
+	B0842F011038CEEE0066010B /* OgreMatrix3.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreMatrix3.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreMatrix3.h;
+		sourceTree = "<absolute>";
+	};
+	B0842F5C1038D67F0066010B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0842DA5103557B60066010B /* ExampleFrameListener.h */;
+		name = "ExampleFrameListener.h: 379";
+		rLen = 77;
+		rLoc = 11711;
+		rType = 0;
+		vrLen = 1061;
+		vrLoc = 10847;
+	};
+	B0842F5F1038D67F0066010B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0842DA5103557B60066010B /* ExampleFrameListener.h */;
+		name = "ExampleFrameListener.h: 379";
+		rLen = 77;
+		rLoc = 11711;
+		rType = 0;
+		vrLen = 1061;
+		vrLoc = 10847;
+	};
+	B084301F103943210066010B /* Planet.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = Planet.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Source/Planet/Planet.h;
+		sourceTree = "<absolute>";
+	};
+	B087511510242CBD00054A39 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B087511610242CBD00054A39 /* OgreTerrainPageSource.cpp */;
+		name = "OgreTerrainPageSource.cpp: 101";
+		rLen = 36;
+		rLoc = 4102;
+		rType = 0;
+		vrLen = 1774;
+		vrLoc = 3035;
+	};
+	B087511610242CBD00054A39 /* OgreTerrainPageSource.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreTerrainPageSource.cpp;
+		path = /Users/steven/Projects/OgreSource/PlugIns/OctreeSceneManager/src/OgreTerrainPageSource.cpp;
+		sourceTree = "<absolute>";
+	};
+	B087512210242CBD00054A39 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B087512310242CBD00054A39 /* OgreTerrainPageSource.cpp */;
+		name = "OgreTerrainPageSource.cpp: 101";
+		rLen = 36;
+		rLoc = 4102;
+		rType = 0;
+		vrLen = 1774;
+		vrLoc = 3035;
+	};
+	B087512310242CBD00054A39 /* OgreTerrainPageSource.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreTerrainPageSource.cpp;
+		path = /Users/steven/Projects/OgreSource/PlugIns/OctreeSceneManager/src/OgreTerrainPageSource.cpp;
+		sourceTree = "<absolute>";
+	};
+	B087522D102674F800054A39 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B08378BC101454BA0064B1B9 /* PlanetMovable.h */;
+		name = "PlanetMovable.h: 37";
+		rLen = 0;
+		rLoc = 432;
+		rType = 0;
+		vrLen = 1895;
+		vrLoc = 422;
+	};
+	B087527D1026768300054A39 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B087527E1026768300054A39 /* OgreRenderOperation.h */;
+		name = "OgreRenderOperation.h: 39";
+		rLen = 15;
+		rLoc = 1529;
+		rType = 0;
+		vrLen = 2282;
+		vrLoc = 0;
+	};
+	B087527E1026768300054A39 /* OgreRenderOperation.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreRenderOperation.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreRenderOperation.h;
+		sourceTree = "<absolute>";
+	};
+	B08752871026768300054A39 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B08752881026768300054A39 /* OgreRenderOperation.h */;
+		name = "OgreRenderOperation.h: 50";
+		rLen = 16;
+		rLoc = 1942;
+		rType = 0;
+		vrLen = 2239;
+		vrLoc = 114;
+	};
+	B08752881026768300054A39 /* OgreRenderOperation.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreRenderOperation.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreRenderOperation.h;
+		sourceTree = "<absolute>";
+	};
+	B08752DD10267B7C00054A39 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B08752DE10267B7C00054A39 /* OgreVertexIndexData.h */;
+		name = "OgreVertexIndexData.h: 219";
+		rLen = 28;
+		rLoc = 10476;
+		rType = 0;
+		vrLen = 2014;
+		vrLoc = 9516;
+	};
+	B08752DE10267B7C00054A39 /* OgreVertexIndexData.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreVertexIndexData.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreVertexIndexData.h;
+		sourceTree = "<absolute>";
+	};
+	B08752E110267B7C00054A39 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B08752E210267B7C00054A39 /* OgreHardwareIndexBuffer.h */;
+		name = "OgreHardwareIndexBuffer.h: 40";
+		rLen = 14;
+		rLoc = 1644;
+		rType = 0;
+		vrLen = 2020;
+		vrLoc = 874;
+	};
+	B08752E210267B7C00054A39 /* OgreHardwareIndexBuffer.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreHardwareIndexBuffer.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreHardwareIndexBuffer.h;
+		sourceTree = "<absolute>";
+	};
+	B08752EC10267B7C00054A39 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B08752ED10267B7C00054A39 /* OgreVertexIndexData.h */;
+		name = "OgreVertexIndexData.h: 219";
+		rLen = 28;
+		rLoc = 10476;
+		rType = 0;
+		vrLen = 2014;
+		vrLoc = 9516;
+	};
+	B08752ED10267B7C00054A39 /* OgreVertexIndexData.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreVertexIndexData.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreVertexIndexData.h;
+		sourceTree = "<absolute>";
+	};
+	B08752F410267B7C00054A39 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B08752F510267B7C00054A39 /* OgreHardwareIndexBuffer.h */;
+		name = "OgreHardwareIndexBuffer.h: 63";
+		rLen = 12;
+		rLoc = 2417;
+		rType = 0;
+		vrLen = 2097;
+		vrLoc = 789;
+	};
+	B08752F510267B7C00054A39 /* OgreHardwareIndexBuffer.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreHardwareIndexBuffer.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreHardwareIndexBuffer.h;
+		sourceTree = "<absolute>";
+	};
+	B08753A21026819100054A39 /* OgreSimpleRenderable.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreSimpleRenderable.cpp;
+		path = /Users/steven/Projects/OgreSource/OgreMain/src/OgreSimpleRenderable.cpp;
+		sourceTree = "<absolute>";
+	};
+	B08753D61026850F00054A39 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B08753D71026850F00054A39 /* OgreRenderable.h */;
+		name = "OgreRenderable.h: 335";
+		rLen = 0;
+		rLoc = 16048;
+		rType = 0;
+		vrLen = 2191;
+		vrLoc = 14926;
+	};
+	B08753D71026850F00054A39 /* OgreRenderable.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreRenderable.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreRenderable.h;
+		sourceTree = "<absolute>";
+	};
+	B08754541026870900054A39 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B083790B10145FF70064B1B9 /* OgreMovableObject.h */;
+		name = "OgreMovableObject.h: 76";
+		rLen = 95;
+		rLoc = 2943;
+		rType = 0;
+		vrLen = 2845;
+		vrLoc = 1960;
+	};
+	B08754BA1026894C00054A39 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0ED56F71022AAF200F19F2F /* DynamicRenderable.h */;
+		name = "DynamicRenderable.h: 18";
+		rLen = 16;
+		rLoc = 490;
+		rType = 0;
+		vrLen = 2258;
+		vrLoc = 147;
+	};
+	B08754BC1026894C00054A39 /* OgreSimpleRenderable.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreSimpleRenderable.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreSimpleRenderable.h;
+		sourceTree = "<absolute>";
+	};
+	B08754E6102689ED00054A39 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0ED56F81022AAF200F19F2F /* DynamicRenderable.cpp */;
+		name = "DynamicRenderable.cpp: 18";
+		rLen = 39;
+		rLoc = 410;
+		rType = 0;
+		vrLen = 2494;
+		vrLoc = 1997;
+	};
+	B08756DC1026EAE800054A39 /* OgreAxisAlignedBox.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreAxisAlignedBox.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreAxisAlignedBox.h;
+		sourceTree = "<absolute>";
+	};
+	B08756E21026EB2100054A39 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B08756DC1026EAE800054A39 /* OgreAxisAlignedBox.h */;
+		name = "OgreAxisAlignedBox.h: 110";
+		rLen = 56;
+		rLoc = 2985;
+		rType = 0;
+		vrLen = 1315;
+		vrLoc = 2181;
+	};
+	B08756FB1028B11400054A39 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0717B94100088BD00D7DE22 /* OgreTerrainRenderable.cpp */;
+		name = "OgreTerrainRenderable.cpp: 439";
+		rLen = 0;
+		rLoc = 15481;
+		rType = 0;
+		vrLen = 1909;
+		vrLoc = 8067;
+	};
+	B095693F10490FCF006B48DD /* OgreRenderQueue.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreRenderQueue.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreRenderQueue.h;
+		sourceTree = "<absolute>";
+	};
+	B095695E1049EDDC006B48DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B095693F10490FCF006B48DD /* OgreRenderQueue.h */;
+		name = "OgreRenderQueue.h: 176";
+		rLen = 0;
+		rLoc = 7609;
+		rType = 0;
+		vrLen = 2938;
+		vrLoc = 6337;
+	};
+	B09569661049EDDC006B48DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B095693F10490FCF006B48DD /* OgreRenderQueue.h */;
+		name = "OgreRenderQueue.h: 176";
+		rLen = 0;
+		rLoc = 7609;
+		rType = 0;
+		vrLen = 2938;
+		vrLoc = 6337;
+	};
+	B0956A051049FB19006B48DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B084301F103943210066010B /* Planet.h */;
+		name = "Planet.h: 16";
+		rLen = 0;
+		rLoc = 200;
+		rType = 0;
+		vrLen = 295;
+		vrLoc = 0;
+	};
+	B0956AD7104A0543006B48DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0956AD8104A0543006B48DD /* OgreMath.h */;
+		name = "OgreMath.h: 509";
+		rLen = 0;
+		rLoc = 21134;
+		rType = 0;
+		vrLen = 2440;
+		vrLoc = 20243;
+	};
+	B0956AD8104A0543006B48DD /* OgreMath.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreMath.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreMath.h;
+		sourceTree = "<absolute>";
+	};
+	B0956ADB104A0543006B48DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B08756DC1026EAE800054A39 /* OgreAxisAlignedBox.h */;
+		name = "OgreAxisAlignedBox.h: 296";
+		rLen = 50;
+		rLoc = 6968;
+		rType = 0;
+		vrLen = 1685;
+		vrLoc = 6844;
+	};
+	B0956AE1104A0543006B48DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0956AE2104A0543006B48DD /* OgreMath.h */;
+		name = "OgreMath.h: 509";
+		rLen = 0;
+		rLoc = 21134;
+		rType = 0;
+		vrLen = 2440;
+		vrLoc = 20243;
+	};
+	B0956AE2104A0543006B48DD /* OgreMath.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreMath.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreMath.h;
+		sourceTree = "<absolute>";
+	};
+	B0956AEF104A0588006B48DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0D0248C1045275C00D503C3 /* SimpleFrustum.h */;
+		name = "SimpleFrustum.h: 29";
+		rLen = 0;
+		rLoc = 496;
+		rType = 0;
+		vrLen = 927;
+		vrLoc = 0;
+	};
+	B0956E73104A3C92006B48DD /* OgreImage.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreImage.cpp;
+		path = /Users/steven/Projects/OgreSource/OgreMain/src/OgreImage.cpp;
+		sourceTree = "<absolute>";
+	};
+	B0956E8B104A3C92006B48DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B35F103EAA5700F67E15 /* OgreImage.h */;
+		name = "OgreImage.h: 160";
+		rLen = 73;
+		rLoc = 5954;
+		rType = 0;
+		vrLen = 1963;
+		vrLoc = 3867;
+	};
+	B0956EDF104A4413006B48DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0956EE0104A4413006B48DD /* OgreSceneManager.h */;
+		name = "OgreSceneManager.h: 3178";
+		rLen = 18;
+		rLoc = 154553;
+		rType = 0;
+		vrLen = 1485;
+		vrLoc = 153045;
+	};
+	B0956EE0104A4413006B48DD /* OgreSceneManager.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreSceneManager.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreSceneManager.h;
+		sourceTree = "<absolute>";
+	};
+	B0956F7A104A4939006B48DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0956F7B104A4939006B48DD /* OgreVector3.h */;
+		name = "OgreVector3.h: 338";
+		rLen = 6;
+		rLoc = 8888;
+		rType = 0;
+		vrLen = 1717;
+		vrLoc = 8487;
+	};
+	B0956F7B104A4939006B48DD /* OgreVector3.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreVector3.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreVector3.h;
+		sourceTree = "<absolute>";
+	};
+	B0956FC4104A576B006B48DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0956FC5104A576B006B48DD /* OgreTexture.h */;
+		name = "OgreTexture.h: 54";
+		rLen = 27;
+		rLoc = 2214;
+		rType = 0;
+		vrLen = 1730;
+		vrLoc = 1307;
+	};
+	B0956FC5104A576B006B48DD /* OgreTexture.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreTexture.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreTexture.h;
+		sourceTree = "<absolute>";
+	};
+	B0957011104A5DBC006B48DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0957012104A5DBC006B48DD /* OgreSceneNode.h */;
+		name = "OgreSceneNode.h: 273";
+		rLen = 56;
+		rLoc = 12102;
+		rType = 0;
+		vrLen = 2226;
+		vrLoc = 11044;
+	};
+	B0957012104A5DBC006B48DD /* OgreSceneNode.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreSceneNode.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreSceneNode.h;
+		sourceTree = "<absolute>";
+	};
+	B0957062104A6584006B48DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B08754BC1026894C00054A39 /* OgreSimpleRenderable.h */;
+		name = "OgreSimpleRenderable.h: 64";
+		rLen = 0;
+		rLoc = 2181;
+		rType = 0;
+		vrLen = 1574;
+		vrLoc = 1522;
+	};
+	B0957063104A6584006B48DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B08753A21026819100054A39 /* OgreSimpleRenderable.cpp */;
+		name = "OgreSimpleRenderable.cpp: 61";
+		rLen = 0;
+		rLoc = 2098;
+		rType = 0;
+		vrLen = 1317;
+		vrLoc = 1397;
+	};
+	B095710C104A6D76006B48DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B095710D104A6D76006B48DD /* OgreViewport.h */;
+		name = "OgreViewport.h: 184";
+		rLen = 22;
+		rLoc = 6698;
+		rType = 0;
+		vrLen = 2043;
+		vrLoc = 5619;
+	};
+	B095710D104A6D76006B48DD /* OgreViewport.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreViewport.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreViewport.h;
+		sourceTree = "<absolute>";
+	};
+	B0957111104A6D76006B48DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0957112104A6D76006B48DD /* OgreViewport.h */;
+		name = "OgreViewport.h: 169";
+		rLen = 61;
+		rLoc = 5998;
+		rType = 0;
+		vrLen = 1957;
+		vrLoc = 5388;
+	};
+	B0957112104A6D76006B48DD /* OgreViewport.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreViewport.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreViewport.h;
+		sourceTree = "<absolute>";
+	};
+	B097347110A141BE00530C60 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0AE0E4510A1411E008EB47E /* normalMapper_VP.glsl */;
+		name = "normalMapper_VP.glsl: 6";
+		rLen = 0;
+		rLoc = 159;
+		rType = 0;
+		vrLen = 122;
+		vrLoc = 0;
+	};
+	B097347210A141BE00530C60 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B097347310A141BE00530C60 /* normalMapper_FP.glsl */;
+		name = "normalMapper_FP.glsl: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 715;
+		vrLoc = 0;
+	};
+	B097347310A141BE00530C60 /* normalMapper_FP.glsl */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text;
+		name = normalMapper_FP.glsl;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Resources/Media/Planet/Materials/normalMapper_FP.glsl;
+		sourceTree = "<absolute>";
+	};
+	B09734C810A1933E00530C60 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0D0248D1045275C00D503C3 /* SimpleFrustum.cpp */;
+		name = "SimpleFrustum.cpp: 67";
+		rLen = 0;
+		rLoc = 1792;
+		rType = 0;
+		vrLen = 1416;
+		vrLoc = 0;
+	};
+	B097350810A1974000530C60 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050AF56103D411200F67E15 /* OgreHardwareVertexBuffer.h */;
+		name = "OgreHardwareVertexBuffer.h: 365";
+		rLen = 113;
+		rLoc = 15998;
+		rType = 0;
+		vrLen = 2721;
+		vrLoc = 15087;
+	};
+	B0A332BC0FDE510E00A04706 /* Application.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {886, 627}}";
+			sepNavSelRange = "{235, 25}";
+			sepNavVisRange = "{0, 1111}";
+			sepNavWindowFrame = "{{15, 111}, {940, 762}}";
+		};
+	};
+	B0A332BD0FDE510E00A04706 /* Application.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {948, 3058}}";
+			sepNavSelRange = "{6443, 0}";
+			sepNavVisRange = "{5376, 2047}";
+		};
+	};
+	B0A4D2B910A0150900009B23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0A4D2BA10A0150900009B23 /* OgreOctreeSceneManager.cpp */;
+		name = "OgreOctreeSceneManager.cpp: 382";
+		rLen = 0;
+		rLoc = 9817;
+		rType = 0;
+		vrLen = 1248;
+		vrLoc = 9120;
+	};
+	B0A4D2BA10A0150900009B23 /* OgreOctreeSceneManager.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreOctreeSceneManager.cpp;
+		path = /Users/steven/Projects/OgreSource/PlugIns/OctreeSceneManager/src/OgreOctreeSceneManager.cpp;
+		sourceTree = "<absolute>";
+	};
+	B0A4D2C110A0150900009B23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0A4D2C210A0150900009B23 /* OgreIteratorWrappers.h */;
+		name = "OgreIteratorWrappers.h: 161";
+		rLen = 7;
+		rLoc = 5771;
+		rType = 0;
+		vrLen = 1685;
+		vrLoc = 5126;
+	};
+	B0A4D2C210A0150900009B23 /* OgreIteratorWrappers.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreIteratorWrappers.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreIteratorWrappers.h;
+		sourceTree = "<absolute>";
+	};
+	B0A4D2C310A0150900009B23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0D0256110452FD200D503C3 /* OgreEntity.h */;
+		name = "OgreEntity.h: 516";
+		rLen = 64;
+		rLoc = 22373;
+		rType = 0;
+		vrLen = 2711;
+		vrLoc = 21101;
+	};
+	B0A4D2CB10A0150900009B23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B1C109E789A00578B8B /* PlanetCubeTree.cpp */;
+		name = "PlanetCubeTree.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1704;
+		vrLoc = 380;
+	};
+	B0A4D2CC10A0150900009B23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B28109E789A00578B8B /* PlanetFilter.cpp */;
+		name = "PlanetFilter.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1618;
+		vrLoc = 2187;
+	};
+	B0A4D2D110A0150900009B23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0A4D2D210A0150900009B23 /* filter.material */;
+		name = "filter.material: 1";
+		rLen = 0;
+		rLoc = 1225;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	B0A4D2D210A0150900009B23 /* filter.material */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text;
+		name = filter.material;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Resources/Media/Planet/Materials/filter.material;
+		sourceTree = "<absolute>";
+	};
+	B0A4D2D410A0150900009B23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0A4D2D510A0150900009B23 /* normalMapper.cg */;
+		name = "normalMapper.cg: 1";
+		rLen = 0;
+		rLoc = 814;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	B0A4D2D510A0150900009B23 /* normalMapper.cg */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text;
+		name = normalMapper.cg;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Resources/Media/Planet/Materials/normalMapper.cg;
+		sourceTree = "<absolute>";
+	};
+	B0A4D2E310A0150900009B23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B29109E789A00578B8B /* PlanetFilter.h */;
+		name = "PlanetFilter.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 860;
+		vrLoc = 0;
+	};
+	B0A4D2E610A0150900009B23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B2D109E789A00578B8B /* PlanetMapBuffer.h */;
+		name = "PlanetMapBuffer.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1585;
+		vrLoc = 334;
+	};
+	B0A4D2EC10A0150900009B23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B1A109E789A00578B8B /* PlanetCube.cpp */;
+		name = "PlanetCube.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1571;
+		vrLoc = 0;
+	};
+	B0A4D2ED10A0150900009B23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B21109E789A00578B8B /* PlanetMovable.cpp */;
+		name = "PlanetMovable.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1093;
+		vrLoc = 0;
+	};
+	B0A4D2FF10A0150900009B23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0A4D30010A0150900009B23 /* OgreOctreeSceneManager.cpp */;
+		name = "OgreOctreeSceneManager.cpp: 382";
+		rLen = 0;
+		rLoc = 9817;
+		rType = 0;
+		vrLen = 1248;
+		vrLoc = 9120;
+	};
+	B0A4D30010A0150900009B23 /* OgreOctreeSceneManager.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreOctreeSceneManager.cpp;
+		path = /Users/steven/Projects/OgreSource/PlugIns/OctreeSceneManager/src/OgreOctreeSceneManager.cpp;
+		sourceTree = "<absolute>";
+	};
+	B0A4D31110A0150900009B23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B26109E789A00578B8B /* PlanetEdgeFixup.cpp */;
+		name = "PlanetEdgeFixup.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1566;
+		vrLoc = 0;
+	};
+	B0A4D32C10A0150900009B23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0A4D32D10A0150900009B23 /* OgreIteratorWrappers.h */;
+		name = "OgreIteratorWrappers.h: 161";
+		rLen = 7;
+		rLoc = 5771;
+		rType = 0;
+		vrLen = 1685;
+		vrLoc = 5126;
+	};
+	B0A4D32D10A0150900009B23 /* OgreIteratorWrappers.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreIteratorWrappers.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreIteratorWrappers.h;
+		sourceTree = "<absolute>";
+	};
+	B0A4D36110A0170800009B23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0A4D36210A0170800009B23 /* OgreResource.h */;
+		name = "OgreResource.h: 301";
+		rLen = 51;
+		rLoc = 12091;
+		rType = 0;
+		vrLen = 1353;
+		vrLoc = 11217;
+	};
+	B0A4D36210A0170800009B23 /* OgreResource.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreResource.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreResource.h;
+		sourceTree = "<absolute>";
+	};
+	B0A4D36F10A0170800009B23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0A4D37010A0170800009B23 /* OgreResource.h */;
+		name = "OgreResource.h: 301";
+		rLen = 51;
+		rLoc = 12091;
+		rType = 0;
+		vrLen = 1353;
+		vrLoc = 11217;
+	};
+	B0A4D37010A0170800009B23 /* OgreResource.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreResource.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreResource.h;
+		sourceTree = "<absolute>";
+	};
+	B0A4D39610A0192C00009B23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B7B1E109E789A00578B8B /* PlanetRenderable.cpp */;
+		name = "PlanetRenderable.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1887;
+		vrLoc = 6436;
+	};
+	B0A4D49A10A026CC00009B23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B08753D71026850F00054A39 /* OgreRenderable.h */;
+		name = "OgreRenderable.h: 232";
+		rLen = 0;
+		rLoc = 11639;
+		rType = 0;
+		vrLen = 2664;
+		vrLoc = 10414;
+	};
+	B0AE0E4510A1411E008EB47E /* normalMapper_VP.glsl */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text;
+		name = normalMapper_VP.glsl;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Resources/Media/Planet/Materials/normalMapper_VP.glsl;
+		sourceTree = "<absolute>";
+	};
+	B0D0248C1045275C00D503C3 /* SimpleFrustum.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {780, 528}}";
+			sepNavSelRange = "{496, 0}";
+			sepNavVisRange = "{0, 927}";
+		};
+	};
+	B0D0248D1045275C00D503C3 /* SimpleFrustum.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {932, 737}}";
+			sepNavSelRange = "{1792, 0}";
+			sepNavVisRange = "{0, 1416}";
+		};
+	};
+	B0D0249E104527CB00D503C3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0D0248C1045275C00D503C3 /* SimpleFrustum.h */;
+		name = "SimpleFrustum.h: 10";
+		rLen = 0;
+		rLoc = 938;
+		rType = 0;
+		vrLen = 921;
+		vrLoc = 0;
+	};
+	B0D0249F104527CB00D503C3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0D0248D1045275C00D503C3 /* SimpleFrustum.cpp */;
+		name = "SimpleFrustum.cpp: 12";
+		rLen = 0;
+		rLoc = 199;
+		rType = 0;
+		vrLen = 178;
+		vrLoc = 0;
+	};
+	B0D024F510452C1D00D503C3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0D024F610452C1D00D503C3 /* OgreNode.h */;
+		name = "OgreNode.h: 597";
+		rLen = 0;
+		rLoc = 27570;
+		rType = 0;
+		vrLen = 2415;
+		vrLoc = 26388;
+	};
+	B0D024F610452C1D00D503C3 /* OgreNode.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreNode.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreNode.h;
+		sourceTree = "<absolute>";
+	};
+	B0D0254410452FD200D503C3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B083790B10145FF70064B1B9 /* OgreMovableObject.h */;
+		name = "OgreMovableObject.h: 235";
+		rLen = 50;
+		rLoc = 9763;
+		rType = 0;
+		vrLen = 2778;
+		vrLoc = 8722;
+	};
+	B0D0254510452FD200D503C3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050AE7D103D2B7100F67E15 /* OgreCamera.h */;
+		name = "OgreCamera.h: 448";
+		rLen = 12;
+		rLoc = 18572;
+		rType = 0;
+		vrLen = 2302;
+		vrLoc = 17492;
+	};
+	B0D0254A10452FD200D503C3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0D0254B10452FD200D503C3 /* OgreMovableObject.cpp */;
+		name = "OgreMovableObject.cpp: 241";
+		rLen = 17;
+		rLoc = 7910;
+		rType = 0;
+		vrLen = 1571;
+		vrLoc = 7050;
+	};
+	B0D0254B10452FD200D503C3 /* OgreMovableObject.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreMovableObject.cpp;
+		path = /Users/steven/Projects/OgreSource/OgreMain/src/OgreMovableObject.cpp;
+		sourceTree = "<absolute>";
+	};
+	B0D0254E10452FD200D503C3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0842EB51038CB500066010B /* OgreEntity.cpp */;
+		name = "OgreEntity.cpp: 1296";
+		rLen = 17;
+		rLoc = 47330;
+		rType = 0;
+		vrLen = 1771;
+		vrLoc = 46314;
+	};
+	B0D0255210452FD200D503C3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0D0255310452FD200D503C3 /* OgreMovableObject.cpp */;
+		name = "OgreMovableObject.cpp: 242";
+		rLen = 12;
+		rLoc = 7993;
+		rType = 0;
+		vrLen = 1605;
+		vrLoc = 7050;
+	};
+	B0D0255310452FD200D503C3 /* OgreMovableObject.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreMovableObject.cpp;
+		path = /Users/steven/Projects/OgreSource/OgreMain/src/OgreMovableObject.cpp;
+		sourceTree = "<absolute>";
+	};
+	B0D0256010452FD200D503C3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0D0256110452FD200D503C3 /* OgreEntity.h */;
+		name = "OgreEntity.h: 509";
+		rLen = 0;
+		rLoc = 22214;
+		rType = 0;
+		vrLen = 2693;
+		vrLoc = 21023;
+	};
+	B0D0256110452FD200D503C3 /* OgreEntity.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreEntity.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgreEntity.h;
+		sourceTree = "<absolute>";
+	};
+	B0DC0A41102FE9AB002315B5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0DC0A42102FE9AB002315B5 /* OgreMemoryAllocatedObject.h */;
+		name = "OgreMemoryAllocatedObject.h: 69";
+		rLen = 0;
+		rLoc = 2173;
+		rType = 0;
+		vrLen = 549;
+		vrLoc = 1891;
+	};
+	B0DC0A42102FE9AB002315B5 /* OgreMemoryAllocatedObject.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreMemoryAllocatedObject.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Headers/OgreMemoryAllocatedObject.h;
+		sourceTree = "<absolute>";
+	};
+	B0DC0A4A102FE9AB002315B5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0DC0A4B102FE9AB002315B5 /* OgreMemoryAllocatedObject.h */;
+		name = "OgreMemoryAllocatedObject.h: 69";
+		rLen = 0;
+		rLoc = 2173;
+		rType = 0;
+		vrLen = 549;
+		vrLoc = 1891;
+	};
+	B0DC0A4B102FE9AB002315B5 /* OgreMemoryAllocatedObject.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreMemoryAllocatedObject.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Headers/OgreMemoryAllocatedObject.h;
+		sourceTree = "<absolute>";
+	};
+	B0E2182E109E459C00831FD4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0867D6ABFE840B52C02AAC07 /* English */;
+		name = "InfoPlist.strings: 4";
+		rLen = 0;
+		rLoc = 98;
+		rType = 0;
+		vrLen = 98;
+		vrLoc = 0;
+	};
+	B0E21833109E459C00831FD4 /* brushCarver.cg */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text;
+		name = brushCarver.cg;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Resources/Media/Planet/Materials/brushCarver.cg;
+		sourceTree = "<absolute>";
+	};
+	B0EA7C6D10A02A65007C28A4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B00B798B109E4DAE00578B8B /* surface.material */;
+		name = "surface.material: 18";
+		rLen = 0;
+		rLoc = 280;
+		rType = 0;
+		vrLen = 422;
+		vrLoc = 0;
+	};
+	B0ED56F71022AAF200F19F2F /* DynamicRenderable.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {886, 1001}}";
+			sepNavSelRange = "{3157, 0}";
+			sepNavVisRange = "{0, 1880}";
+		};
+	};
+	B0ED56F81022AAF200F19F2F /* DynamicRenderable.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {886, 1661}}";
+			sepNavSelRange = "{2141, 21}";
+			sepNavVisRange = "{1405, 2172}";
+		};
+	};
+	B0F02CF8109BD22A00D6E865 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0F02CF9109BD22A00D6E865 /* CubeMapping.h */;
+		name = "CubeMapping.h: 30";
+		rLen = 22;
+		rLoc = 889;
+		rType = 0;
+		vrLen = 2295;
+		vrLoc = 2881;
+	};
+	B0F02CF9109BD22A00D6E865 /* CubeMapping.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = CubeMapping.h;
+		path = /Users/steven/Projects/OgreSource/Samples/CubeMapping/include/CubeMapping.h;
+		sourceTree = "<absolute>";
+	};
+	B0F02CFC109BD22A00D6E865 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0F02CFD109BD22A00D6E865 /* CubeMapping.h */;
+		name = "CubeMapping.h: 30";
+		rLen = 22;
+		rLoc = 889;
+		rType = 0;
+		vrLen = 2295;
+		vrLoc = 2881;
+	};
+	B0F02CFD109BD22A00D6E865 /* CubeMapping.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = CubeMapping.h;
+		path = /Users/steven/Projects/OgreSource/Samples/CubeMapping/include/CubeMapping.h;
+		sourceTree = "<absolute>";
+	};
+	B0F02D1E109BD75500D6E865 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0F1E7E2105366EF0099EDFA /* OgreTextureUnitState.cpp */;
+		name = "OgreTextureUnitState.cpp: 246";
+		rLen = 19;
+		rLoc = 7657;
+		rType = 0;
+		vrLen = 1969;
+		vrLoc = 3129;
+	};
+	B0F02D83109BEE5700D6E865 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B04D3D011092CCB400F57FA2 /* OgrePrerequisites.h */;
+		name = "OgrePrerequisites.h: 159";
+		rLen = 35;
+		rLoc = 5424;
+		rType = 0;
+		vrLen = 2634;
+		vrLoc = 4627;
+	};
+	B0F02DB3109BF53100D6E865 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B035C6DF104B4756002959DB /* OgreRenderTexture.h */;
+		name = "OgreRenderTexture.h: 43";
+		rLen = 12;
+		rLoc = 1801;
+		rType = 0;
+		vrLen = 1955;
+		vrLoc = 947;
+	};
+	B0F02DB4109BF53100D6E865 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B2D9103EA39B00F67E15 /* OgreRenderTarget.h */;
+		name = "OgreRenderTarget.h: 296";
+		rLen = 14;
+		rLoc = 13458;
+		rType = 0;
+		vrLen = 3321;
+		vrLoc = 3382;
+	};
+	B0F02DB5109BF53100D6E865 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B050B2E0103EA39B00F67E15 /* OgreRenderTarget.cpp */;
+		name = "OgreRenderTarget.cpp: 477";
+		rLen = 14;
+		rLoc = 14422;
+		rType = 0;
+		vrLen = 1329;
+		vrLoc = 1590;
+	};
+	B0F02E1B109D1F5600D6E865 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0F02E1C109D1F5600D6E865 /* OgrePixelFormat.h */;
+		name = "OgrePixelFormat.h: 45";
+		rLen = 6;
+		rLoc = 1745;
+		rType = 0;
+		vrLen = 2129;
+		vrLoc = 379;
+	};
+	B0F02E1C109D1F5600D6E865 /* OgrePixelFormat.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgrePixelFormat.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Versions/A/Headers/OgrePixelFormat.h;
+		sourceTree = "<absolute>";
+	};
+	B0F02F3B109D30D300D6E865 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0F02E1C109D1F5600D6E865 /* OgrePixelFormat.h */;
+		name = "OgrePixelFormat.h: 134";
+		rLen = 13;
+		rLoc = 6053;
+		rType = 0;
+		vrLen = 2379;
+		vrLoc = 4381;
+	};
+	B0F02F3C109D30D300D6E865 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0F02F3D109D30D300D6E865 /* types.h */;
+		name = "types.h: 93";
+		rLen = 28;
+		rLoc = 3833;
+		rType = 0;
+		vrLen = 1271;
+		vrLoc = 2840;
+	};
+	B0F02F3D109D30D300D6E865 /* types.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = types.h;
+		path = /Developer/SDKs/MacOSX10.5.sdk/usr/include/i386/types.h;
+		sourceTree = "<absolute>";
+	};
+	B0F02F47109D30D300D6E865 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0F02F48109D30D300D6E865 /* types.h */;
+		name = "types.h: 93";
+		rLen = 28;
+		rLoc = 3833;
+		rType = 0;
+		vrLen = 1271;
+		vrLoc = 2840;
+	};
+	B0F02F48109D30D300D6E865 /* types.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = types.h;
+		path = /Developer/SDKs/MacOSX10.5.sdk/usr/include/i386/types.h;
+		sourceTree = "<absolute>";
+	};
+	B0F1E7E1105366EF0099EDFA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0F1E7E2105366EF0099EDFA /* OgreTextureUnitState.cpp */;
+		name = "OgreTextureUnitState.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1982;
+		vrLoc = 162;
+	};
+	B0F1E7E2105366EF0099EDFA /* OgreTextureUnitState.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OgreTextureUnitState.cpp;
+		path = /Users/steven/Projects/OgreSource/OgreMain/src/OgreTextureUnitState.cpp;
+		sourceTree = "<absolute>";
+	};
+	B0F1E7F81053672C0099EDFA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0F1E7F91053672C0099EDFA /* OgreSharedPtr.h */;
+		name = "OgreSharedPtr.h: 152";
+		rLen = 0;
+		rLoc = 4904;
+		rType = 0;
+		vrLen = 974;
+		vrLoc = 4369;
+	};
+	B0F1E7F91053672C0099EDFA /* OgreSharedPtr.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreSharedPtr.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Headers/OgreSharedPtr.h;
+		sourceTree = "<absolute>";
+	};
+	B0F1E8001053672C0099EDFA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0F1E8011053672C0099EDFA /* OgreSharedPtr.h */;
+		name = "OgreSharedPtr.h: 152";
+		rLen = 0;
+		rLoc = 4904;
+		rType = 0;
+		vrLen = 974;
+		vrLoc = 4369;
+	};
+	B0F1E8011053672C0099EDFA /* OgreSharedPtr.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreSharedPtr.h;
+		path = /Users/steven/Projects/CG/NFSpaceOgre/Platform/OSX/Frameworks/Ogre.framework/Headers/OgreSharedPtr.h;
+		sourceTree = "<absolute>";
+	};
+	B0F1E926105376910099EDFA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0F1E927105376910099EDFA /* OgreRenderTexture.h */;
+		name = "OgreRenderTexture.h: 53";
+		rLen = 0;
+		rLoc = 2080;
+		rType = 0;
+		vrLen = 1779;
+		vrLoc = 1395;
+	};
+	B0F1E927105376910099EDFA /* OgreRenderTexture.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreRenderTexture.h;
+		path = /Users/steven/Projects/OgreSource/OgreMain/include/OgreRenderTexture.h;
+		sourceTree = "<absolute>";
+	};
+	B0F1E92A105376910099EDFA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B0F1E92B105376910099EDFA /* OgreRenderTexture.h */;
+		name = "OgreRenderTexture.h: 53";
+		rLen = 0;
+		rLoc = 2080;
+		rType = 0;
+		vrLen = 1779;
+		vrLoc = 1395;
+	};
+	B0F1E92B105376910099EDFA /* OgreRenderTexture.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OgreRenderTexture.h;
+		path = /Users/steven/Projects/OgreSource/OgreMain/include/OgreRenderTexture.h;
+		sourceTree = "<absolute>";
+	};
+}

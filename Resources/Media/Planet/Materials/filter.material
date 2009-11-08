@@ -1,0 +1,56 @@
+vertex_program normalMapper_VP glsl {
+    source normalMapper_VP.glsl
+}
+
+fragment_program normalMapper_FP glsl
+{
+	source normalMapper_FP.glsl
+
+    default_params
+    {
+        param_named sampleDistance float .01
+        param_named inverseSampleDistance float 100
+        param_named heightScale float 1
+
+        param_named faceTransform1 float3 1 0 0
+        param_named faceTransform2 float3 0 1 0
+        param_named faceTransform3 float3 0 0 1
+    }
+}
+
+material Planet/NormalMapper
+{
+  technique
+  {
+    pass
+    {
+      cull_hardware none 
+      lighting off
+      depth_write off
+      depth_check off
+      scene_blend alpha_blend
+      
+      vertex_program_ref normalMapper_VP {
+        
+      }
+
+      fragment_program_ref normalMapper_FP
+      {
+        param_named heightField int 0
+        param_named_auto sampleDistance custom 1
+        param_named_auto inverseSampleDistance custom 2
+        param_named_auto heightScale custom 3
+
+        param_named_auto faceTransform1 custom 4
+        param_named_auto faceTransform2 custom 5
+        param_named_auto faceTransform3 custom 6
+      }
+
+      texture_unit source
+      {
+        tex_address_mode clamp
+        filtering point point none
+      }
+    }
+  }
+}

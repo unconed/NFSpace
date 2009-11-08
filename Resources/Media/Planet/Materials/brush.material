@@ -1,0 +1,92 @@
+fragment_program brushCarver_FP cg			
+{
+	source brushCarver.cg		
+	entry_point brushCarver_FP
+	profiles arbfp1
+
+	default_params
+	{
+        param_named intensity float 0.5
+	}
+}
+
+material Planet/BrushCarver
+{
+  technique
+  {
+    pass
+    {
+      cull_hardware none 
+      lighting off
+      depth_write off
+      depth_check on
+      scene_blend add
+
+      fragment_program_ref brushCarver_FP
+      {
+            param_named_auto intensity custom 1
+      }
+
+      texture_unit elevationBrush
+      {
+        texture dent.png
+        tex_address_mode clamp
+        filtering linear linear none
+      }
+
+    }
+  }
+}
+
+fragment_program brushCarverNoisy_FP cg			
+{
+	source brushCarver.cg		
+	entry_point brushCarverNoisy_FP
+	profiles arbfp1
+
+	default_params
+	{
+        param_named carveIntensity float 0.5
+        param_named noiseIntensity float 0.1
+        param_named noiseScale float 0.25
+        param_named noiseOffset float2 0.25 0.1
+    }
+}
+
+material Planet/BrushCarverNoisy
+{
+  technique
+  {
+    pass
+    {
+      cull_hardware none 
+      lighting off
+      depth_write off
+      depth_check off
+      scene_blend add
+
+      fragment_program_ref brushCarverNoisy_FP
+      {
+            param_named_auto carveIntensity custom 1
+            param_named_auto noiseIntensity custom 2
+            param_named_auto noiseScale custom 3
+            param_named_auto noiseOffset custom 4
+      }
+
+      texture_unit elevationBrush
+      {
+        texture dent.png
+        tex_address_mode clamp
+        filtering linear linear none
+      }
+
+      texture_unit noiseMap
+      {
+        texture noise-32-32.png
+        tex_address_mode wrap
+        filtering linear linear none
+      }
+
+    }
+  }
+}

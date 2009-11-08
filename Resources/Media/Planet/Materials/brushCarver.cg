@@ -1,0 +1,38 @@
+float4 brushCarver_FP(
+		float2 uv0		: TEXCOORD0,
+		uniform sampler2D elevationBrush,
+        uniform float4 intensity
+        )
+        : COLOR
+{
+	return (tex2D(elevationBrush, uv0) - 0.5) * intensity.r;
+}
+
+float falloff(float2 uv) {
+    return 16.0 * uv.x * (1.0 - uv.x) * uv.y * (1.0 - uv.y);
+}
+
+float4 brushCarverNoisy_FP(
+		float2 uv0		: TEXCOORD0,
+		uniform sampler2D elevationBrush : register(s0),
+		uniform sampler2D noiseMap : register(s1),
+        uniform float carveIntensity,
+        uniform float noiseIntensity,
+        uniform float noiseScale,
+        uniform float2 noiseOffset
+        )
+        : COLOR
+{
+    float4 noiseSample =
+        tex2D(noiseMap, uv0 * noiseScale + noiseOffset) +
+        tex2D(noiseMap, uv0 * noiseScale * 2 + noiseOffset) * .5 +
+        tex2D(noiseMap, uv0 * noiseScale * 4 + noiseOffset) * .25 +
+        tex2D(noiseMap, uv0 * noiseScale * 8 + noiseOffset) * .125 +
+        tex2D(noiseMap, uv0 * noiseScale * 16 + noiseOffset) * .0625
+    ;
+    
+    float2 uvAdjusted = uv0 + falloff(uv0) * (float2(noiseSample.x, noiseSample.y) * 2.0 - 1.0) * noiseIntensity;
+
+	return (tex2D(elevationBrush, uvAdjusted) - 0.5) * carveIntensity;
+}
+

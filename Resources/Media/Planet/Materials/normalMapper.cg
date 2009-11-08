@@ -1,0 +1,21 @@
+const float3 samples[4] = {
+    { 1, 0, 0},
+    {-1, 0, 0},
+    { 0, 1, 0},
+    { 0,-1, 0}
+};
+
+float4 normalMapper_FP(
+    float3 uvw0		: TEXCOORD0,
+    uniform samplerCUBE heightField,
+    uniform float sampleDistance//,
+//    uniform float sampleScale
+) : COLOR {
+//    float xdiff = texCUBE(heightField, uvw0 + sampleDistance * samples[0]).r
+//                - texCUBE(heightField, uvw0 + sampleDistance * samples[1]).r;
+//    float ydiff = texCUBE(heightField, uvw0 + sampleDistance * samples[2]).r
+//               - texCUBE(heightField, uvw0 + sampleDistance * samples[3]).r;
+//    return float4((xdiff * sampleScale) * .5 + .5, (ydiff * sampleScale) * .5 + .5, 1, 1);
+//
+    return float4(texCUBE(heightField, uvw0 + float3(.1, 0, 0)).r - texCUBE(heightField, uvw0 - float3(.1, 0, 0)).r, 0.25, 0.25, 1);
+};
