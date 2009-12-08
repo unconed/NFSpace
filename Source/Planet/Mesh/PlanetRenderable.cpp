@@ -32,7 +32,7 @@ VertexDeclaration *PlanetRenderable::sVertexDeclaration;
  * Constructor.
  */
 PlanetRenderable::PlanetRenderable(QuadTreeNode* node, Image* map)
-: mProxy(0), mQuadTreeNode(node), mMap(map), mChildDistance(0), mChildDistanceSquared(0) {
+: mProxy(0), mQuadTreeNode(node), mMap(map), mChildDistance(0), mChildDistanceSquared(0), mWireBoundingBox(0) {
     mPlanetRadius = getReal("planet.radius");
     mPlanetHeight = getReal("planet.height");
     
@@ -48,11 +48,15 @@ PlanetRenderable::PlanetRenderable(QuadTreeNode* node, Image* map)
     
     setMaterial("BaseWhiteNoLighting");
     fillHardwareBuffers();
+    analyseTerrain();
+    initDisplacementMapping();
 }
     
 PlanetRenderable::~PlanetRenderable() {
     removeInstance();
-    log("~PlanetRenderable");
+    if (mWireBoundingBox) {
+        OGRE_DELETE mWireBoundingBox;
+    }
 }
 
 Real PlanetRenderable::getLODDistance() {
@@ -88,12 +92,6 @@ Real PlanetRenderable::getBoundingRadius() {
     return mBoundingRadius;
 }
 
-    /*
-    setCustomParameter(1, Vector4((randf() * .5 - .25), 0, 0, 0));
-    setCustomParameter(2, Vector4(0.05, 0, 0, 0));
-    setCustomParameter(4, Vector4(randf() * 2.0 - 1.0, randf() * 2.0 - 1.0, 0, 0));
-     */
-
 void PlanetRenderable::addInstance() {
     if (!sInstances++) {
         sGridSize = getInt("planet.gridSize");
@@ -113,7 +111,148 @@ void PlanetRenderable::removeInstance() {
     }
 }
 
+/**
+ * Set up the parameters for the vertex shader warp / displacement mapping.
+ */
+void PlanetRenderable::initDisplacementMapping() {
+    // Calculate scales, offsets and steps.
+    const Real scale = (Real)(1 << mQuadTreeNode->mLOD);
+    const Real invScale = 2.0f / scale;
+    const Real positionX = -1.f + invScale * mQuadTreeNode->mX;
+    const Real positionY = -1.f + invScale * mQuadTreeNode->mY;
+    const int stepX = (mMap->getWidth() - 1) / (1 << mQuadTreeNode->mLOD) / (sGridSize - 1);
+    const int stepY = (mMap->getHeight() - 1) / (1 << mQuadTreeNode->mLOD) / (sGridSize - 1);
+    const int pixelX = mQuadTreeNode->mX * stepX * (sGridSize - 1);
+    const int pixelY = mQuadTreeNode->mY * stepY * (sGridSize - 1);
+    const int offsetX = stepX;
+    const int offsetY = stepY * mMap->getWidth();
+    
+    setCustomParameter(1, Vector4(invScale, 0, 0, 0));
+    setCustomParameter(2, Vector4(positionX, positionY, 0, 0));
+    setCustomParameter(3, Vector4(mPlanetRadius, 0, 0, 0));
+    setCustomParameter(4, Vector4(mPlanetHeight, 0, 0, 0));
+    setCustomParameter(5, Vector4(mDistance, 0, 0, 0));
+    
+    Matrix3 faceTransform = PlanetCube::getFaceTransform(mQuadTreeNode->mFace);
+    setCustomParameter(6, Vector4(faceTransform[0][0], faceTransform[1][0], faceTransform[2][0], 0));
+    setCustomParameter(7, Vector4(faceTransform[0][1], faceTransform[1][1], faceTransform[2][1], 0));
+    setCustomParameter(8, Vector4(faceTransform[0][2], faceTransform[1][2], faceTransform[2][2], 0));
 
+    setCustomParameter(9, Vector4(1, 1, 1, 1));
+
+    //setCustomParameter(6, Vector4(faceTransform[0][0], faceTransform[0][1], faceTransform[0][2], 0));
+    //setCustomParameter(7, Vector4(faceTransform[1][0], faceTransform[1][1], faceTransform[1][2], 0));
+    //setCustomParameter(8, Vector4(faceTransform[2][0], faceTransform[2][1], faceTransform[2][2], 0));
+}
+
+/**
+ * Analyse the terrain for this tile.
+ */
+void PlanetRenderable::analyseTerrain() {
+    // Examine pixel buffer to identify
+    HeightMapPixel* pMap = (HeightMapPixel*)(mMap->getData());
+    
+    // Calculate scales, offsets and steps.
+    const Real scale = (Real)(1 << mQuadTreeNode->mLOD);
+    const Real invScale = 2.0f / scale;
+    const Real positionX = -1.f + invScale * mQuadTreeNode->mX;
+    const Real positionY = -1.f + invScale * mQuadTreeNode->mY;
+    const int stepX = (mMap->getWidth() - 1) / (1 << mQuadTreeNode->mLOD) / (sGridSize - 1);
+    const int stepY = (mMap->getHeight() - 1) / (1 << mQuadTreeNode->mLOD) / (sGridSize - 1);
+    const int pixelX = mQuadTreeNode->mX * stepX * (sGridSize - 1);
+    const int pixelY = mQuadTreeNode->mY * stepY * (sGridSize - 1);
+    const int offsetX = stepX;
+    const int offsetY = stepY * mMap->getWidth();
+    
+    HeightMapPixel* pMapCorner = &pMap[pixelY * mMap->getWidth() + pixelX];
+    
+    // Keep track of extents.
+    Vector3 min = Vector3(1e8), max = Vector3(-1e8);
+    mCenter = Vector3(0, 0, 0);
+    
+    Matrix3 faceTransform = PlanetCube::getFaceTransform(mQuadTreeNode->mFace);
+    
+    //#define getOffsetPixel(x) ((float)(((*(pMapRow + (x))) & PlanetMapBuffer::LEVEL_MASK) >> PlanetMapBuffer::LEVEL_SHIFT))
+    #define getOffsetPixel(x) Bitwise::halfToFloat(*((unsigned short*)(pMapRow + (x))))
+    //#define getOffsetPixel(x) (*((float*)(pMapRow + (x))))
+    
+    // Lossy representation of heightmap
+    const int offsetX2 = offsetX * 2;
+    const int offsetY2 = offsetY * 2;
+    Real diff = 0;
+    for (int j = 0; j < (sGridSize - 1); j += 2) {
+        HeightMapPixel* pMapRow = &pMap[(pixelY + j * stepY) * mMap->getWidth() + pixelX];
+        for (int i = 0; i < (sGridSize - 1); i += 2) {
+            // dx
+            diff = maxf(diff, fabs((getOffsetPixel(0) + getOffsetPixel(offsetX2)) / 2.0f - getOffsetPixel(offsetX)));
+            diff = maxf(diff, fabs((getOffsetPixel(offsetY2) + getOffsetPixel(offsetY2 + offsetX2)) / 2.0f - getOffsetPixel(offsetY + offsetX)));
+            // dy
+            diff = maxf(diff, fabs((getOffsetPixel(0) + getOffsetPixel(offsetY2)) / 2.0f - getOffsetPixel(offsetY)));
+            diff = maxf(diff, fabs((getOffsetPixel(offsetX2) + getOffsetPixel(offsetX2 + offsetY2)) / 2.0f - getOffsetPixel(offsetX + offsetY)));
+            // diag
+            diff = maxf(diff, fabs((getOffsetPixel(offsetX2) + getOffsetPixel(offsetY2)) / 2.0f - getOffsetPixel(offsetY + offsetX)));
+            
+            pMapRow += offsetX2;
+        }
+    }
+    mLODDifference = diff / PlanetMapBuffer::LEVEL_RANGE;
+    
+    // Calculate LOD error of sphere.
+    Real angle = Math::PI / (sGridSize << maxi(0, mQuadTreeNode->mLOD - 1));
+    Real sphereError = (1 - cos(angle)) * 1.4f * mPlanetRadius;
+    if (mPlanetHeight) {
+        mLODDifference += sphereError / mPlanetHeight;
+        // Convert to world units.
+        mDistance = mLODDifference * mPlanetHeight;
+    }
+    else {
+        mDistance = sphereError;
+    }
+    
+    // Cache square.
+    mDistanceSquared = mDistance * mDistance;
+    
+    srand(2134);
+    
+    //#define getPixel() ((((float)(((*(pMapRow)) & PlanetMapBuffer::LEVEL_MASK) >> PlanetMapBuffer::LEVEL_SHIFT)) - PlanetMapBuffer::LEVEL_MIN) / PlanetMapBuffer::LEVEL_RANGE)
+#define getPixel() ((Bitwise::halfToFloat(*((unsigned short*)(pMapRow))) - PlanetMapBuffer::LEVEL_MIN) / PlanetMapBuffer::LEVEL_RANGE)
+    //#define getPixel() (((*((float*)(pMapRow))) - PlanetMapBuffer::LEVEL_MIN) / PlanetMapBuffer::LEVEL_RANGE)
+    
+    // (nVidia cards) cubemapping fills in the edge/corner texels of cubemaps with 0.5 pixel on both sides.
+    float uvCorrection = (PlanetMap::PLANET_TEXTURE_SIZE - 1.0f) / PlanetMap::PLANET_TEXTURE_SIZE;
+    
+    // Process vertex data for regular grid.
+    for (int j = 0; j < sGridSize; j++) {
+        HeightMapPixel* pMapRow = pMapCorner + j * offsetY;
+        for (int i = 0; i < sGridSize; i++) {
+            Real height = getPixel();
+            Real x = (float) i / (float) (sGridSize - 1);
+            Real y = (float) j / (float) (sGridSize - 1);
+            
+            Vector3 spherePoint(x * invScale + positionX, y * invScale + positionY, 1);
+            spherePoint.normalise();
+            spherePoint = faceTransform * spherePoint;
+            spherePoint *= mPlanetRadius + height * mPlanetHeight;
+            
+            mCenter += spherePoint;
+            
+            min.makeFloor(spherePoint);
+            max.makeCeil(spherePoint);
+            
+            pMapRow += offsetX;
+        }
+    }
+    
+    // Calculate center.
+    mSurfaceNormal = mCenter /= (sGridSize * sGridSize);
+    mSurfaceNormal.normalise();
+    
+    // Set bounding box/radius.
+    setBoundingBox(AxisAlignedBox(min, max));
+    mBoundingRadius = (max - min).length() / 2;
+    mBoxCenter = (max + min) / 2;
+}
+    
 /**
  * Creates the vertex declaration.
  */
@@ -123,8 +262,8 @@ void PlanetRenderable::createVertexDeclaration() {
     sVertexDeclaration->addElement(0, offset, VET_FLOAT3, VES_POSITION);
     offset += VertexElement::getTypeSize(VET_FLOAT3);
     // Cube map coords
-    sVertexDeclaration->addElement(0, offset, VET_FLOAT3, VES_TEXTURE_COORDINATES, 0);
-    offset += VertexElement::getTypeSize(VET_FLOAT3);    
+    sVertexDeclaration->addElement(0, offset, VET_FLOAT2, VES_TEXTURE_COORDINATES, 0);
+    offset += VertexElement::getTypeSize(VET_FLOAT2);
 }
 
 /**
@@ -176,14 +315,13 @@ void PlanetRenderable::fillHardwareBuffers() {
             Real x = (float) i / (float) (sGridSize - 1);
             Real y = (float) j / (float) (sGridSize - 1);
             
-            *pTex++ = x;
-            *pTex++ = y;
-            *pTex++ = 1.0f;
-            
             *pPos++ = x;
             *pPos++ = y;
             *pPos++ = 0.0f;
-            
+
+            *pTex++ = x;
+            *pTex++ = y;
+                        
             pBase += sVertexBuffer->getVertexSize();
         }
     }
@@ -198,13 +336,12 @@ void PlanetRenderable::fillHardwareBuffers() {
             Real x = (float) i / (float) (sGridSize - 1);
             Real y = (float) j / (float) (sGridSize - 1);
             
-            *pTex++ = x;
-            *pTex++ = y;
-            *pTex++ = 1.0f;
-            
             *pPos++ = x;
             *pPos++ = y;
             *pPos++ = -1.0f;
+            
+            *pTex++ = x;
+            *pTex++ = y;
             
             pBase += sVertexBuffer->getVertexSize();
         }
@@ -220,13 +357,12 @@ void PlanetRenderable::fillHardwareBuffers() {
             Real x = (float) i / (float) (sGridSize - 1);
             Real y = (float) j / (float) (sGridSize - 1);
             
-            *pTex++ = x;
-            *pTex++ = y;
-            *pTex++ = 1.0f;
-            
             *pPos++ = x;
             *pPos++ = y;
             *pPos++ = -1.0f;
+            
+            *pTex++ = x;
+            *pTex++ = y;
             
             pBase += sVertexBuffer->getVertexSize();
         }
@@ -312,113 +448,6 @@ void PlanetRenderable::fillHardwareBuffers() {
     sVertexBuffer->unlock();
 }
 
-/**
- * Analyse the terrain for this tile.
- */
-void PlanetRenderable::analyseTerrain() {
-    // Examine pixel buffer to identify
-    HeightMapPixel* pMap = (HeightMapPixel*)(mMap->getData());
-    
-    // Calculate scales, offsets and steps.
-    const Real scale = (Real)(1 << mQuadTreeNode->mLOD);
-    const Real invScale = 2.0f / scale;
-    const Real positionX = -1.f + invScale * mQuadTreeNode->mX;
-    const Real positionY = -1.f + invScale * mQuadTreeNode->mY;
-    const int stepX = (mMap->getWidth() - 1) / (1 << mQuadTreeNode->mLOD) / (sGridSize - 1);
-    const int stepY = (mMap->getHeight() - 1) / (1 << mQuadTreeNode->mLOD) / (sGridSize - 1);
-    const int pixelX = mQuadTreeNode->mX * stepX * (sGridSize - 1);
-    const int pixelY = mQuadTreeNode->mY * stepY * (sGridSize - 1);
-    const int offsetX = stepX;
-    const int offsetY = stepY * mMap->getWidth();
-    
-    HeightMapPixel* pMapCorner = &pMap[pixelY * mMap->getWidth() + pixelX];
-    
-    // Keep track of extents.
-    Vector3 min = Vector3(1e8), max = Vector3(-1e8);
-    mCenter = Vector3(0, 0, 0);
-
-    Matrix3 faceTransform = PlanetCube::getFaceTransform(mQuadTreeNode->mFace, true);
-
-    //#define getOffsetPixel(x) ((float)(((*(pMapRow + (x))) & PlanetMapBuffer::LEVEL_MASK) >> PlanetMapBuffer::LEVEL_SHIFT))
-    #define getOffsetPixel(x) Bitwise::halfToFloat(*((unsigned short*)(pMapRow + (x))))
-    //#define getOffsetPixel(x) (*((float*)(pMapRow + (x))))
-    
-    // Lossy representation of heightmap
-    const int offsetX2 = offsetX * 2;
-    const int offsetY2 = offsetY * 2;
-    Real diff = 0;
-    for (int j = 0; j < (sGridSize - 1); j += 2) {
-        HeightMapPixel* pMapRow = &pMap[(pixelY + j * stepY) * mMap->getWidth() + pixelX];
-        for (int i = 0; i < (sGridSize - 1); i += 2) {
-            // dx
-            diff = maxf(diff, fabs((getOffsetPixel(0) + getOffsetPixel(offsetX2)) / 2.0f - getOffsetPixel(offsetX)));
-            diff = maxf(diff, fabs((getOffsetPixel(offsetY2) + getOffsetPixel(offsetY2 + offsetX2)) / 2.0f - getOffsetPixel(offsetY + offsetX)));
-            // dy
-            diff = maxf(diff, fabs((getOffsetPixel(0) + getOffsetPixel(offsetY2)) / 2.0f - getOffsetPixel(offsetY)));
-            diff = maxf(diff, fabs((getOffsetPixel(offsetX2) + getOffsetPixel(offsetX2 + offsetY2)) / 2.0f - getOffsetPixel(offsetX + offsetY)));
-            // diag
-            diff = maxf(diff, fabs((getOffsetPixel(offsetX2) + getOffsetPixel(offsetY2)) / 2.0f - getOffsetPixel(offsetY + offsetX)));
-            
-            pMapRow += offsetX2;
-        }
-    }
-    mLODDifference = diff / PlanetMapBuffer::LEVEL_RANGE;
-
-    // Calculate LOD error of sphere.
-    Real angle = Math::PI / (sGridSize << maxi(0, mQuadTreeNode->mLOD - 1));
-    Real sphereError = (1 - cos(angle)) * 1.4f * mPlanetRadius;
-    if (mPlanetHeight) {
-        mLODDifference += sphereError / mPlanetHeight;
-        // Convert to world units.
-        mDistance = mLODDifference * mPlanetHeight;
-    }
-    else {
-        mDistance = sphereError;
-    }
-    
-    // Cache square.
-    mDistanceSquared = mDistance * mDistance;
-    
-    srand(2134);
-    
-    //#define getPixel() ((((float)(((*(pMapRow)) & PlanetMapBuffer::LEVEL_MASK) >> PlanetMapBuffer::LEVEL_SHIFT)) - PlanetMapBuffer::LEVEL_MIN) / PlanetMapBuffer::LEVEL_RANGE)
-    #define getPixel() ((Bitwise::halfToFloat(*((unsigned short*)(pMapRow))) - PlanetMapBuffer::LEVEL_MIN) / PlanetMapBuffer::LEVEL_RANGE)
-    //#define getPixel() (((*((float*)(pMapRow))) - PlanetMapBuffer::LEVEL_MIN) / PlanetMapBuffer::LEVEL_RANGE)
-    
-    // (nVidia cards) cubemapping fills in the edge/corner texels of cubemaps with 0.5 pixel on both sides.
-    float uvCorrection = (PlanetMap::PLANET_TEXTURE_SIZE - 1.0f) / PlanetMap::PLANET_TEXTURE_SIZE;
-    
-    // Process vertex data for regular grid.
-    for (int j = 0; j < sGridSize; j++) {
-        HeightMapPixel* pMapRow = pMapCorner + j * offsetY;
-        for (int i = 0; i < sGridSize; i++) {
-            Real height = getPixel();
-            Real x = (float) i / (float) (sGridSize - 1);
-            Real y = (float) j / (float) (sGridSize - 1);
-            
-            Vector3 spherePoint(x * invScale + positionX, y * invScale + positionY, 1);
-            spherePoint.normalise();
-            spherePoint = faceTransform * spherePoint;
-            spherePoint *= mPlanetRadius + height * mPlanetHeight;
-
-            mCenter += spherePoint;
-            
-            min.makeFloor(spherePoint);
-            max.makeCeil(spherePoint);
-            
-            pMapRow += offsetX;
-        }
-    }
-    
-    // Calculate center.
-    mSurfaceNormal = mCenter /= (sGridSize * sGridSize);
-    mSurfaceNormal.normalise();
-    
-    // Set bounding box/radius.
-    setBoundingBox(AxisAlignedBox(min, max));
-    mBoundingRadius = maxf((max - mCenter).length() / 2, (min - mCenter).length() / 2);
-}
-
 bool PlanetRenderable::preRender(SceneManager* sm, RenderSystem* rsys) {
     return true;
 }
@@ -426,8 +455,20 @@ bool PlanetRenderable::preRender(SceneManager* sm, RenderSystem* rsys) {
 void PlanetRenderable::postRender(SceneManager* sm, RenderSystem* rsys) {
 }
 
+void PlanetRenderable::updateRenderQueue(RenderQueue* queue) {
+    _updateRenderQueue(queue);
+}
+
 void PlanetRenderable::_updateRenderQueue(RenderQueue* queue) {
     SimpleRenderable::_updateRenderQueue(queue);
+
+    /*
+    if (mWireBoundingBox == NULL) {
+        mWireBoundingBox = OGRE_NEW WireBoundingBox();
+    }
+    mWireBoundingBox->setupBoundingBox(mBox);
+    queue->addRenderable(mWireBoundingBox);
+     */
 }
 
 const String& PlanetRenderable::getMovableType(void) const {
@@ -437,8 +478,8 @@ const String& PlanetRenderable::getMovableType(void) const {
 
 void PlanetRenderable::setFrameOfReference(SimpleFrustum& frustum, Vector3 cameraPosition, Vector3 cameraPlane, Real sphereClip, Real lodDetailFactorSquared) {
     // Bounding box clipping.
-    Sphere boundingSphere = Sphere(mCenter, mBoundingRadius);
-    if (!frustum.isVisible(&boundingSphere)) {
+    //Sphere boundingSphere = Sphere(mBoxCenter, mBoundingRadius);
+    if (!frustum.isVisible(mBox)) {
         mIsClipped = true;
         return;
     }
@@ -489,10 +530,7 @@ Real PlanetRenderable::getBoundingRadius(void) const
 Real PlanetRenderable::getSquaredViewDepth(const Camera* cam) const
 {
     Vector3 vMin, vMax, vMid, vDist;
-    vMin = mBox.getMinimum();
-    vMax = mBox.getMaximum();
-    vMid = ((vMax - vMin) * 0.5) + vMin;
-    vDist = cam->getDerivedPosition() - vMid;
+    vDist = cam->getDerivedPosition() - mCenter;
     
     return vDist.squaredLength();
 }

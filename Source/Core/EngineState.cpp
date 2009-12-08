@@ -35,13 +35,13 @@ EngineState::EngineState() {
 
     // Run-time values
     setValue("planet.lodDetail", 4.f);
-    setValue("planet.lodLimit", 3);
-    setValue("planet.radius", 40.0f);
-    setValue("planet.height", 60.f);
+    setValue("planet.lodLimit", 1);
+    setValue("planet.radius", 80.0f);
+    setValue("planet.height", 20.f);
     setValue("planet.gridSize", 33);    
 
     //setValue("planet.seed", 1007);    
-    setValue("planet.seed", 4009);
+    setValue("planet.seed", 4090);
 //    setValue("planet.seed", (int)(time(0) & 0xFFFF));
     setValue("planet.brushes", 350);    
     

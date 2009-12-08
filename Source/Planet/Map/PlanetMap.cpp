@@ -13,26 +13,19 @@
 #include "Utility.h"
 
 namespace NFSpace {
-    
-const Real PlanetMap::PLANET_TEXTURE_SIZE = 1025;
 
-PlanetMap::PlanetMap() {
-    // Generate heightmap.
+const Real PlanetMap::PLANET_TEXTURE_SIZE = 257;
+
+PlanetMap::PlanetMap(PlanetDescriptor* descriptor) : mDescriptor(descriptor) {
     initHelperScene();
-    generateHeightMap();
-    generateNormalMap();
+    initBuffers();
+    prepareHeightMap();
 }
 
 PlanetMap::~PlanetMap() {
-    if (mSceneManager) {
-        Root::getSingleton().destroySceneManager(mSceneManager);
-    }
-    if (mHeightMap) {
-        delete mHeightMap;
-    }
-    if (mNormalMap) {
-        delete mNormalMap;
-    }
+    deleteHeightMap();
+    deleteBuffers();
+    deleteHelperScene();
 }
 
 void PlanetMap::initHelperScene() {
@@ -43,100 +36,75 @@ void PlanetMap::initHelperScene() {
     mCamera->setNearClipDistance(0.01);
 }
 
-void PlanetMap::generateHeightMap() {
+void PlanetMap::deleteHelperScene() {
+    if (mSceneManager) {
+        Root::getSingleton().destroySceneManager(mSceneManager);
+    }
+}
+
+void PlanetMap::initBuffers() {
+    for (int i = 0; i < 2; ++i) {
+        mMapBuffer[i] = new PlanetMapBuffer(mSceneManager,
+                                            mCamera,
+                                            PlanetMapBuffer::MAP_TYPE_MONO,
+                                            PlanetMap::PLANET_TEXTURE_SIZE,
+                                            1,
+                                            0.5f);
+    }
+}
+
+void PlanetMap::swapBuffers() {
+    PlanetMapBuffer* temp = mMapBuffer[1];
+    mMapBuffer[1] = mMapBuffer[0];
+    mMapBuffer[0] = temp;
+}
+    
+void PlanetMap::deleteBuffers() {
+    for (int i = 0; i < 2; ++i) {
+        delete mMapBuffer[i];
+    }
+}
+    
+void PlanetMap::prepareHeightMap() {
+    mHeightMapBrushes = mSceneManager->createSceneNode("heightMapBrushes");
+
     Vector3 position, rand, up;
     
-    SceneNode* brushesNode = mSceneManager->createSceneNode("brushes");
-
+    // TODO: run real script w/ real descriptor
+    
     // Draw N random brushes.
-    srand(getInt("planet.seed"));
-    for (int i = 0; i < getInt("planet.brushes"); ++i) {
+    srand(mDescriptor->seed);
+    for (int i = 0; i < mDescriptor->brushes; ++i) {
         position = Vector3((randf() * 2 - 1), (randf() * 2 - 1), (randf() * 2 - 1));
         position.normalise();
         up = Vector3(randf() * 2 - 1, randf() * 2 - 1, randf() * 2 - 1);
         float scale = randf() * .95 + .05;
-        drawBrush(brushesNode, position, Vector2(scale, scale * (randf() + .5)), up);
+        drawBrush(mHeightMapBrushes, position, Vector2(scale, scale * (randf() + .5)), up);
     }
     
-    /*
-    float scale = 0.45;
-    drawBrush(brushesNode, Vector3( 1.0, 0.0, 0.0), Vector2(scale, scale), Vector3(0.0, 1.0, 0.0));
-    drawBrush(brushesNode, Vector3(-1.0, 0.0, 0.0), Vector2(scale, scale), Vector3(0.0, 1.0, 0.0));
-    drawBrush(brushesNode, Vector3(0.0, 1.0, 0.0), Vector2(scale, scale), Vector3(0.0, 0.0, 1.0));
-    drawBrush(brushesNode, Vector3(0.0,-1.0, 0.0), Vector2(scale, scale), Vector3(0.0, 0.0, 1.0));
-    drawBrush(brushesNode, Vector3(0.0, 0.0, 1.0), Vector2(scale, scale), Vector3(1.0, 0.0, 0.0));
-    drawBrush(brushesNode, Vector3(0.0, 0.0,-1.0), Vector2(scale, scale), Vector3(1.0, 0.0, 0.0));
-    */
-    
-    mHeightMap = new PlanetMapBuffer(mSceneManager,
-                                     mCamera,
-                                     PlanetMapBuffer::MAP_TYPE_MONO,
-                                     PlanetMap::PLANET_TEXTURE_SIZE,
-                                     0,
-                                     0.5f);
-    mHeightMap->render(brushesNode);
-    mHeightMap->save(false);
+}
 
-    SceneNode::ObjectIterator it = brushesNode->getAttachedObjectIterator();
+void PlanetMap::deleteHeightMap() {
+    SceneNode::ObjectIterator it = mHeightMapBrushes->getAttachedObjectIterator();
     while (it.hasMoreElements()) {
         delete it.getNext();
     }
-    brushesNode->detachAllObjects();
+    mHeightMapBrushes->detachAllObjects();
 
-    mSceneManager->destroySceneNode(brushesNode);
+    mSceneManager->destroySceneNode(mHeightMapBrushes);
 }
     
-    
-void PlanetMap::generateNormalMap() {
-    // Create new buffer for the normal map.
-    mNormalMap = new PlanetMapBuffer(mSceneManager,
-                                     mCamera,
-                                     PlanetMapBuffer::MAP_TYPE_NORMAL,
-                                     PlanetMap::PLANET_TEXTURE_SIZE,
-                                     0,
-                                     1.f);
+PlanetMapTile* PlanetMap::generateTile(int face, int lod, int x, int y) {
+    // Generate height texture and load into system memory for analysis.
+    mMapBuffer[FRONT]->render(face, lod, x, y, mHeightMapBrushes);
+    TexturePtr heightTexture = mMapBuffer[FRONT]->saveTexture(false);
+    Image heightImage = mMapBuffer[FRONT]->saveImage(false);
 
-    // Prepare texture substitution list.
-    AliasTextureNamePairList AliasList;
-    AliasList.insert(AliasTextureNamePairList::value_type("source", mHeightMap->getTextureName()));
+    // Generate normal map based on heightmap texture.
+    mMapBuffer[BACK]->filter(face, lod, x, y, PlanetMapBuffer::FILTER_TYPE_NORMAL, mMapBuffer[FRONT]);
+    TexturePtr normalTexture = mMapBuffer[BACK]->saveTexture(false);
 
-    // Alter the material to use the height map as its source texture.
-    MaterialPtr normalMapperMaterial;
-    normalMapperMaterial = MaterialManager::getSingleton().getByName("Planet/NormalMapper");
-    normalMapperMaterial->applyTextureAliases(AliasList);
-    
-    // Create scene node to hold all the renderables.
-    SceneNode* filterNode = mSceneManager->createSceneNode("filterSet");
-
-    // Create 6 filter faces to represent the cubemap environment.
-    for (int face = 0; face < 6; ++face) {
-        PlanetFilter *filter = new PlanetFilter(face, PlanetMap::PLANET_TEXTURE_SIZE, 0);
-        filter->setMaterial("Planet/NormalMapper");
-        filterNode->attachObject(filter);
-    }
-    
-    // Render the scene to the new map.
-    mNormalMap->render(filterNode);
-    mNormalMap->save(false);
-
-    // Clean-up the renderables and detach them.
-    SceneNode::ObjectIterator it = filterNode->getAttachedObjectIterator();
-    while (it.hasMoreElements()) {
-        delete it.getNext();
-    }
-    filterNode->detachAllObjects();
-
-    // Destroy the scene node.
-    mSceneManager->destroySceneNode(filterNode);
-}
-    
-Image* PlanetMap::getHeightMap(int face) {
-    return mHeightMap->getFace(face);
-}
-    
-std::string PlanetMap::getMaterial() {
-//    return mHeightMap->getMaterial();
-    return mNormalMap->getMaterial();
+    return new PlanetMapTile(heightTexture, heightImage, normalTexture, PlanetMap::PLANET_TEXTURE_SIZE);
 }
 
 void PlanetMap::drawBrush(SceneNode* brushesNode, Vector3 position, Vector2 scale, Vector3 up) {

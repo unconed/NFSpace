@@ -16,6 +16,7 @@ namespace NFSpace {
 };
 
 #include "Ogre/OgreSimpleRenderable.h"
+#include "Ogre/OgreWireBoundingBox.h"
 #include "SimpleFrustum.h"
 #include "PlanetCube.h"
 
@@ -47,6 +48,9 @@ public:
     const bool isInLODRange() const;
     const bool isClipped() const;
     
+    virtual void updateRenderQueue(RenderQueue* queue);
+    Vector3 mSurfaceNormal;
+
 protected:
     static int sInstances;
     static VertexData* sVertexData;
@@ -63,7 +67,7 @@ protected:
         
     Real mBoundingRadius;
     Vector3 mCenter;
-    Vector3 mSurfaceNormal;
+    Vector3 mBoxCenter;
 
     Real mChildDistance;
     Real mChildDistanceSquared;
@@ -81,6 +85,7 @@ protected:
     bool mIsInLODRange;
     bool mIsClipped;
     
+    WireBoundingBox* mWireBoundingBox;
     const QuadTreeNode* mQuadTreeNode;
 
     /**
@@ -102,6 +107,7 @@ protected:
     Real PlanetRenderable::getBoundingRadius(void) const;    
     Real getSquaredViewDepth(const Camera* cam) const;
     
+    void initDisplacementMapping();
     virtual void analyseTerrain();
 };
 

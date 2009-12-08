@@ -40,9 +40,11 @@ void PlanetCube::deleteFace(int face) {
 }
     
 void PlanetCube::initQuadTreeNode(QuadTreeNode* node) {
-    node->createRenderable(mMap->getHeightMap(node->mFace));
+    node->createMapTile(mMap);
+    node->createRenderable(node->mMapTile->getHeightMap());
     node->mRenderable->setProxy(mProxy);
-    node->mRenderable->setMaterial(mMap->getMaterial());
+    node->mRenderable->setMaterial(node->mMapTile->getMaterial());
+
     if (node->mLOD < getInt("planet.lodLimit")) {
         for (int i = 0; i < 4; ++i) {
             QuadTreeNode* child = new QuadTreeNode();
@@ -84,26 +86,39 @@ const Real PlanetCube::getScale() const {
     return getReal("planet.radius") + getReal("planet.height");
 }
 
-const Matrix3 PlanetCube::getFaceTransform(int face, bool lhs) {
-    if (!lhs) {
-        Matrix3 faceTransform = getFaceTransform(face, true);
-        faceTransform = faceTransform * Matrix3(-1, 0, 0,
-                                                0, 1, 0,
-                                                0, 0, 1);
-        return faceTransform;
+const Quaternion PlanetCube::getFaceCamera(int face) {
+    // The camera is looking at the specified planet face from the inside.
+    switch (face) {
+        default:
+        case Planet::RIGHT:
+            return Quaternion(0.707f, 0.0f,-0.707f, 0.0f);
+        case Planet::LEFT:
+            return Quaternion(0.707f, 0.0f, 0.707f, 0.0f);
+        case Planet::TOP:
+            return Quaternion(0.707f,-0.707f, 0.0f, 0.0f);
+        case Planet::BOTTOM:
+            return Quaternion(0.707f, 0.707f, 0.0f, 0.0f);
+        case Planet::FRONT:
+            return Quaternion(0.0f, 0.0f, 1.0f, 0.0f);
+        case Planet::BACK:
+            return Quaternion(1.0f, 0.0f, 0.0f, 0.0f);
     }
-    // Note, these are LHS transforms due to following the renderman convention of texture mapping a cubemap.
+}
+    
+const Matrix3 PlanetCube::getFaceTransform(int face) {
+    // Note, these are LHS transforms because the cube is rendered from the inside, but seen from the outside.
+    // Hence there needs to be a parity switch for each face.
     switch (face) {
         default:
         case Planet::RIGHT:
             return Matrix3( 0, 0, 1,
-                            0,-1, 0,
-                           -1, 0, 0
+                            0, 1, 0,
+                            1, 0, 0
                            );
         case Planet::LEFT:
             return Matrix3( 0, 0,-1,
-                            0,-1, 0,
-                            1, 0, 0
+                            0, 1, 0,
+                           -1, 0, 0
                            );
         case Planet::TOP:
             return Matrix3( 1, 0, 0,
@@ -116,13 +131,13 @@ const Matrix3 PlanetCube::getFaceTransform(int face, bool lhs) {
                             0,-1, 0
                            );
         case Planet::FRONT:
-            return Matrix3( 1, 0, 0,
-                            0,-1, 0,
+            return Matrix3(-1, 0, 0,
+                            0, 1, 0,
                             0, 0, 1
                            );
         case Planet::BACK:
-            return Matrix3(-1, 0, 0,
-                            0,-1, 0,
+            return Matrix3( 1, 0, 0,
+                            0, 1, 0,
                             0, 0,-1
                            );
     }

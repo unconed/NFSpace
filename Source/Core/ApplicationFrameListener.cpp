@@ -109,7 +109,7 @@ bool ApplicationFrameListener::processUnbufferedKeyInput(const FrameEvent& evt)
     if(mKeyboard->isKeyDown(OIS::KC_LEFT))
         mCamera->yaw(mRotScale);
     
-    if( mKeyboard->isKeyDown(OIS::KC_ESCAPE) || mKeyboard->isKeyDown(OIS::KC_Q) )
+    if( mKeyboard->isKeyDown(OIS::KC_ESCAPE) )
         return false;
     
     if( mKeyboard->isKeyDown(OIS::KC_F) && mTimeUntilNextToggle <= 0 )
@@ -168,9 +168,9 @@ bool ApplicationFrameListener::processUnbufferedKeyInput(const FrameEvent& evt)
     {
         EngineState::getSingleton().setValue("planet.seed", getInt("planet.seed") + 1);
 
-        srand(time(0));
+        srand(time(0) % 65536);
         Real radius = randf();
-        Real height = randf() * .2;
+        Real height = randf() * .1;
         Real norm = 100.f / (radius + height);
         EngineState::getSingleton().setValue("planet.radius", radius * norm);
         EngineState::getSingleton().setValue("planet.height", height * norm);
@@ -178,8 +178,7 @@ bool ApplicationFrameListener::processUnbufferedKeyInput(const FrameEvent& evt)
         PlanetMovable* planetMovable;
         SceneNode *planetNode = mSceneManager->getSceneNode("PlanetNode");
         planetMovable = (PlanetMovable*)planetNode->getAttachedObject(0);
-        planetMovable->refresh();
-        log("Refresh");
+        planetMovable->refresh(PlanetMovableFactory::getDefaultDescriptor());
 
         /*
         mSceneManager->destroyMovableObject((PlanetMovable*)planetNode->getAttachedObject(0));

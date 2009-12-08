@@ -36,7 +36,7 @@ material Planet/NormalMapper
 
       fragment_program_ref normalMapper_FP
       {
-        param_named heightField int 0
+        param_named heightMap int 0
         param_named_auto sampleDistance custom 1
         param_named_auto inverseSampleDistance custom 2
         param_named_auto heightScale custom 3

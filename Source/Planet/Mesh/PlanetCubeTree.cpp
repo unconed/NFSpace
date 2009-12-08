@@ -8,12 +8,14 @@
  */
 
 #include "PlanetCubeTree.h"
+#include "EngineState.h"
 
 namespace NFSpace {
 
 
 QuadTreeNode::QuadTreeNode() :
 mRenderable(0),
+mMapTile(0),
 mParent(0),
 mParentSlot(-1),
 mFace(0),
@@ -29,6 +31,7 @@ QuadTreeNode::~QuadTreeNode() {
     if (mParent) {
         mParent->mChildren[mParentSlot] = 0;
     }
+    destroyMapTile();
     destroyRenderable();
     for (int i = 0; i < 4; ++i) {
         detachChild(i);
@@ -56,6 +59,16 @@ void QuadTreeNode::propagateLODDistances() {
     }
 }
 
+void QuadTreeNode::createMapTile(PlanetMap* map) {
+    if (mMapTile) throw "Creating map tile that already exists.";
+    mMapTile = map->generateTile(mFace, mLOD, mX, mY);
+}
+
+void QuadTreeNode::destroyMapTile() {
+    if (mMapTile) delete mMapTile;
+    mMapTile = 0;
+}
+    
 void QuadTreeNode::createRenderable(Image* map) {
     if (mRenderable) throw "Creating renderable that already exists.";
     mRenderable = new PlanetRenderable(this, map);
@@ -95,7 +108,44 @@ void QuadTreeNode::render(RenderQueue* queue, int lodLimit, SimpleFrustum& frust
             return;
         }
         if (mLOD == lodLimit || mRenderable->isInLODRange()) {
-            queue->addRenderable(mRenderable);
+            Vector3 positionOffset = cameraPosition - mRenderable->getCenter();
+            float distance = positionOffset.length();
+            Vector3 viewDirection = positionOffset;
+            viewDirection.normalise();
+            float size = getReal("planet.radius") * Math::PI / 2;
+            float res = size / PlanetMap::PLANET_TEXTURE_SIZE;
+            float screenres = distance / getInt("screenWidth");
+            Real lodSpan = getReal("planet.radius") / ((1 << mLOD) * distance);
+            Real lodShorten = minf(1.0f, mRenderable->mSurfaceNormal.dotProduct(viewDirection) + lodSpan);
+            
+            res *= lodShorten;
+/*
+            if (res > screenres) {
+                if (res / 2 > screenres) {
+                    if (res / 4 > screenres) {
+                        if (res / 8 > screenres) {
+                            mRenderable->setCustomParameter(9, Vector4(0, 0, 1, 1));
+                        }
+                        else {
+                            mRenderable->setCustomParameter(9, Vector4(0, 0.7, 0, 1));
+                        }
+                    }
+                    else {
+                        mRenderable->setCustomParameter(9, Vector4(1, 0, 0, 1));
+                    }
+                }
+                else {
+                    mRenderable->setCustomParameter(9, Vector4(1, 1, 0, 1));
+                }
+            }
+            else {
+                mRenderable->setCustomParameter(9, Vector4(1, 1, 1, 1));
+            }                
+*/
+            mRenderable->updateRenderQueue(queue);
+            
+
+//            queue->addRenderable(mRenderable);
             return;
         }                
     }

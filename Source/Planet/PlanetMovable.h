@@ -15,6 +15,7 @@
 #include <Ogre/OgreSceneNode.h>
 #include <Ogre/OgreMaterialManager.h>
 
+#include "PlanetDescriptor.h"
 #include "PlanetCube.h"
 #include "PlanetMap.h"
 
@@ -31,15 +32,16 @@ namespace NFSpace {
  */
 class PlanetMovable : public MovableObject, public MovableObject::Listener {
     public:
-        PlanetMovable();
-        PlanetMovable(const String& name);
+        PlanetMovable(PlanetDescriptor descriptor);
+        PlanetMovable(PlanetDescriptor descriptor, const String& name);
         virtual ~PlanetMovable();
 
+        PlanetCube* mCube;
         PlanetMap* mMap;
     protected:
         static String MOVABLE_TYPE_NAME;
     
-        PlanetCube* mCube;
+        PlanetDescriptor mDescriptor;
         AxisAlignedBox mBoundingBox;
         bool mInited;
     
@@ -49,7 +51,12 @@ class PlanetMovable : public MovableObject, public MovableObject::Listener {
          */
         void initObject();
     
-    void refresh();
+        /**
+         * Clean up the planet object.
+         */
+        void deleteObject();
+    
+        void refresh(PlanetDescriptor descriptor);
     
         /**
          * Callback: MovableObject has been destroyed.
@@ -93,6 +100,8 @@ class PlanetMovableFactory : public MovableObjectFactory {
         ~PlanetMovableFactory() {}
         
         static String FACTORY_TYPE_NAME;
+    
+        static PlanetDescriptor getDefaultDescriptor();
         
         const String& getType(void) const;
         void destroyInstance(MovableObject* obj);

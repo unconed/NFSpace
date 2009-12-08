@@ -15,9 +15,8 @@ class PlanetCube;
 #include <Ogre/Ogre.h>
 
 #include "Planet.h"
-#include "PlanetCubeTree.h"
-
 #include "PlanetMap.h"
+#include "PlanetCubeTree.h"
 
 using namespace Ogre;
 
@@ -36,12 +35,13 @@ public:
     PlanetCube(MovableObject* proxy, PlanetMap* map);
     ~PlanetCube();
 
-    static const Matrix3 getFaceTransform(int face, bool lhs);
+    static const Quaternion PlanetCube::getFaceCamera(int face);
+    static const Matrix3 getFaceTransform(int face);
         
     const Real getScale() const;
     virtual void updateRenderQueue(RenderQueue* queue, const Matrix4& fullTransform);
     void setCamera(Camera* camera);
-    
+    Renderable* getRenderableForNode(QuadTreeNode* node);
     
 protected:
     void initQuadTreeNode(QuadTreeNode* node);

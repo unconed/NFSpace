@@ -13,40 +13,52 @@
 #include <Ogre/Ogre.h>
 #include <Ogre/OgreEntity.h>
 
+#include "PlanetDescriptor.h"
 #include "PlanetBrush.h"
 #include "PlanetFilter.h"
 #include "PlanetMapBuffer.h"
+#include "PlanetMapTile.h"
 
 using namespace Ogre;
 
 namespace NFSpace {
 
 /**
- * Controller for creating the surface map for a planet.
+ * Generator for creating surface tiles for planets.
  */
 class PlanetMap {
 public:
     static const Real PLANET_TEXTURE_SIZE;
     
-    PlanetMap();
+    enum {
+        FRONT,
+        BACK
+    };
+    
+    PlanetMap(PlanetDescriptor* descriptor);
     ~PlanetMap();
     
-    Image* getHeightMap(int face);
-
-    std::string getMaterial();
-
     void drawBrush(SceneNode* brushesNode, Vector3 position, Vector2 scale, Vector3 up);
+    PlanetMapTile* generateTile(int face, int lod, int x, int y);
 
 protected:
     void initHelperScene();
-    void generateHeightMap();
-    void generateNormalMap();
-    
-    SceneManager *mSceneManager;
-    Camera *mCamera;
+    void deleteHelperScene();
 
-    PlanetMapBuffer *mHeightMap;
-    PlanetMapBuffer *mNormalMap;
+    void initBuffers();
+    void swapBuffers();
+    void deleteBuffers();
+
+    void prepareHeightMap();
+    void deleteHeightMap();
+    
+    PlanetDescriptor* mDescriptor;
+    SceneManager* mSceneManager;
+    Camera* mCamera;
+
+    SceneNode* mHeightMapBrushes;
+
+    PlanetMapBuffer* mMapBuffer[2];
 };
     
 };

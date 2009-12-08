@@ -8,37 +8,42 @@
  */
 
 #include "PlanetMovable.h"
+#include "EngineState.h"
 
 namespace NFSpace {
     
 String PlanetMovable::MOVABLE_TYPE_NAME = "PlanetMovable";
 
-PlanetMovable::PlanetMovable() 
-: MovableObject() {
+PlanetMovable::PlanetMovable(PlanetDescriptor descriptor) 
+: mDescriptor(descriptor), MovableObject() {
     initObject();
 }
 
-PlanetMovable::PlanetMovable(const String& name)
-: MovableObject(name) {
+PlanetMovable::PlanetMovable(PlanetDescriptor descriptor, const String& name)
+: mDescriptor(descriptor), MovableObject(name) {
     initObject();
 }
 
 PlanetMovable::~PlanetMovable() {
-    delete mCube;
-    delete mMap;
+    deleteObject();
 }
     
-void PlanetMovable::refresh() {
-    delete mCube;
-    delete mMap;
+void PlanetMovable::refresh(PlanetDescriptor descriptor) {
+    deleteObject();
+    mDescriptor = descriptor;
     initObject();
 }
 
 void PlanetMovable::initObject() {
     setListener(this);
-    mMap = new PlanetMap();
+    mMap = new PlanetMap(&mDescriptor);
     mCube = new PlanetCube(this, mMap);
     mBoundingBox = AxisAlignedBox(Vector3(-mCube->getScale()), Vector3(mCube->getScale()));
+}
+
+void PlanetMovable::deleteObject() {
+    delete mCube;
+    delete mMap;
 }
 
 void PlanetMovable::_notifyCurrentCamera(Camera* camera) {
@@ -101,12 +106,24 @@ bool PlanetMovable::objectRendering(const MovableObject* movableObject, const Ca
 
 String PlanetMovableFactory::FACTORY_TYPE_NAME = "PlanetMovable";
 
+PlanetDescriptor PlanetMovableFactory::getDefaultDescriptor() {
+    PlanetDescriptor descriptor;
+
+    descriptor.seed = getInt("planet.seed");
+    descriptor.brushes = getInt("planet.brushes");
+    descriptor.radius = getReal("planet.radius");
+    descriptor.height = getReal("planet.height");
+    descriptor.lodLimit = getInt("planet.lodLimit");
+
+    return descriptor;
+}
+    
 const String& PlanetMovableFactory::getType(void) const {
     return FACTORY_TYPE_NAME;
 }
 
 MovableObject* PlanetMovableFactory::createInstanceImpl(const String& name, const NameValuePairList* params) {
-    return new PlanetMovable(name);
+    return new PlanetMovable(getDefaultDescriptor(), name);
 }
 
 void PlanetMovableFactory::destroyInstance(MovableObject* obj) {

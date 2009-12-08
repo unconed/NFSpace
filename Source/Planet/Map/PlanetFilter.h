@@ -20,14 +20,14 @@ namespace NFSpace {
     class PlanetFilter : public SimpleRenderable {
         VertexData* sVertexData;
         
-        void initVertexData(int face, int size, int border);
-        void initRenderOp(int face);
+        void initVertexData(int lod, int x, int y, int size, int border);
+        void initRenderOp();
     public:
         enum {
             FILTER_NORMAL_MAP = 1,
         };
         
-        PlanetFilter(int face, int size, int border);
+        PlanetFilter(int face, int lod, int x, int y, int size, int border);
         ~PlanetFilter();
         
         virtual Real getBoundingRadius() const;

@@ -180,7 +180,7 @@ void Application::setupViewport() {
 void Application::setupScene() {
     //mSceneManager->setDisplaySceneNodes(true);
     
-    mVp->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 0.0));
+    mVp->setBackgroundColour(Ogre::ColourValue(0.3, 0.3, 0.3));
     
     // temporary set up 
     mCamera->setPosition(230.0f, 150.0f, 350.0f);

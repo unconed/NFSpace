@@ -32,6 +32,8 @@ struct QuadTreeNode {
     QuadTreeNode();
     ~QuadTreeNode();
     void propagateLODDistances();
+    void createMapTile(PlanetMap* map);
+    void destroyMapTile();
     void createRenderable(Image* map);
     void destroyRenderable();
     void attachChild(QuadTreeNode* child, int position);
@@ -42,6 +44,8 @@ struct QuadTreeNode {
     int mLOD;
     int mX;
     int mY;
+    
+    PlanetMapTile* mMapTile;
     PlanetRenderable* mRenderable;
     
     int mParentSlot;

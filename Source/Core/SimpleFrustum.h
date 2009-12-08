@@ -26,6 +26,24 @@ class SimpleFrustum
         
         void setModelViewProjMatrix(Matrix4 m);
 
+        inline bool isVisible(const AxisAlignedBox& bound) {
+            // Get centre of the box
+            Vector3 centre = bound.getCenter();
+            // Get the half-size of the box
+            Vector3 halfSize = bound.getHalfSize();
+            
+            // For each plane, see if all points are on the negative side
+            // If so, object is not visible
+            for (int plane = 0; plane < 6; ++plane) {
+                Plane::Side side = mPlanes[plane].getSide(centre, halfSize);
+                if (side == Plane::NEGATIVE_SIDE) {
+                    return false;
+                }
+                
+            }
+            return true;
+        }
+        
         inline bool isVisible(const Sphere* s) {
             Vector3 position = s->getCenter();
             Real radius      = s->getRadius();

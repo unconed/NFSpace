@@ -114,8 +114,8 @@ namespace NFSpace {
         }
 
         // Find the transform from the current face to the adjacent one.
-        Matrix3 faceTransform = PlanetCube::getFaceTransform(face, false);
-        Matrix3 edgeTransform = PlanetCube::getFaceTransform(sEdgeFace[face][edge], false);
+        Matrix3 faceTransform = PlanetCube::getFaceTransform(face);
+        Matrix3 edgeTransform = PlanetCube::getFaceTransform(sEdgeFace[face][edge]);
         edgeTransform = fixAlign * (edgeTransform.Transpose() * faceTransform);
         
         if (fix & FIX_SIDES) {

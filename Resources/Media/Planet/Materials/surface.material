@@ -1,3 +1,12 @@
+vertex_program planetSurface_VP glsl {
+    source planetSurface_VP.glsl
+}
+
+fragment_program planetSurface_FP glsl
+{
+	source planetSurface_FP.glsl
+}
+
 // Planet Surface
 material Planet/Surface
 {
@@ -5,17 +14,40 @@ material Planet/Surface
   {
     pass
     {
-      ambient 1.0 1.0 1.0
-      diffuse 1.0 1.0 1.0
-
-      cull_hardware none 
+      cull_hardware clockwise 
       lighting off
+      depth_check on
       depth_write on
       scene_blend alpha_blend
+
+      vertex_program_ref planetSurface_VP {
+        param_named heightMap int 0
+        
+        param_named_auto invScale custom 1
+        param_named_auto planePosition custom 2
+        param_named_auto planetRadius custom 3
+        param_named_auto planetHeight custom 4
+        param_named_auto skirtHeight custom 5
+
+        param_named_auto faceTransform1 custom 6
+        param_named_auto faceTransform2 custom 7
+        param_named_auto faceTransform3 custom 8
+      }
+
+      fragment_program_ref planetSurface_FP {
+        param_named normalMap int 1
+        param_named_auto tint custom 9
+      }
       
-      texture_unit
+      texture_unit heightMap
       {
-        cubic_texture cube-Buffer1.png combinedUVW
+        tex_address_mode clamp
+        filtering linear linear none
+        colour_op replace
+      }
+
+      texture_unit normalMap
+      {
         tex_address_mode clamp
         filtering linear linear none
         colour_op replace
@@ -23,3 +55,4 @@ material Planet/Surface
     }
   }
 }
+
