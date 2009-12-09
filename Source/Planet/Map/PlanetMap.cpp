@@ -93,7 +93,7 @@ void PlanetMap::deleteHeightMap() {
 
     mSceneManager->destroySceneNode(mHeightMapBrushes);
 }
-    
+
 PlanetMapTile* PlanetMap::generateTile(int face, int lod, int x, int y) {
     // Generate height texture and load into system memory for analysis.
     mMapBuffer[FRONT]->render(face, lod, x, y, mHeightMapBrushes);

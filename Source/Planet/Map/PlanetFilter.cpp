@@ -26,12 +26,15 @@ namespace NFSpace {
         // SampleDistance
         setCustomParameter(1, Vector4(1.0 / (size + border), 0, 0, 0));
         // inverseSampleDistance
-        setCustomParameter(2, Vector4((border + size) * .5, 0, 0, 0));
+        setCustomParameter(2, Vector4(((border + size) << lod) * .5, 0, 0, 0));
         // heightScale
         setCustomParameter(3, Vector4(height / radius, 0, 0, 0));
 
         // Something weird here with vertical axis mapping.
         Matrix3 faceTransform = PlanetCube::getFaceTransform(face);
+        if (face == Planet::TOP || face == Planet::BOTTOM) {
+            faceTransform = Matrix3(1, 0, 0, 0, -1, 0, 0, 0,-1) * faceTransform;
+        }
         setCustomParameter(4, Vector4(faceTransform[0][0], faceTransform[1][0], faceTransform[2][0], 0));
         setCustomParameter(5, Vector4(faceTransform[0][1], faceTransform[1][1], faceTransform[2][1], 0));
         setCustomParameter(6, Vector4(faceTransform[0][2], faceTransform[1][2], faceTransform[2][2], 0));
@@ -77,10 +80,10 @@ namespace NFSpace {
         unsigned char* pBase = static_cast<unsigned char*>(vertexBuffer->lock(HardwareBuffer::HBL_DISCARD));
         
         // Calculate tile's position in the virtual cubemap
-        Real tileSize = 2.0 / (lod + 1);
+        Real tileSize = 2.0 / (1 << lod);
         Real borderSize = (Real(border) / size) * tileSize;
         Real left = -1.f + tileSize * x - borderSize;
-        Real bottom = -1.f + tileSize * y - borderSize;
+        Real bottom = -1.f + tileSize * ((1 << lod) - y - 1) - borderSize;
         Real right = left + tileSize + borderSize * 2.0;
         Real top = bottom + tileSize + borderSize * 2.0;
 
@@ -94,12 +97,11 @@ namespace NFSpace {
                 texelem1->baseVertexPointerToElement(pBase, &pTex1);
                 texelem2->baseVertexPointerToElement(pBase, &pTex2);
 
-                // Mystery handedness change, invert y.
-                Vector3 point = Vector3(x ? -1.0f : 1.0f, y ? 1.0f :-1.0f, -1.0f);
+                Vector3 point = Vector3(x ? -1.0f : 1.0f, y ? -1.0f : 1.0f, -1.0f);
 
                 *pTex1++ = x ? 0.0f : 1.0f; 
-                *pTex1++ = y ? 0.0f : 1.0f; 
-
+                *pTex1++ = y ? 1.0f : 0.0f; 
+                // Mystery handedness change, invert y.
                 *pTex2++ = x ? left : right;
                 *pTex2++ = y ? bottom : top;
 

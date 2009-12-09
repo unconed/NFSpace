@@ -136,7 +136,7 @@ Image PlanetMapBuffer::saveImage(bool border) {
     if (mBorder && !border) {
         Image cropped;
         cropped = cropImage(image, mBorder, mBorder, mSize, mSize);
-//        OGRE_FREE(image.getData(), MEMCATEGORY_RENDERSYS);
+        //OGRE_FREE(image.getData(), MEMCATEGORY_RENDERSYS);
         image = cropped;
     }
 
@@ -166,33 +166,47 @@ void PlanetMapBuffer::renderTile(int face, int lod, int x, int y, bool transform
     mRenderTexture->getViewport(0)->setClearEveryFrame((bool)clearFrame, clearFrame);
     mRenderTexture->getViewport(0)->setBackgroundColour(ColourValue(mFill, mFill, mFill, 1));
     mRenderTexture->getViewport(0)->setOverlaysEnabled(false);
+
+    // Reset camera to default behaviour.
+    mCamera->setCustomProjectionMatrix(false);
+
+    // Set camera to have a perfect 45deg FOV in the non-border area.
+    mCamera->setFOVy(Radian(atan(1) * 2));
     
     if (transform) {
-        // Set camera to have a perfect 45deg FOV in the non-border area.
-        mCamera->setFOVy(Radian(atan(float(mFullSize + 1) / (mSize)) * 2));
-        
         // Set camera to cube face transformation.
         // Note: cubemap space is left-handed when viewed from inside the cube.
         // Flip the basis vector's x coordinates to compensate.
-
         Quaternion orientation = PlanetCube::getFaceCamera(face);
         mCamera->setOrientation(orientation);
+
+        // Fetch normal projection matrix
+        Ogre::Matrix4 projMatrix;
+        projMatrix = mCamera->getProjectionMatrix();
+        
+        // Focus on an (x, y) subtile of the normalized projective space by scaling + translating
+        Ogre::Matrix4 tileSkew = Matrix4(
+                                         1 << lod, 0, 0, (1 << lod) - x * 2 - 1,
+                                         0, 1 << lod, 0, (1 << lod) - ((1 << lod) - y - 1) * 2 - 1,
+                                         0, 0, 1, 0,
+                                         0, 0, 0, 1//
+                                         );
+
+        // Dilate projection to fit exactly 90 degrees of FOV in the texture without its border.
+        Real dilation = mSize / float(mFullSize + 1);
+        Ogre::Matrix4 borderDilate = Matrix4(
+                                             dilation, 0, 0, 0,
+                                             0, dilation, 0, 0,
+                                             0, 0, 1, 0,
+                                             0, 0, 0, 1//
+                                             );
+        
+        mCamera->setCustomProjectionMatrix(true, borderDilate * tileSkew * projMatrix);
     }
     else {
         // Viewport/source is pre-transformed.
-        mCamera->setFOVy(Radian(atan(1) * 2));
         mCamera->setOrientation(Quaternion(1.f, 0.f, 0.f, 0.f));
     }
-    
-    // Now skew the projection matrix.
-    
-    /*
-     Ogre::Matrix4 m;
-     m = m_camera->getProjectionMatrix();
-     m[0][2]=-2*Ogre::Math::Cos(Ogre::Degree(45))/m_camera->getOrthoWindowWidth();
-     m[1][2]=-2*Ogre::Math::Sin(Ogre::Degree(45))/m_camera->getOrthoWindowHeight();
-     m_camera->setCustomProjectionMatrix(true,m);
-     */
     
     
     // Render the frame to the texture.

@@ -51,7 +51,7 @@ void main() {
     vec3 normal = normalize(
         faceTransform * cross(
             jacobian * vec3(2.0, 0, xDifference * inverseSampleDistance),
-            jacobian * vec3(0, 2.0, yDifference * inverseSampleDistance)
+            jacobian * vec3(0, 2.0,-yDifference * inverseSampleDistance)
         )
     );
 
