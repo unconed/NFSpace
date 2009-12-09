@@ -32,11 +32,8 @@ namespace NFSpace {
 
         // Something weird here with vertical axis mapping.
         Matrix3 faceTransform = PlanetCube::getFaceTransform(face);
-        if (face == Planet::TOP || face == Planet::BOTTOM) {
-            faceTransform = Matrix3(1, 0, 0, 0, -1, 0, 0, 0,-1) * faceTransform;
-        }
         setCustomParameter(4, Vector4(faceTransform[0][0], faceTransform[1][0], faceTransform[2][0], 0));
-        setCustomParameter(5, Vector4(faceTransform[0][1], faceTransform[1][1], faceTransform[2][1], 0));
+        setCustomParameter(5, Vector4(-faceTransform[0][1],-faceTransform[1][1],-faceTransform[2][1], 0));
         setCustomParameter(6, Vector4(faceTransform[0][2], faceTransform[1][2], faceTransform[2][2], 0));
     }
     

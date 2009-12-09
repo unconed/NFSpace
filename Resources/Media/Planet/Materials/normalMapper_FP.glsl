@@ -57,6 +57,6 @@ void main() {
 
 //    float col = (normal.r - normal.g) *.707 * .866 + normal.b * .5;
 
-	gl_FragColor = vec4(normal * .5 + vec3(.5, .5, .5), 1.0);
+	gl_FragColor = vec4(normal + 0.0 * vec3(.5, .5, .5), 1.0);
 //	gl_FragColor = vec4(col, col, col, 1.0);
 }
