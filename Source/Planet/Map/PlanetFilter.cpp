@@ -26,7 +26,7 @@ namespace NFSpace {
         // SampleDistance
         setCustomParameter(1, Vector4(1.0 / (size + border), 0, 0, 0));
         // inverseSampleDistance
-        setCustomParameter(2, Vector4(((border + size) << lod) * .5, 0, 0, 0));
+        setCustomParameter(2, Vector4(((border + size) << lod) * .25, 0, 0, 0));
         // heightScale
         setCustomParameter(3, Vector4(height / radius, 0, 0, 0));
 

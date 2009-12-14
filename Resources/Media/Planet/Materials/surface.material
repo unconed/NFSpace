@@ -23,8 +23,8 @@ material Planet/Surface
       vertex_program_ref planetSurface_VP {
         param_named heightMap int 0
         
-        param_named_auto invScale custom 1
-        param_named_auto planePosition custom 2
+        param_named_auto stuvScale custom 1
+        param_named_auto stuvPosition custom 2
         param_named_auto planetRadius custom 3
         param_named_auto planetHeight custom 4
         param_named_auto skirtHeight custom 5

@@ -9,6 +9,7 @@
 
 #include "ApplicationFrameListener.h"
 #include "EngineState.h"
+#include "Planet.h"
 
 using namespace Ogre;
 
@@ -206,6 +207,12 @@ bool ApplicationFrameListener::processUnbufferedKeyInput(const FrameEvent& evt)
         }
         mTimeUntilNextToggle = 0.5;
     }
+
+    if(mKeyboard->isKeyDown(OIS::KC_K) && mTimeUntilNextToggle <=0)
+    {
+        EngineState::getSingleton().setValue("planet.pageFreeze", !EngineState::getSingleton().getBoolValue("planet.pageFreeze"));
+        mTimeUntilNextToggle = 0.5;
+    }
     
     static bool displayCameraDetails = false;
     if(mKeyboard->isKeyDown(OIS::KC_P) && mTimeUntilNextToggle <= 0)
@@ -345,8 +352,21 @@ void ApplicationFrameListener::updateStats() {
     static String tris = "Triangle Count: ";
     static String batches = "Batch Count: ";
     
+    static String planetNodes = "Planet nodes: ";
+    static String planetTiles = "Planet tiles: ";
+    static String planetRenderables = "Planet renderables: ";
+    static String planetMemory = "Planet GPU memory: ";
+    
     // update stats when necessary
     try {
+        OverlayElement* guiText = OverlayManager::getSingleton().getOverlayElement("NF/TreeStats");
+        guiText->setCaption(
+                            planetNodes + StringConverter::toString(PlanetStats::statsNodes) + "\n" +
+                            planetTiles + StringConverter::toString(PlanetStats::statsTiles) + "\n" +
+                            planetRenderables + StringConverter::toString(PlanetStats::statsRenderables) + "\n" +
+                            planetMemory + StringConverter::toString(PlanetStats::gpuMemoryUsage >> 20) + " MB" +
+                            "");
+        
         OverlayElement* guiAvg = OverlayManager::getSingleton().getOverlayElement("Core/AverageFps");
         OverlayElement* guiCurr = OverlayManager::getSingleton().getOverlayElement("Core/CurrFps");
         OverlayElement* guiBest = OverlayManager::getSingleton().getOverlayElement("Core/BestFps");

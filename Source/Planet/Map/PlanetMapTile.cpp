@@ -12,19 +12,29 @@
 
 namespace NFSpace {
     
-    PlanetMapTile::PlanetMapTile(TexturePtr heightTexture, Image heightImage, TexturePtr normalTexture, int size) {
+    PlanetMapTile::PlanetMapTile(QuadTreeNode* node, TexturePtr heightTexture, Image heightImage, TexturePtr normalTexture, int size) {
+        mNode = node;
+        
         mHeightTexture = heightTexture;
         mHeightImage   = heightImage;
         mNormalTexture = normalTexture;
         mSize = size;
 
+        PlanetStats::statsTiles++;
+
         prepareMaterial();
     }
     
     PlanetMapTile::~PlanetMapTile() {
+        OGRE_FREE(mHeightImage.getData(), MEMCATEGORY_GENERAL);
+
         if (mMaterialCreated) {
             MaterialManager::getSingleton().remove(mMaterial->getName());
         }
+        TextureManager::getSingleton().remove(mHeightTexture->getName());
+        TextureManager::getSingleton().remove(mNormalTexture->getName());
+
+        PlanetStats::statsTiles--;
     }
 
     String PlanetMapTile::getMaterial() {
@@ -50,4 +60,15 @@ namespace NFSpace {
         
         mMaterial->applyTextureAliases(aliasList);
     }
+    
+    const QuadTreeNode* PlanetMapTile::getNode() {
+        return mNode;
+    }
+    
+    size_t PlanetMapTile::getGPUMemoryUsage() {
+        return
+            mHeightTexture->getWidth() * mHeightTexture->getHeight() * 8 +
+            mNormalTexture->getWidth() * mNormalTexture->getHeight() * 8;
+    }
+    
 }

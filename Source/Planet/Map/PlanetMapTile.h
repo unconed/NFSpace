@@ -11,6 +11,7 @@
 #define PlanetMapTile_H
 
 #include <Ogre/Ogre.h>
+#include "Planet.h"
 
 using namespace Ogre;
 
@@ -18,16 +19,19 @@ namespace NFSpace {
     
 class PlanetMapTile {
 public:
-    PlanetMapTile(TexturePtr heightTexture, Image heightImage, TexturePtr normalTexture, int size);
+    PlanetMapTile(QuadTreeNode* node, TexturePtr heightTexture, Image heightImage, TexturePtr normalTexture, int size);
     ~PlanetMapTile();
     String getMaterial();    
     Image* getHeightMap();
+    const QuadTreeNode* getNode();
+    size_t getGPUMemoryUsage();
 
 protected:
     void prepareMaterial();
 
     bool mMaterialCreated;
     
+    QuadTreeNode* mNode;
     TexturePtr mHeightTexture;
     Image mHeightImage;
     TexturePtr mNormalTexture;

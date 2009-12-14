@@ -15,6 +15,7 @@
 #include <Ogre/OgreSceneNode.h>
 #include <Ogre/OgreMaterialManager.h>
 
+#include "Planet.h"
 #include "PlanetDescriptor.h"
 #include "PlanetCube.h"
 #include "PlanetMap.h"

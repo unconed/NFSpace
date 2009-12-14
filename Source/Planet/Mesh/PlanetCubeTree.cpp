@@ -12,8 +12,8 @@
 
 namespace NFSpace {
 
-
-QuadTreeNode::QuadTreeNode() :
+QuadTreeNode::QuadTreeNode(PlanetCube* cube) :
+mCube(cube),
 mRenderable(0),
 mMapTile(0),
 mParent(0),
@@ -21,10 +21,14 @@ mParentSlot(-1),
 mFace(0),
 mX(0),
 mY(0),
-mLOD(0) {
+mLOD(0),
+mRequestMapTile(false),
+mRequestRenderable(false),
+mRequestSplit(false) {
     for (int i = 0; i < 4; ++i) {
         mChildren[i] = 0;
     }
+    PlanetStats::statsNodes++;
 }
 
 QuadTreeNode::~QuadTreeNode() {
@@ -36,6 +40,7 @@ QuadTreeNode::~QuadTreeNode() {
     for (int i = 0; i < 4; ++i) {
         detachChild(i);
     }
+    PlanetStats::statsNodes--;
 }
 
 void QuadTreeNode::propagateLODDistances() {
@@ -61,7 +66,7 @@ void QuadTreeNode::propagateLODDistances() {
 
 void QuadTreeNode::createMapTile(PlanetMap* map) {
     if (mMapTile) throw "Creating map tile that already exists.";
-    mMapTile = map->generateTile(mFace, mLOD, mX, mY);
+    mMapTile = map->generateTile(this);
 }
 
 void QuadTreeNode::destroyMapTile() {
@@ -69,7 +74,7 @@ void QuadTreeNode::destroyMapTile() {
     mMapTile = 0;
 }
     
-void QuadTreeNode::createRenderable(Image* map) {
+void QuadTreeNode::createRenderable(PlanetMapTile* map) {
     if (mRenderable) throw "Creating renderable that already exists.";
     mRenderable = new PlanetRenderable(this, map);
     propagateLODDistances();
@@ -100,61 +105,103 @@ void QuadTreeNode::detachChild(int position) {
         mChildren[position] = 0;
     }            
 }
+    
+bool QuadTreeNode::willRender() {
+    // Being asked to render ourselves.
+    if (!mRenderable) {
+        if (!mRequestRenderable) {            
+            mRequestRenderable = true;
+            mCube->request(this);
+        }
+        return false;
+    }
+    return true;
+}
 
 void QuadTreeNode::render(RenderQueue* queue, int lodLimit, SimpleFrustum& frustum, Vector3 cameraPosition, Vector3 cameraPlane, Real sphereClip, Real lodDetailFactorSquared) {
+    // Determine if this node's children are render-ready.
+    bool hasChildren = true;
+    bool willRenderChildren = true;
+    for (int i = 0; i < 4; ++i) {
+        // Note: intentionally call willRender on /all/ children, not just until one fails.
+        if (!mChildren[i]) {
+            hasChildren = false;
+        }
+        else if (!mChildren[i]->willRender()) {
+            willRenderChildren = false;
+        }
+    }
+    
+    // If we are renderable, check LOD/visibility.
     if (mRenderable) {
         mRenderable->setFrameOfReference(frustum, cameraPosition, cameraPlane, sphereClip, lodDetailFactorSquared);
+        
+        // If invisible, return immediately.
         if (mRenderable->isClipped()) {
             return;
         }
-        if (mLOD == lodLimit || mRenderable->isInLODRange()) {
-            Vector3 positionOffset = cameraPosition - mRenderable->getCenter();
-            float distance = positionOffset.length();
-            Vector3 viewDirection = positionOffset;
-            viewDirection.normalise();
-            float size = getReal("planet.radius") * Math::PI / 2;
-            float res = size / PlanetMap::PLANET_TEXTURE_SIZE;
-            float screenres = distance / getInt("screenWidth");
-            Real lodSpan = getReal("planet.radius") / ((1 << mLOD) * distance);
-            Real lodShorten = minf(1.0f, mRenderable->mSurfaceNormal.dotProduct(viewDirection) + lodSpan);
-            
-            res *= lodShorten;
-/*
-            if (res > screenres) {
-                if (res / 2 > screenres) {
-                    if (res / 4 > screenres) {
-                        if (res / 8 > screenres) {
-                            mRenderable->setCustomParameter(9, Vector4(0, 0, 1, 1));
-                        }
-                        else {
-                            mRenderable->setCustomParameter(9, Vector4(0, 0.7, 0, 1));
-                        }
+        
+        // Whether to recurse down.
+        bool recurse = false;
+
+        // If the texture is not fine enough...
+        if (!mRenderable->isInMIPRange()) {
+            // And this tile is already at native res...
+            if (mMapTile) {
+                // Split so we can try this again on the child tiles.
+                recurse = true;
+            }
+            else if (!mRequestMapTile) {
+                // Request a native res map tile.
+                mRequestMapTile = true;
+                mCube->request(this);
+            }
+        }
+
+        // If the geometry is not fine enough...
+        if (!mRenderable->isInLODRange()) {
+            // Go down an LOD level.
+            recurse = true;
+        }                
+
+        // If a recursion was requested...
+        if (recurse) {
+            // And children are available and renderable...
+            if (hasChildren) {
+                if (willRenderChildren) {
+                    // Recurse down.
+                    for (int i = 0; i < 4; ++i) {
+                        mChildren[i]->render(queue, lodLimit, frustum, cameraPosition, cameraPlane, sphereClip, lodDetailFactorSquared);
                     }
-                    else {
-                        mRenderable->setCustomParameter(9, Vector4(1, 0, 0, 1));
-                    }
-                }
-                else {
-                    mRenderable->setCustomParameter(9, Vector4(1, 1, 0, 1));
+                    return;
                 }
             }
-            else {
-                mRenderable->setCustomParameter(9, Vector4(1, 1, 1, 1));
-            }                
-*/
-            mRenderable->updateRenderQueue(queue);
-            
+            // If no children exist yet, request them.
+            else if (!mRequestSplit) {
+                mRequestSplit = true;
+                mCube->request(this);
+            }
+        }
 
-//            queue->addRenderable(mRenderable);
-            return;
-        }                
+        // Otherwise, render ourselves.
+        mRenderable->updateRenderQueue(queue);
+    }
+
+}
+
+unsigned long QuadTreeNode::getGPUMemoryUsage() {
+    unsigned long accum = 0;
+    if (mMapTile) {
+        accum += mMapTile->getGPUMemoryUsage();
     }
     for (int i = 0; i < 4; ++i) {
         if (mChildren[i]) {
-            mChildren[i]->render(queue, lodLimit, frustum, cameraPosition, cameraPlane, sphereClip, lodDetailFactorSquared);
+            accum += mChildren[i]->getGPUMemoryUsage();
         }
     }
+    return accum;
 }
+            
 
 
 QuadTree::QuadTree() : mRoot(0) { }

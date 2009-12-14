@@ -30,31 +30,97 @@ PlanetCube::~PlanetCube() {
     
 void PlanetCube::initFace(int face) {
     mFaces[face] = new QuadTree();
-    QuadTreeNode* node = new QuadTreeNode();
+    QuadTreeNode* node = new QuadTreeNode(this);
     mFaces[face]->setRoot(face, node);
-    initQuadTreeNode(node);
 }
 
 void PlanetCube::deleteFace(int face) {
     delete mFaces[face];
 }
     
-void PlanetCube::initQuadTreeNode(QuadTreeNode* node) {
-    node->createMapTile(mMap);
-    node->createRenderable(node->mMapTile->getHeightMap());
-    node->mRenderable->setProxy(mProxy);
-    node->mRenderable->setMaterial(node->mMapTile->getMaterial());
+void PlanetCube::splitQuadTreeNode(QuadTreeNode* node) {
+    for (int i = 0; i < 4; ++i) {
+        QuadTreeNode* child = new QuadTreeNode(this);
+        node->attachChild(child, i);
+    }
+}
+    
+void PlanetCube::mergeQuadTreeNode(QuadTreeNode* node) {
 
-    if (node->mLOD < getInt("planet.lodLimit")) {
-        for (int i = 0; i < 4; ++i) {
-            QuadTreeNode* child = new QuadTreeNode();
-            node->attachChild(child, i);
-            initQuadTreeNode(child);
-        }
+}
+
+void PlanetCube::request(QuadTreeNode* node) {
+    mRequests.push_back(node);
+}
+    
+void PlanetCube::handleRequests() {
+    int limit = 1;
+    while (mRequests.size() > 0) {
+        QuadTreeNode* node = *(mRequests.begin());
+        bool iterate;
+        do {
+            if (limit-- == 0) return;
+
+            iterate = false;
+            
+            if (node->mRequestRenderable) {
+                // Determine max relative LOD depth between grid and tile
+                int maxLODRatio = (PlanetMap::PLANET_TEXTURE_SIZE - 1) / (getInt("planet.gridSize") - 1);
+                int maxLOD = 0;
+                while (maxLODRatio > 1) {
+                    maxLODRatio >>= 1;
+                    maxLOD++;
+                }
+                
+                // See if we can find a maptile to derive from.
+                QuadTreeNode *ancestor = node;
+                while (ancestor->mMapTile == 0 && ancestor->mParent) { ancestor = ancestor->mParent; };
+                
+                // See if map tile found is in acceptable LOD range (ie. gridsize <= texturesize).
+                if (ancestor->mMapTile) {
+                    int relativeLOD = node->mLOD - ancestor->mLOD;
+                    if (relativeLOD <= maxLOD) {
+                        // Replace existing renderable.
+                        node->destroyRenderable();
+                        // Create renderable relative to the map tile.
+                        node->createRenderable(ancestor->mMapTile);
+                        node->mRenderable->setProxy(mProxy);
+                        node->mRequestRenderable = false;
+                    }
+                }
+                
+                // If no renderable was created, try creating a map tile.
+                if (node->mRequestRenderable && !node->mMapTile) {
+                    // Request a map tile for this node's LOD level.
+                    node->mRequestMapTile = true;
+                }
+            }
+            
+            if (node->mRequestMapTile) {
+                // Generate a map tile for this node.
+                node->createMapTile(mMap);
+                node->mRequestMapTile = false;
+                
+                // Request a new renderable to match.
+                node->mRequestRenderable = true;
+                iterate = true;
+            }
+            
+            if (node->mRequestSplit) {
+                if (node->mLOD + 1 <= getInt("planet.lodLimit")) {
+                    splitQuadTreeNode(node);
+                    node->mRequestSplit = false;
+                }
+            }
+            
+        } while (iterate);
+
+        mRequests.pop_front();
     }
 }
 
 void PlanetCube::updateRenderQueue(RenderQueue* queue, const Matrix4& fullTransform) {
+    // Update LOD state.
     if (mLODCamera && !getBool("planet.lodFreeze")) {
         // TODO: need to compensate for full transform on camera position.
         mLODPosition = mLODCamera->getPosition() - mProxy->getParentNode()->getPosition();
@@ -77,8 +143,19 @@ void PlanetCube::updateRenderQueue(RenderQueue* queue, const Matrix4& fullTransf
         }
 
     }
+
+    // Update LOD requests.
+    if (!getBool("planet.pageFreeze")) {
+        handleRequests();
+    }
+
+    PlanetStats::gpuMemoryUsage = 0;
+///    PlanetStats::gpuMemoryUsage += mFaces[i]->mRoot->getGPUMemoryUsage();
+
     for (int i = 0; i < 6; ++i) {
-        mFaces[i]->mRoot->render(queue, getInt("planet.lodLimit"), mLODFrustum, mLODPosition, mLODCameraPlane, mLODSphereClip, mLODPixelFactor * mLODPixelFactor);
+        if (mFaces[i]->mRoot->willRender()) {
+            mFaces[i]->mRoot->render(queue, getInt("planet.lodLimit"), mLODFrustum, mLODPosition, mLODCameraPlane, mLODSphereClip, mLODPixelFactor * mLODPixelFactor);
+        }
     }    
 }
 

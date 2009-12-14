@@ -34,23 +34,26 @@ Ogre::Image cropImage(const Ogre::Image& source, size_t offsetX, size_t offsetY,
         return source;
     
     size_t bpp = Ogre::PixelUtil::getNumElemBytes(source.getFormat());
-    
-    const unsigned char *srcData = source.getData();
-    unsigned char *dstData = OGRE_ALLOC_T(uchar, width * height * bpp, MEMCATEGORY_RENDERSYS);
+
+    const uchar* srcData = source.getData();
+    const uchar* srcPointer = srcData;
+
+    uchar* dstData = OGRE_ALLOC_T(uchar, width * height * bpp, MEMCATEGORY_RENDERSYS);
+    uchar *dstPointer = dstData;
     
     size_t srcPitch = source.getRowSpan();
     size_t dstPitch = width * bpp;
     
-    for(size_t row = 0; row < height; row++)
-    {
-        for(size_t col = 0; col < width * bpp; col++)
-        {
-            dstData[(row * dstPitch) + col] = srcData[((row + offsetY) * srcPitch) + (offsetX * bpp) + col];
-        }
+    srcPointer += offsetY * srcPitch + offsetX * bpp;
+    
+    for (size_t row = 0; row < height; row++) {
+        memcpy(dstPointer, srcPointer, dstPitch);
+        srcPointer += srcPitch;
+        dstPointer += dstPitch;
     }
     
     Ogre::Image croppedImage;
-    croppedImage.loadDynamicImage(dstData, width, height, 1, source.getFormat(), true);
+    croppedImage.loadDynamicImage(dstData, width, height, 1, source.getFormat(), false);
     
     return croppedImage;
 }

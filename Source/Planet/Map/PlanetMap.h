@@ -39,7 +39,7 @@ public:
     ~PlanetMap();
     
     void drawBrush(SceneNode* brushesNode, Vector3 position, Vector2 scale, Vector3 up);
-    PlanetMapTile* generateTile(int face, int lod, int x, int y);
+    PlanetMapTile* generateTile(QuadTreeNode* node);
 
 protected:
     void initHelperScene();

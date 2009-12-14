@@ -51,12 +51,12 @@ void PlanetMapBuffer::render(int face, int lod, int x, int y, SceneNode* brushes
     // Add brushes into the scene.
     SceneNode* node = mSceneManager->getRootSceneNode()->createChildSceneNode();
     node->addChild(brushes);
-    
+
     //DumpScene(mSceneManager);
     
     // Render each cube face from the scene graph.
     renderTile(face, lod, x, y, true, FBT_COLOUR | FBT_DEPTH);
-    
+
     // Remove brushes.
     node->removeChild(brushes);
     mSceneManager->getRootSceneNode()->removeChild(node);
@@ -130,17 +130,18 @@ Image PlanetMapBuffer::saveImage(bool border) {
     
     // Load data and create an image object.
     mRenderTexture->copyContentsToMemory(pb, RenderTarget::FB_AUTO);
-    Image image = Image().loadDynamicImage(data, mRenderTexture->getWidth(), mRenderTexture->getHeight(), 1, pf, true, 1, 0);
-    
-    // Crop image if needed.
-    if (mBorder && !border) {
-        Image cropped;
-        cropped = cropImage(image, mBorder, mBorder, mSize, mSize);
-        //OGRE_FREE(image.getData(), MEMCATEGORY_RENDERSYS);
-        image = cropped;
-    }
 
-    return image;
+    if (mBorder && !border) {
+        // Crop image.
+        Image uncropped = Image().loadDynamicImage(data, mRenderTexture->getWidth(), mRenderTexture->getHeight(), 1, pf, false, 1, 0);
+        Image image = cropImage(uncropped, mBorder, mBorder, mSize, mSize);
+        OGRE_FREE(uncropped.getData(), MEMCATEGORY_GENERAL);
+        return image;
+    }
+    else {
+        // Return unmodified.
+        return Image().loadDynamicImage(data, mRenderTexture->getWidth(), mRenderTexture->getHeight(), 1, pf, false, 1, 0);
+    }        
 }
 
 PixelFormat PlanetMapBuffer::getPixelFormat() {

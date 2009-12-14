@@ -11,10 +11,6 @@
 #ifndef PlanetRenderable_H
 #define PlanetRenderable_H
 
-namespace NFSpace {
-    class PlanetRenderable;
-};
-
 #include "Ogre/OgreSimpleRenderable.h"
 #include "Ogre/OgreWireBoundingBox.h"
 #include "SimpleFrustum.h"
@@ -32,7 +28,7 @@ public:
     /**
      * Constructor
      */
-    PlanetRenderable(QuadTreeNode* node, Image* map);
+    PlanetRenderable(QuadTreeNode* node, PlanetMapTile* map);
     virtual ~PlanetRenderable();
 
     virtual void setProxy(MovableObject* proxy);
@@ -47,6 +43,7 @@ public:
     void setFrameOfReference(SimpleFrustum& frustum, Vector3 cameraPosition, Vector3 cameraPlane, Real sphereClip, Real lodDetailFactorSquared);
     const bool isInLODRange() const;
     const bool isClipped() const;
+    const bool isInMIPRange() const;
     
     virtual void updateRenderQueue(RenderQueue* queue);
     Vector3 mSurfaceNormal;
@@ -77,6 +74,7 @@ protected:
     Real mCurrentDistance;
     
     MovableObject* mProxy;
+    PlanetMapTile* mMapTile;
     Image* mMap;
 
     Real mPlanetRadius;
@@ -84,6 +82,7 @@ protected:
         
     bool mIsInLODRange;
     bool mIsClipped;
+    bool mIsInMIPRange;
     
     WireBoundingBox* mWireBoundingBox;
     const QuadTreeNode* mQuadTreeNode;
@@ -104,7 +103,7 @@ protected:
     virtual void postRender(SceneManager* sm, RenderSystem* rsys);
     virtual void _updateRenderQueue(RenderQueue* queue);
 
-    Real PlanetRenderable::getBoundingRadius(void) const;    
+    Real getBoundingRadius(void) const;    
     Real getSquaredViewDepth(const Camera* cam) const;
     
     void initDisplacementMapping();

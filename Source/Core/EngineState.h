@@ -25,8 +25,8 @@ using namespace std;
 class EngineState : public Ogre::Singleton<EngineState> {
     
 public:
-    static EngineState* EngineState::getSingletonPtr(void);
-    static EngineState& EngineState::getSingleton(void);
+    static EngineState* getSingletonPtr(void);
+    static EngineState& getSingleton(void);
 
     enum Type {
         VALUE_TYPE_NULL,
@@ -77,7 +77,7 @@ public:
             switch (mType) {
                 default:
                 case VALUE_TYPE_NULL:
-                    return NAN;
+                    return 0;
                 case VALUE_TYPE_REAL:
                     return uValue.mReal;
                 case VALUE_TYPE_INT:

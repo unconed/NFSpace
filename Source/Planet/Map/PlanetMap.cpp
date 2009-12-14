@@ -66,6 +66,14 @@ void PlanetMap::deleteBuffers() {
 }
     
 void PlanetMap::prepareHeightMap() {
+    std::ostringstream msg;
+
+    msg.str("");
+    msg << "prepareHeightMap";
+    log(msg.str());
+    
+    unsigned long delta, start = Root::getSingleton().getTimer()->getMilliseconds();
+
     mHeightMapBrushes = mSceneManager->createSceneNode("heightMapBrushes");
 
     Vector3 position, rand, up;
@@ -81,6 +89,12 @@ void PlanetMap::prepareHeightMap() {
         float scale = randf() * .95 + .05;
         drawBrush(mHeightMapBrushes, position, Vector2(scale, scale * (randf() + .5)), up);
     }
+
+    delta = Root::getSingleton().getTimer()->getMilliseconds() - start;
+    msg.str("");
+    msg << " => Brush generation (" << delta << "ms)";
+    log(msg.str());
+    start = Root::getSingleton().getTimer()->getMilliseconds();
     
 }
 
@@ -94,17 +108,57 @@ void PlanetMap::deleteHeightMap() {
     mSceneManager->destroySceneNode(mHeightMapBrushes);
 }
 
-PlanetMapTile* PlanetMap::generateTile(int face, int lod, int x, int y) {
+PlanetMapTile* PlanetMap::generateTile(QuadTreeNode* node) {
+    int face = node->mFace,
+        lod  = node->mLOD,
+        x    = node->mX,
+        y    = node->mY;
+    
+#ifdef NF_DEBUG_TIMING
+    std::ostringstream msg;
+    
+    msg.str("");
+    msg << "generateTile ("
+        << face << ", " << lod << ", " << x << ", " << y << ") @ "
+        << PlanetMap::PLANET_TEXTURE_SIZE << "x" << PlanetMap::PLANET_TEXTURE_SIZE;
+    log(msg.str());
+
+    unsigned long delta, start = Root::getSingleton().getTimer()->getMilliseconds();
+#endif
+    
     // Generate height texture and load into system memory for analysis.
     mMapBuffer[FRONT]->render(face, lod, x, y, mHeightMapBrushes);
     TexturePtr heightTexture = mMapBuffer[FRONT]->saveTexture(false);
+
+#ifdef NF_DEBUG_TIMING
+    delta = Root::getSingleton().getTimer()->getMilliseconds() - start;
+    msg.str("");
+    msg << " => Height map texture (" << delta << "ms)";
+    log(msg.str());
+    start = Root::getSingleton().getTimer()->getMilliseconds();
+#endif
+
     Image heightImage = mMapBuffer[FRONT]->saveImage(false);
 
+#ifdef NF_DEBUG_TIMING
+    delta = Root::getSingleton().getTimer()->getMilliseconds() - start;
+    msg.str("");
+    msg << " => Height map download (" << delta << "ms)";
+    log(msg.str());
+    start = Root::getSingleton().getTimer()->getMilliseconds();
+#endif
     // Generate normal map based on heightmap texture.
     mMapBuffer[BACK]->filter(face, lod, x, y, PlanetMapBuffer::FILTER_TYPE_NORMAL, mMapBuffer[FRONT]);
     TexturePtr normalTexture = mMapBuffer[BACK]->saveTexture(false);
 
-    return new PlanetMapTile(heightTexture, heightImage, normalTexture, PlanetMap::PLANET_TEXTURE_SIZE);
+#ifdef NF_DEBUG_TIMING
+    delta = Root::getSingleton().getTimer()->getMilliseconds() - start;
+    msg.str("");
+    msg << " => Normal map texture (" << delta << "ms)";
+    log(msg.str());
+#endif
+
+    return new PlanetMapTile(node, heightTexture, heightImage, normalTexture, PlanetMap::PLANET_TEXTURE_SIZE);
 }
 
 void PlanetMap::drawBrush(SceneNode* brushesNode, Vector3 position, Vector2 scale, Vector3 up) {
