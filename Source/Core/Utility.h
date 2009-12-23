@@ -17,7 +17,9 @@ using namespace Ogre;
 namespace NFSpace {
     
     Ogre::Image cropImage(const Ogre::Image& source, size_t offsetX, size_t offsetY, size_t width, size_t height);
-    
+    void saveTexture(Ogre::TexturePtr texture);
+    void updateSceneManagersAfterMaterialsChange();
+
     inline int maxi(int a, int b) {
         return a > b ? a : b;
     }

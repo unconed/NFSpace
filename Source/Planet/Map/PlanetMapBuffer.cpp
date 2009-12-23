@@ -20,14 +20,17 @@ namespace NFSpace {
 const unsigned int PlanetMapBuffer::LEVEL_MIN = 0;
 const unsigned int PlanetMapBuffer::LEVEL_RANGE = 1;
 
-PlanetMapBuffer::PlanetMapBuffer(SceneManager* sceneManager, Camera* camera, int type, int size, int border, Real fill)
-: mSize(size), mBorder(border), mType(type), mFill(fill), mSceneManager(sceneManager), mCamera(camera) {
+PlanetMapBuffer::PlanetMapBuffer(SceneManager* sceneManager, Camera* camera, int size, int border, Real fill)
+: mSize(size), mBorder(border), mFill(fill), mSceneManager(sceneManager), mCamera(camera) {
     assert(isPowerOf2(size - 1));
     mFullSize = mSize + 2 * mBorder;
     init();
 }
 
 PlanetMapBuffer::~PlanetMapBuffer() {
+    while (mRenderTexture->getNumViewports() > 0) {
+        mRenderTexture->removeViewport(0);
+    }
     TextureManager::getSingleton().remove(mTexture->getName());
 }
 
@@ -40,27 +43,23 @@ void PlanetMapBuffer::init() {
                                                            mFullSize, // Height
                                                            1, // Depth (Must be 1 for two dimensional textures)
                                                            0, // Number of mipmaps
-                                                           getPixelFormat(), // Pixel format
+                                                           getPixelFormat(MAP_TYPE_WORKSPACE), // Pixel format
                                                            TU_RENDERTARGET // usage
                                                            );
     mRenderTexture = mTexture->getBuffer()->getRenderTarget();
     mRenderTexture->setAutoUpdated(FALSE);
+    mRenderTexture->addViewport(mCamera);
 }
 
 void PlanetMapBuffer::render(int face, int lod, int x, int y, SceneNode* brushes) {
     // Add brushes into the scene.
-    SceneNode* node = mSceneManager->getRootSceneNode()->createChildSceneNode();
-    node->addChild(brushes);
+    brushes->setVisible(true, false);
 
-    //DumpScene(mSceneManager);
-    
     // Render each cube face from the scene graph.
     renderTile(face, lod, x, y, true, FBT_COLOUR | FBT_DEPTH);
 
     // Remove brushes.
-    node->removeChild(brushes);
-    mSceneManager->getRootSceneNode()->removeChild(node);
-    mSceneManager->destroySceneNode(node);
+    brushes->setVisible(false, false);
 }
     
 void PlanetMapBuffer::filter(int face, int lod, int x, int y, int type, PlanetMapBuffer* source) {
@@ -74,6 +73,9 @@ void PlanetMapBuffer::filter(int face, int lod, int x, int y, int type, PlanetMa
     MaterialPtr normalMapperMaterial;
     normalMapperMaterial = MaterialManager::getSingleton().getByName("Planet/NormalMapper");
     normalMapperMaterial->applyTextureAliases(aliasList);
+
+    // Clear out pass caches between scene managers.
+    updateSceneManagersAfterMaterialsChange();
     
     // Create scene node to hold all the renderables.
     SceneNode* filterNode = mSceneManager->getRootSceneNode()->createChildSceneNode();
@@ -97,7 +99,7 @@ void PlanetMapBuffer::filter(int face, int lod, int x, int y, int type, PlanetMa
     mSceneManager->destroySceneNode(filterNode);
 }
     
-TexturePtr PlanetMapBuffer::saveTexture(bool border) {
+TexturePtr PlanetMapBuffer::saveTexture(bool border, int type) {
     // Alloc write once texture at right size
     int size = border ? mFullSize : mSize;
     int edge = border ? 0 : mBorder ;
@@ -108,9 +110,9 @@ TexturePtr PlanetMapBuffer::saveTexture(bool border) {
                                                                      size, // Width
                                                                      size, // Height
                                                                      1, // Depth (Must be 1 for two dimensional textures)
-                                                                     0, // Number of mipmaps
-                                                                     getPixelFormat(), // Pixel format
-                                                                     TU_STATIC_WRITE_ONLY // usage
+                                                                     2, // Number of mipmaps
+                                                                     getPixelFormat(type), // Pixel format
+                                                                     TU_STATIC | TU_AUTOMIPMAP // usage
                                                                      );
     // Blit current front buffer contents into new texture.
     texture->getBuffer()->blit(mTexture->getBuffer(), 
@@ -121,9 +123,9 @@ TexturePtr PlanetMapBuffer::saveTexture(bool border) {
     return texture;
 }
 
-Image PlanetMapBuffer::saveImage(bool border) {
+Image PlanetMapBuffer::saveImage(bool border, int type) {
     // Create system memory buffer to hold pixel data.
-    PixelFormat pf = getPixelFormat();
+    PixelFormat pf = getPixelFormat(MAP_TYPE_WORKSPACE);
     
     uchar *data = OGRE_ALLOC_T(uchar, mRenderTexture->getWidth() * mRenderTexture->getHeight() * PixelUtil::getNumElemBytes(pf), MEMCATEGORY_GENERAL);
     PixelBox pb(mRenderTexture->getWidth(), mRenderTexture->getHeight(), 1, pf, data);
@@ -141,16 +143,20 @@ Image PlanetMapBuffer::saveImage(bool border) {
     else {
         // Return unmodified.
         return Image().loadDynamicImage(data, mRenderTexture->getWidth(), mRenderTexture->getHeight(), 1, pf, false, 1, 0);
-    }        
+    }
 }
 
-PixelFormat PlanetMapBuffer::getPixelFormat() {
-    switch (mType) {
+PixelFormat PlanetMapBuffer::getPixelFormat(int type) {
+    switch (type) {
         default:
-        case MAP_TYPE_MONO:
+        case MAP_TYPE_WORKSPACE:
             return PF_FLOAT16_RGBA;
+        case MAP_TYPE_HEIGHT:
+            return PF_FLOAT16_RGBA;
+//            return PF_FLOAT16_R;
         case MAP_TYPE_NORMAL:
-            return PF_FLOAT16_RGBA;
+            return PF_FLOAT16_RGB;
+//            return PF_FLOAT16_RGB;
     }
 }
 
@@ -160,10 +166,6 @@ String PlanetMapBuffer::getTextureName() {
 
 void PlanetMapBuffer::renderTile(int face, int lod, int x, int y, bool transform, unsigned int clearFrame) {
     // Ensure viewport is set up correctly.
-    while (mRenderTexture->getNumViewports() > 0) {
-        mRenderTexture->removeViewport(0);
-    }
-    mRenderTexture->addViewport(mCamera);
     mRenderTexture->getViewport(0)->setClearEveryFrame((bool)clearFrame, clearFrame);
     mRenderTexture->getViewport(0)->setBackgroundColour(ColourValue(mFill, mFill, mFill, 1));
     mRenderTexture->getViewport(0)->setOverlaysEnabled(false);

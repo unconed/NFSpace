@@ -42,6 +42,7 @@ void PlanetBrush::initRenderOp() {
         */
 	setCustomParameter(1, Vector4((randf() * .5 - .25), 0, 0, 0));
 	setCustomParameter(2, Vector4(0.05, 0, 0, 0));
+    setCustomParameter(3, Vector4(0.25, 0, 0, 0));
 	setCustomParameter(4, Vector4(randf() * 2.0 - 1.0, randf() * 2.0 - 1.0, 0, 0));
 }
 

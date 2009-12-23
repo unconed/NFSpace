@@ -35,6 +35,7 @@ material Planet/Surface
       }
 
       fragment_program_ref planetSurface_FP {
+        param_named heightMap int 0
         param_named normalMap int 1
         param_named_auto tint custom 9
       }
@@ -42,17 +43,18 @@ material Planet/Surface
       texture_unit heightMap
       {
         tex_address_mode clamp
-        filtering linear linear none
+        filtering point point none
         colour_op replace
       }
 
       texture_unit normalMap
       {
         tex_address_mode clamp
-        filtering linear linear none
+        //filtering linear linear none
+        filtering anisotropic anisotropic linear
         colour_op replace
+        max_anisotropy 4
       }
     }
   }
 }
-

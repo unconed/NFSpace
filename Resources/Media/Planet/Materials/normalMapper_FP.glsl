@@ -16,7 +16,7 @@ void main() {
     // Recompose faceTransform matrix
     mat3 faceTransform = mat3(faceTransform1, faceTransform2, faceTransform3);
     
-    // Prepare pixel jitter offsets in uvw space.
+    // Prepare pixel jitter offsets in uv space.
     vec2 xOffset = sampleDistance * vec2(1.0, 0.0);
     vec2 yOffset = sampleDistance * vec2(0.0, 1.0);
 
@@ -55,10 +55,11 @@ void main() {
         )
     );
 
-    float col = (normal.r - normal.g) *.707 * .866 + normal.b * .5;
+    float col = (normal.r + normal.g) *.707 * .866 - normal.b * .5;
     
-    col = col * .5 + .5;
-
 //	gl_FragColor = vec4(normal + 0.0 * vec3(.5, .5, .5), 1.0);
+//	gl_FragColor = vec4(col, col + uv1.x, col + uv1.y, 1.0);
 	gl_FragColor = vec4(col, col, col, 1.0);
+//	gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+
 }

@@ -28,10 +28,6 @@ namespace NFSpace {
     
 // Node inside a quad tree.
 struct QuadTreeNode {
-    static int statsNodes;
-    static int statsTiles;
-    static int statsRenderables;
-    
     enum Slot { TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT };
     
     QuadTreeNode(PlanetCube* cube);
@@ -43,20 +39,30 @@ struct QuadTreeNode {
     void destroyRenderable();
     void attachChild(QuadTreeNode* child, int position);
     void detachChild(int position);
+    bool isSplit();
     
     unsigned long getGPUMemoryUsage();
-    void render(RenderQueue* queue, int lodLimit, SimpleFrustum& frustum, Vector3 cameraPosition, Vector3 cameraPlane, Real sphereClip, Real lodDetailFactorSquared);
+    int render(RenderQueue* queue, int lodLimit, SimpleFrustum& frustum, Vector3 cameraPosition, Vector3 cameraPlane, Real sphereClip, Real lodDetailFactorSquared);
     bool willRender();
     
     int mFace;
     int mLOD;
     int mX;
     int mY;
+    
+    int mLastRendered;
+    int mLastOpened;
 
+    bool mHasChildren;
+
+    bool mPageOut;
+
+    bool mRequestPageOut;
     bool mRequestMapTile;
     bool mRequestRenderable;
     bool mRequestSplit;
-
+    bool mRequestMerge;
+    
     PlanetMapTile* mMapTile;
     PlanetRenderable* mRenderable;
     
@@ -75,6 +81,14 @@ struct QuadTree {
     void setRoot(int face, QuadTreeNode* root);
     
     QuadTreeNode* mRoot;
+};
+
+// Quadtree node comparison for LOD age.
+class QuadTreeNodeCompare {
+    public:
+    bool operator()(const QuadTreeNode* a, const QuadTreeNode* b) const {
+        return (a->mLastOpened > b->mLastOpened);
+    }
 };
     
 };

@@ -19,8 +19,9 @@ namespace NFSpace {
         mHeightImage   = heightImage;
         mNormalTexture = normalTexture;
         mSize = size;
-
-        PlanetStats::statsTiles++;
+        mReferences = 0;
+        
+        PlanetStats::totalTiles++;
 
         prepareMaterial();
     }
@@ -34,7 +35,7 @@ namespace NFSpace {
         TextureManager::getSingleton().remove(mHeightTexture->getName());
         TextureManager::getSingleton().remove(mNormalTexture->getName());
 
-        PlanetStats::statsTiles--;
+        PlanetStats::totalTiles--;
     }
 
     String PlanetMapTile::getMaterial() {
@@ -59,6 +60,9 @@ namespace NFSpace {
         aliasList.insert(AliasTextureNamePairList::value_type("normalMap", mNormalTexture->getName()));
         
         mMaterial->applyTextureAliases(aliasList);
+
+        // Clear out pass caches between scene managers.
+        updateSceneManagersAfterMaterialsChange();
     }
     
     const QuadTreeNode* PlanetMapTile::getNode() {
@@ -66,9 +70,19 @@ namespace NFSpace {
     }
     
     size_t PlanetMapTile::getGPUMemoryUsage() {
-        return
-            mHeightTexture->getWidth() * mHeightTexture->getHeight() * 8 +
-            mNormalTexture->getWidth() * mNormalTexture->getHeight() * 8;
+        return 1.3125 * (
+            mHeightTexture->getWidth() * mHeightTexture->getHeight() * Ogre::PixelUtil::getNumElemBytes(mHeightTexture->getFormat()) +
+            mNormalTexture->getWidth() * mNormalTexture->getHeight() * Ogre::PixelUtil::getNumElemBytes(mNormalTexture->getFormat()));
+    }
+
+    void PlanetMapTile::addReference() {
+        mReferences++;
+    }
+    void PlanetMapTile::removeReference() {
+        mReferences--;
+    }
+    int PlanetMapTile::getReferences() {
+        return mReferences;
     }
     
 }

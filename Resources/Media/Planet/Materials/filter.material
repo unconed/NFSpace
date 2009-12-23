@@ -50,6 +50,7 @@ material Planet/NormalMapper
       {
         tex_address_mode clamp
         filtering point point none
+        colour_op replace
       }
     }
   }

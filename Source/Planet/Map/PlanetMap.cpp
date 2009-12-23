@@ -14,8 +14,6 @@
 
 namespace NFSpace {
 
-const Real PlanetMap::PLANET_TEXTURE_SIZE = 257;
-
 PlanetMap::PlanetMap(PlanetDescriptor* descriptor) : mDescriptor(descriptor) {
     initHelperScene();
     initBuffers();
@@ -46,8 +44,7 @@ void PlanetMap::initBuffers() {
     for (int i = 0; i < 2; ++i) {
         mMapBuffer[i] = new PlanetMapBuffer(mSceneManager,
                                             mCamera,
-                                            PlanetMapBuffer::MAP_TYPE_MONO,
-                                            PlanetMap::PLANET_TEXTURE_SIZE,
+                                            getInt("planet.textureSize"),
                                             1,
                                             0.5f);
     }
@@ -66,6 +63,7 @@ void PlanetMap::deleteBuffers() {
 }
     
 void PlanetMap::prepareHeightMap() {
+#ifdef NF_DEBUG_TIMING
     std::ostringstream msg;
 
     msg.str("");
@@ -73,8 +71,10 @@ void PlanetMap::prepareHeightMap() {
     log(msg.str());
     
     unsigned long delta, start = Root::getSingleton().getTimer()->getMilliseconds();
-
-    mHeightMapBrushes = mSceneManager->createSceneNode("heightMapBrushes");
+#endif
+    
+    mHeightMapBrushes = mSceneManager->getRootSceneNode()->createChildSceneNode("heightMapBrushes");
+    mHeightMapBrushes->setVisible(false, false);
 
     Vector3 position, rand, up;
     
@@ -90,12 +90,13 @@ void PlanetMap::prepareHeightMap() {
         drawBrush(mHeightMapBrushes, position, Vector2(scale, scale * (randf() + .5)), up);
     }
 
+#ifdef NF_DEBUG_TIMING
     delta = Root::getSingleton().getTimer()->getMilliseconds() - start;
     msg.str("");
     msg << " => Brush generation (" << delta << "ms)";
     log(msg.str());
     start = Root::getSingleton().getTimer()->getMilliseconds();
-    
+#endif    
 }
 
 void PlanetMap::deleteHeightMap() {
@@ -104,7 +105,7 @@ void PlanetMap::deleteHeightMap() {
         delete it.getNext();
     }
     mHeightMapBrushes->detachAllObjects();
-
+    
     mSceneManager->destroySceneNode(mHeightMapBrushes);
 }
 
@@ -120,7 +121,7 @@ PlanetMapTile* PlanetMap::generateTile(QuadTreeNode* node) {
     msg.str("");
     msg << "generateTile ("
         << face << ", " << lod << ", " << x << ", " << y << ") @ "
-        << PlanetMap::PLANET_TEXTURE_SIZE << "x" << PlanetMap::PLANET_TEXTURE_SIZE;
+        << getInt("planet.textureSize") << "x" << getInt("planet.textureSize");
     log(msg.str());
 
     unsigned long delta, start = Root::getSingleton().getTimer()->getMilliseconds();
@@ -128,8 +129,10 @@ PlanetMapTile* PlanetMap::generateTile(QuadTreeNode* node) {
     
     // Generate height texture and load into system memory for analysis.
     mMapBuffer[FRONT]->render(face, lod, x, y, mHeightMapBrushes);
-    TexturePtr heightTexture = mMapBuffer[FRONT]->saveTexture(false);
-
+    //saveTexture(mMapBuffer[FRONT]->mTexture);
+    TexturePtr heightTexture = mMapBuffer[FRONT]->saveTexture(false, PlanetMapBuffer::MAP_TYPE_HEIGHT);
+    //saveTexture(heightTexture);
+    
 #ifdef NF_DEBUG_TIMING
     delta = Root::getSingleton().getTimer()->getMilliseconds() - start;
     msg.str("");
@@ -138,7 +141,7 @@ PlanetMapTile* PlanetMap::generateTile(QuadTreeNode* node) {
     start = Root::getSingleton().getTimer()->getMilliseconds();
 #endif
 
-    Image heightImage = mMapBuffer[FRONT]->saveImage(false);
+    Image heightImage = mMapBuffer[FRONT]->saveImage(false, PlanetMapBuffer::MAP_TYPE_HEIGHT);
 
 #ifdef NF_DEBUG_TIMING
     delta = Root::getSingleton().getTimer()->getMilliseconds() - start;
@@ -149,7 +152,7 @@ PlanetMapTile* PlanetMap::generateTile(QuadTreeNode* node) {
 #endif
     // Generate normal map based on heightmap texture.
     mMapBuffer[BACK]->filter(face, lod, x, y, PlanetMapBuffer::FILTER_TYPE_NORMAL, mMapBuffer[FRONT]);
-    TexturePtr normalTexture = mMapBuffer[BACK]->saveTexture(false);
+    TexturePtr normalTexture = mMapBuffer[BACK]->saveTexture(false, PlanetMapBuffer::MAP_TYPE_NORMAL);
 
 #ifdef NF_DEBUG_TIMING
     delta = Root::getSingleton().getTimer()->getMilliseconds() - start;
@@ -158,12 +161,12 @@ PlanetMapTile* PlanetMap::generateTile(QuadTreeNode* node) {
     log(msg.str());
 #endif
 
-    return new PlanetMapTile(node, heightTexture, heightImage, normalTexture, PlanetMap::PLANET_TEXTURE_SIZE);
+    return new PlanetMapTile(node, heightTexture, heightImage, normalTexture, getInt("planet.textureSize"));
 }
 
 void PlanetMap::drawBrush(SceneNode* brushesNode, Vector3 position, Vector2 scale, Vector3 up) {
-    PlanetBrush *brush = new PlanetBrush();
-    SceneNode *node = brushesNode->createChildSceneNode();
+    PlanetBrush* brush = new PlanetBrush();
+    SceneNode* node = brushesNode->createChildSceneNode();
     node->setPosition(position);
     node->setScale(scale.x, scale.y, 1);
     

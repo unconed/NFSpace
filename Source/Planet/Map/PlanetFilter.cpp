@@ -23,6 +23,8 @@ namespace NFSpace {
         Real height = getReal("planet.height");
         Real radius = getReal("planet.radius");
         
+        setMaterial("BaseWhiteNoLighting");
+        
         // SampleDistance
         setCustomParameter(1, Vector4(1.0 / (size + border), 0, 0, 0));
         // inverseSampleDistance

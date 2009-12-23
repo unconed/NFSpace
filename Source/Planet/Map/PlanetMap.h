@@ -40,6 +40,7 @@ public:
     
     void drawBrush(SceneNode* brushesNode, Vector3 position, Vector2 scale, Vector3 up);
     PlanetMapTile* generateTile(QuadTreeNode* node);
+    PlanetMapTile* generateTile(int face, int lod, int x, int y);
 
 protected:
     void initHelperScene();

@@ -39,11 +39,13 @@ public:
 
     Vector3& getCenter();
     Real getBoundingRadius();
+    const PlanetMapTile* getMapTile();
 
     void setFrameOfReference(SimpleFrustum& frustum, Vector3 cameraPosition, Vector3 cameraPlane, Real sphereClip, Real lodDetailFactorSquared);
     const bool isInLODRange() const;
     const bool isClipped() const;
     const bool isInMIPRange() const;
+    const bool isFarAway() const;
     
     virtual void updateRenderQueue(RenderQueue* queue);
     Vector3 mSurfaceNormal;
@@ -72,6 +74,8 @@ protected:
     Real mDistance;
     Real mDistanceSquared;
     Real mCurrentDistance;
+
+    Real mScaleFactor;
     
     MovableObject* mProxy;
     PlanetMapTile* mMapTile;
@@ -83,6 +87,7 @@ protected:
     bool mIsInLODRange;
     bool mIsClipped;
     bool mIsInMIPRange;
+    bool mIsFarAway;
     
     WireBoundingBox* mWireBoundingBox;
     const QuadTreeNode* mQuadTreeNode;

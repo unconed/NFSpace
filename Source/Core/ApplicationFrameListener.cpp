@@ -10,6 +10,7 @@
 #include "ApplicationFrameListener.h"
 #include "EngineState.h"
 #include "Planet.h"
+#include "PlanetCube.h"
 
 using namespace Ogre;
 
@@ -18,7 +19,7 @@ namespace NFSpace {
 ApplicationFrameListener::ApplicationFrameListener(RenderWindow* window, SceneManager* sceneManager)
 : mWindow(window), mSceneManager(sceneManager), mCamera(0), mTranslateVector(Vector3::ZERO), mCurrentSpeed(0), mNumScreenShots(0),
 mMoveScale(0.0f), mRotScale(0.0f), mTimeUntilNextToggle(0), mFiltering(TFO_BILINEAR), mAniso(1),
-mSceneDetailIndex(0), mMoveSpeed(50), mRotateSpeed(18), mDebugOverlay(0), mRun(false),
+mSceneDetailIndex(0), mMoveSpeed(40), mRotateSpeed(18), mDebugOverlay(0), mRun(false),
 mInputManager(0), mMouse(0), mKeyboard(0)
 {
     mLODCamera = mSceneManager->createCamera("LOD Camera");
@@ -171,7 +172,7 @@ bool ApplicationFrameListener::processUnbufferedKeyInput(const FrameEvent& evt)
 
         srand(time(0) % 65536);
         Real radius = randf();
-        Real height = randf() * .1;
+        Real height = randf() * .25;
         Real norm = 100.f / (radius + height);
         EngineState::getSingleton().setValue("planet.radius", radius * norm);
         EngineState::getSingleton().setValue("planet.height", height * norm);
@@ -336,6 +337,8 @@ bool ApplicationFrameListener::frameRenderingQueued(const FrameEvent& evt)
     if( !mMouse->buffered() || !mKeyboard->buffered() )
         moveCamera();
     
+    // Do cube maintenance.
+    Planet::doMaintenance();
     return true;
 }
 
@@ -352,18 +355,28 @@ void ApplicationFrameListener::updateStats() {
     static String tris = "Triangle Count: ";
     static String batches = "Batch Count: ";
     
-    static String planetNodes = "Planet nodes: ";
-    static String planetTiles = "Planet tiles: ";
-    static String planetRenderables = "Planet renderables: ";
-    static String planetMemory = "Planet GPU memory: ";
+    static String planetNodes = "Nodes: ";
+    static String planetLeafs = "Open Nodes: ";
+    static String planetTiles = "Tiles: ";
+    static String planetPagedOut = "Nodes/tiles paged out: ";
+    static String planetRenderables = "Renderables: ";
+    static String planetActiveRenderables = "Drawn: ";
+    static String planetHotTiles = "Hot tiles: ";
+    static String planetQueue = "Queue size: ";
+    static String planetMemory = "GPU tile cache: ";
     
     // update stats when necessary
     try {
         OverlayElement* guiText = OverlayManager::getSingleton().getOverlayElement("NF/TreeStats");
         guiText->setCaption(
-                            planetNodes + StringConverter::toString(PlanetStats::statsNodes) + "\n" +
-                            planetTiles + StringConverter::toString(PlanetStats::statsTiles) + "\n" +
-                            planetRenderables + StringConverter::toString(PlanetStats::statsRenderables) + "\n" +
+                            planetNodes + StringConverter::toString(PlanetStats::totalNodes) + "\n" +
+                            planetLeafs + StringConverter::toString(PlanetStats::totalOpenNodes) + "\n" +
+                            planetTiles + StringConverter::toString(PlanetStats::totalTiles) + "\n" +
+                            planetPagedOut + StringConverter::toString(PlanetStats::totalPagedOut) + "\n" +
+                            planetRenderables + StringConverter::toString(PlanetStats::totalRenderables) + "\n" +
+                            planetActiveRenderables + StringConverter::toString(PlanetStats::renderedRenderables) + "\n" +
+                            planetHotTiles + StringConverter::toString(PlanetStats::hotTiles) + "\n" +
+                            planetQueue + StringConverter::toString(PlanetStats::requestQueue) + "\n" +
                             planetMemory + StringConverter::toString(PlanetStats::gpuMemoryUsage >> 20) + " MB" +
                             "");
         

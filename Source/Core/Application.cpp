@@ -180,10 +180,10 @@ void Application::setupViewport() {
 void Application::setupScene() {
     //mSceneManager->setDisplaySceneNodes(true);
     
-    mVp->setBackgroundColour(Ogre::ColourValue(0.3, 0.3, 0.3));
+    mVp->setBackgroundColour(Ogre::ColourValue(0.1, 0.1, 0.1));
     
     // temporary set up 
-    mCamera->setPosition(230.0f, 150.0f, 350.0f);
+    mCamera->setPosition(210.0f, 60.0f, 170.0f);
     mCamera->lookAt(Vector3(0, 0, 0));
     mCamera->setNearClipDistance(0.01f);
     mSceneManager->setAmbientLight(Ogre::ColourValue(1, 1, 1));
@@ -199,7 +199,7 @@ void Application::setupScene() {
     /*
     SceneNode* filterNode = mSceneManager->getRootSceneNode()->createChildSceneNode();
     filterNode->setScale(Vector3(getReal("planet.radius") + getReal("planet.height") + 2.f));
-    PlanetFilter* filter = new PlanetFilter(0, 513, 0);
+    PlanetFilter* filter = new PlanetFilter(0, 513, 0, 0, 257, 1);
     filter->setMaterial("Planet/NormalMapper");
     filterNode->attachObject(filter);
      */

@@ -2,7 +2,10 @@
  *  Utility.cpp
  *  NFSpace
  *
- *  Source: http://www.ogre3d.org/wiki/index.php/CropImage
+ *  Sources:
+ *    http://www.ogre3d.org/wiki/index.php/CropImage
+ *    http://www.ogre3d.org/forums/viewtopic.php?f=3&t=46850
+ *    http://www.ogre3d.org/forums/viewtopic.php?p=189032
  *
  *  Created by Steven Wittens on 20/08/09.
  *  Copyright 2009 __MyCompanyName__. All rights reserved.
@@ -58,4 +61,55 @@ Ogre::Image cropImage(const Ogre::Image& source, size_t offsetX, size_t offsetY,
     return croppedImage;
 }
 
+    void saveTexture(Ogre::TexturePtr texture) {
+        static int out = 0;
+        String filename = "out-" + StringConverter::toString(++out) + ".png";
+        Ogre::PixelFormat pf = PF_BYTE_RGBA; // texture->getFormat()
+        
+        // Declare buffer
+        const size_t bufferSize = texture->getWidth() * texture->getHeight() * Ogre::PixelUtil::getNumElemBytes(pf);
+        unsigned char *data = OGRE_ALLOC_T(uchar, bufferSize, Ogre::MEMCATEGORY_GENERAL);
+        
+        // Clear buffer
+        memset(data, 0, bufferSize);
+        
+        // Setup Image with correct settings
+        Ogre::Image image;
+        image.loadDynamicImage(data, texture->getWidth(), texture->getHeight(), 1, pf, true);
+        
+        // Copy Texture buffer contents to image buffer
+        Ogre::HardwarePixelBufferSharedPtr buffer = texture->getBuffer();      
+        const Ogre::PixelBox destBox = image.getPixelBox();
+        buffer->blitToMemory(destBox);
+        
+        // Save to disk!
+        image.save(filename);
+    }
+    
+    void updateSceneManagersAfterMaterialsChange()
+    {
+        if (Ogre::Pass::getDirtyHashList().size() != 0 || Ogre::Pass::getPassGraveyard().size() != 0) {
+            Ogre::SceneManagerEnumerator::SceneManagerIterator scenesIter = Root::getSingleton().getSceneManagerIterator();
+            
+            while(scenesIter.hasMoreElements()) {
+                Ogre::SceneManager* pScene = scenesIter.getNext();
+                
+                if (pScene) {
+                    Ogre::RenderQueue* pQueue = pScene->getRenderQueue();
+                    
+                    if (pQueue) {
+                        Ogre::RenderQueue::QueueGroupIterator groupIter = pQueue->_getQueueGroupIterator();
+                        while (groupIter.hasMoreElements()) {
+                            Ogre::RenderQueueGroup* pGroup = groupIter.getNext();
+                            if(pGroup)
+                                pGroup->clear(false);
+                        }
+                    }
+                }
+            }
+            
+            // Now trigger the pending pass updates
+            Ogre::Pass::processPendingPassUpdates();
+        }
+    }
 };

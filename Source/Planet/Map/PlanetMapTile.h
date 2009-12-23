@@ -25,6 +25,9 @@ public:
     Image* getHeightMap();
     const QuadTreeNode* getNode();
     size_t getGPUMemoryUsage();
+    void addReference();
+    void removeReference();
+    int getReferences();
 
 protected:
     void prepareMaterial();
@@ -37,6 +40,7 @@ protected:
     TexturePtr mNormalTexture;
     MaterialPtr mMaterial;
     int mSize;
+    int mReferences;
 };
 
 }

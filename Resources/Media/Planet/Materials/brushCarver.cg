@@ -28,7 +28,9 @@ float4 brushCarverNoisy_FP(
         tex2D(noiseMap, uv0 * noiseScale * 2 + noiseOffset) * .5 +
         tex2D(noiseMap, uv0 * noiseScale * 4 + noiseOffset) * .25 +
         tex2D(noiseMap, uv0 * noiseScale * 8 + noiseOffset) * .125 +
-        tex2D(noiseMap, uv0 * noiseScale * 16 + noiseOffset) * .0625
+        tex2D(noiseMap, uv0 * noiseScale * 16 + noiseOffset) * .0625 +
+        tex2D(noiseMap, uv0 * noiseScale * 32 + noiseOffset) * .03125 +
+        tex2D(noiseMap, uv0 * noiseScale * 64 + noiseOffset) * .015625
     ;
     
     float2 uvAdjusted = uv0 + falloff(uv0) * (float2(noiseSample.x, noiseSample.y) * 2.0 - 1.0) * noiseIntensity;
