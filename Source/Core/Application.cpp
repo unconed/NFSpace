@@ -183,7 +183,7 @@ void Application::setupScene() {
     mVp->setBackgroundColour(Ogre::ColourValue(0.1, 0.1, 0.1));
     
     // temporary set up 
-    mCamera->setPosition(210.0f, 60.0f, 170.0f);
+    mCamera->setPosition(160.0f, 62.0f, 40.0f);
     mCamera->lookAt(Vector3(0, 0, 0));
     mCamera->setNearClipDistance(0.01f);
     mSceneManager->setAmbientLight(Ogre::ColourValue(1, 1, 1));

@@ -15,23 +15,25 @@ using namespace Ogre;
 
 namespace NFSpace {
     
-    PlanetCube::PlanetCubeSet PlanetCube::sCubes;
-
 PlanetCube::PlanetCube(MovableObject* proxy, PlanetMap* map)
-: mProxy(proxy), mLODCamera(0), mMap(map), mFrameCounter(0), mPruneOffset(0) {
+: mProxy(proxy), mLODCamera(0), mMap(map), mFrameCounter(0) {
     for (int i = 0; i < 6; ++i) {
         initFace(i);
     }
+
     mTimer = OGRE_NEW Timer();
-    sCubes.insert(this);
+
+    mFrameListener = OGRE_NEW_T(CubeFrameListener, MEMCATEGORY_GENERAL)(this);
 }
 
 PlanetCube::~PlanetCube() {
-    sCubes.erase(this);
+    OGRE_DELETE_T(mFrameListener, CubeFrameListener, MEMCATEGORY_GENERAL);
+
+    OGRE_DELETE mTimer;
+
     for (int i = 0; i < 6; ++i) {
         deleteFace(i);
     }
-    OGRE_DELETE mTimer;
 }
     
 void PlanetCube::initFace(int face) {
@@ -84,49 +86,68 @@ void PlanetCube::mergeQuadTreeNode(QuadTreeNode* node) {
 }
 
 void PlanetCube::request(QuadTreeNode* node, int type, bool priority) {
+    RequestQueue& requestQueue = (type == REQUEST_MAPTILE) ? mRenderRequests : mInlineRequests;
     if (priority) {
-        mRequests.push_front(Request(node, type));
+        requestQueue.push_front(Request(node, type));
     }
     else {
-        mRequests.push_back(Request(node, type));
+        requestQueue.push_back(Request(node, type));
     }
 }
 
 void PlanetCube::unrequest(QuadTreeNode* node) {
-    RequestQueue::iterator i = mRequests.begin(), j;
-    while (i != mRequests.end()) {
-        if ((*i).mNode == node) {
-            if (i == mRequests.begin()) {
-                mRequests.erase(i);
-                i = mRequests.begin();
-                continue;
+    RequestQueue* requestQueues[] = { &mRenderRequests, &mInlineRequests };
+    for (int q = 0; q < 2; q++) {
+        RequestQueue::iterator i = (*requestQueues[q]).begin(), j;
+        while (i != (*requestQueues[q]).end()) {
+            if ((*i).mNode == node) {
+                // Remove item at front of queue.
+                if (i == (*requestQueues[q]).begin()) {
+                    // Special case: if unrequesting a maptile current being generated,
+                    // make sure temp/unclaimed resources are cleaned up.
+                    if ((*i).mType == REQUEST_MAPTILE) {
+                        mMap->resetTile();
+                    }
+
+                    (*requestQueues[q]).erase(i);
+                    i = (*requestQueues[q]).begin();
+                    continue;
+                }
+                // Remove item mid-queue.
+                else {
+                    j = i;
+                    --i;
+                    (*requestQueues[q]).erase(j);
+                }
             }
-            else {
-                j = i;
-                --i;
-                mRequests.erase(j);
-            }
+            ++i;
         }
-        ++i;
     }
 }
+    
+void PlanetCube::handleRenderRequests() {
+    handleRequests(mRenderRequests);
+}
 
-void PlanetCube::handleRequests() {
+void PlanetCube::handleInlineRequests() {
+    handleRequests(mInlineRequests);
+}
+
+void PlanetCube::handleRequests(RequestQueue& requests) {
 
     // Ensure we only use up x time per frame.
-    //Real limit = EngineState::getSingleton().getRealValue("planet.pagerTimeSlot");
-    //mTimer->reset();
-    int weights[] = { 10, 10, 1, 1 };
-    void(PlanetCube::*handlers[4])(QuadTreeNode*) = {
+    int weights[] = { 10, 10, 1, 2 };
+    bool(PlanetCube::*handlers[4])(QuadTreeNode*) = {
         &PlanetCube::handleRenderable,
         &PlanetCube::handleMapTile,
         &PlanetCube::handleSplit,
         &PlanetCube::handleMerge
     };
     int limit = 10;
+    bool sorted = false;
     
-    while (mRequests.size() > 0) {
-        Request request = *mRequests.begin();
+    while (requests.size() > 0) {
+        Request request = *requests.begin();
         QuadTreeNode* node = request.mNode;
 
         // If not a root level task.
@@ -136,15 +157,19 @@ void PlanetCube::handleRequests() {
             limit -= weights[request.mType];
         }
         
-        //if (mTimer->getMilliseconds() > limit) return;
-
-        mRequests.pop_front();
-  
-        (this->*handlers[request.mType])(node);        
+        requests.pop_front();
+        // Call handler.
+        if ((this->*handlers[request.mType])(node)) {
+            // Job was completed. We can re-sort the priority queue.
+            if (!sorted) {
+                requests.sort(RequestComparePriority());
+                sorted = true;
+            }
+        }
     }
 }
     
-void PlanetCube::handleRenderable(QuadTreeNode* node) {
+bool PlanetCube::handleRenderable(QuadTreeNode* node) {
 #ifdef NF_DEBUG_TREEMGT
     printf("handleRenderable (f%d @ %d - %d, %d)\n", node->mFace, node->mLOD, node->mX, node->mY);
 #endif
@@ -180,27 +205,37 @@ void PlanetCube::handleRenderable(QuadTreeNode* node) {
         node->mRequestMapTile = true;
         request(node, REQUEST_MAPTILE, true);
     }
+    return true;
 }
 
-void PlanetCube::handleMapTile(QuadTreeNode* node) {
+bool PlanetCube::handleMapTile(QuadTreeNode* node) {
 #ifdef NF_DEBUG_TREEMGT
     printf("handleMapTile (f%d @ %d - %d, %d)\n", node->mFace, node->mLOD, node->mX, node->mY);
 #endif
 
-    // Generate a map tile for this node.
-    node->createMapTile(mMap);
-    node->mRequestMapTile = false;
-    
-    // Request a new renderable to match.
-    node->mRequestRenderable = true;
-    request(node, REQUEST_RENDERABLE, true);
+    // See if the map tile object for this node is ready yet.
+    if (!node->prepareMapTile(mMap)) {
+        // Needs more work.
+        request(node, REQUEST_MAPTILE, true);
+        return false;
+    }
+    else {
+        // Assemble a map tile object for this node.
+        node->createMapTile(mMap);
+        node->mRequestMapTile = false;
 
-    // See if any child renderables use the old maptile.
-    PlanetMapTile* oldTile;
-    refreshMapTile(node, oldTile);
+        // Request a new renderable to match.
+        node->mRequestRenderable = true;
+        request(node, REQUEST_RENDERABLE, true);
+
+        // See if any child renderables use the old maptile.
+        PlanetMapTile* oldTile;
+        refreshMapTile(node, oldTile);
+        return true;
+    }
 }
 
-void PlanetCube::handleSplit(QuadTreeNode* node) {
+bool PlanetCube::handleSplit(QuadTreeNode* node) {
 #ifdef NF_DEBUG_TREEMGT
     printf("handleSplit (f%d @ %d - %d, %d) - Vis,LOD,MIP: %d, %d, %d\n",
            node->mFace, node->mLOD, node->mX, node->mY,
@@ -216,9 +251,10 @@ void PlanetCube::handleSplit(QuadTreeNode* node) {
     else {
         // mRequestSplit is stuck on, so will not be requested again.
     }
+    return true;
 }
 
-void PlanetCube::handleMerge(QuadTreeNode* node) {
+bool PlanetCube::handleMerge(QuadTreeNode* node) {
 #ifdef NF_DEBUG_TREEMGT
     printf("handleMerge (f%d @ %d - %d, %d) - Vis,LOD,MIP: %d, %d, %d\n",
            node->mFace, node->mLOD, node->mX, node->mY,
@@ -229,6 +265,7 @@ void PlanetCube::handleMerge(QuadTreeNode* node) {
 #endif
     mergeQuadTreeNode(node);
     node->mRequestMerge = false;
+    return true;
 }
 
 void PlanetCube::refreshMapTile(QuadTreeNode* node, PlanetMapTile* tile) {
@@ -256,7 +293,7 @@ void PlanetCube::pruneTree() {
     while (heap.size() > 0) {
         QuadTreeNode* oldNode = heap.top();
         if (!oldNode->mPageOut && !oldNode->mRequestMerge && (getFrameCounter() - oldNode->mLastOpened > 100)) {
-            oldNode->mRenderable->setFrameOfReference(mLODFrustum, mLODPosition, mLODCameraPlane, mLODSphereClip, mLODPixelFactor * mLODPixelFactor);
+            oldNode->mRenderable->setFrameOfReference(mLOD);
             // Make sure node's children are too detailed rather than just invisible.
             if (oldNode->mRenderable->isFarAway() ||
                 (oldNode->mRenderable->isInLODRange() && oldNode->mRenderable->isInMIPRange())
@@ -284,43 +321,30 @@ void PlanetCube::pruneTree() {
     }
 }
 
-void PlanetCube::doMaintenance() {
-    for (PlanetCube::PlanetCubeSet::iterator i = PlanetCube::sCubes.begin(); i != sCubes.end(); ++i) {
-        // Prune the LOD tree
-        if (!getBool("planet.pruneFreeze")) {
-            (*i)->pruneTree();
-        }
-        
-        // Update LOD requests.
-        if (!getBool("planet.pageFreeze")) {
-            (*i)->handleRequests();
-        }
-    }
-
-    updateSceneManagersAfterMaterialsChange();
-}    
-
 void PlanetCube::updateRenderQueue(RenderQueue* queue, const Matrix4& fullTransform) {
     // Update LOD state.
     if (mLODCamera && !getBool("planet.lodFreeze")) {
+        Matrix4 viewMatrix = mLODCamera->getViewMatrix();
+        
         // TODO: need to compensate for full transform on camera position.
-        mLODPosition = mLODCamera->getPosition() - mProxy->getParentNode()->getPosition();
-        mLODFrustum.setModelViewProjMatrix(mLODCamera->getProjectionMatrix() * mLODCamera->getViewMatrix() * fullTransform);
+        mLOD.mCameraPosition = mLODCamera->getPosition() - mProxy->getParentNode()->getPosition();
+        mLOD.mCameraFrustum.setModelViewProjMatrix(mLODCamera->getProjectionMatrix() * viewMatrix * fullTransform);
+        mLOD.mCameraFront = Vector3(viewMatrix[0][2], viewMatrix[1][2], viewMatrix[2][2]);
 
-        mLODCameraPlane = mLODPosition;
-        mLODCameraPlane.normalise();
+        mLOD.mSpherePlane = mLOD.mCameraPosition;
+        mLOD.mSpherePlane.normalise();
         
         Real planetRadius = getReal("planet.radius");
         Real planetHeight = getReal("planet.height");
         
-        if (mLODPosition.length() > planetRadius) {
-            mLODSphereClip = cos(
+        if (mLOD.mCameraPosition.length() > planetRadius) {
+            mLOD.mSphereClip = cos(
                             acos((planetRadius + planetHeight / 2) / (planetRadius + planetHeight)) +
-                            acos(planetRadius / mLODPosition.length())
+                            acos(planetRadius / mLOD.mCameraPosition.length())
                         );
         }
         else {
-            mLODSphereClip = -1;
+            mLOD.mSphereClip = -1;
         }
 
     }
@@ -328,12 +352,12 @@ void PlanetCube::updateRenderQueue(RenderQueue* queue, const Matrix4& fullTransf
     PlanetStats::renderedRenderables = 0;
     PlanetStats::gpuMemoryUsage = 0;
     PlanetStats::totalOpenNodes = mOpenNodes.size();
-    PlanetStats::requestQueue = mRequests.size();
+    PlanetStats::requestQueue = mInlineRequests.size() + mRenderRequests.size();
 
     for (int i = 0; i < 6; ++i) {
         PlanetStats::gpuMemoryUsage += mFaces[i]->mRoot->getGPUMemoryUsage();
         if (mFaces[i]->mRoot->willRender()) {
-            mFaces[i]->mRoot->render(queue, getInt("planet.lodLimit"), mLODFrustum, mLODPosition, mLODCameraPlane, mLODSphereClip, mLODPixelFactor * mLODPixelFactor);
+            mFaces[i]->mRoot->render(queue, mLOD);
         }
     }
     
@@ -343,10 +367,16 @@ void PlanetCube::updateRenderQueue(RenderQueue* queue, const Matrix4& fullTransf
 void PlanetCube::setCamera(Camera* camera) {
     mLODCamera = camera;
     if (camera) {
-        Real mLODLevel = EngineState::getSingleton().getRealValue("planet.lodDetail");
-        if (mLODLevel <= 0.0) mLODLevel = 1.0;
         int height = EngineState::getSingleton().getIntValue("screenHeight");
-        mLODPixelFactor = height / (2 * (mLODLevel) * tan(camera->getFOVy().valueRadians()));
+        Real fov = 2.0 * tan(camera->getFOVy().valueRadians());
+        
+        Real geoDetail = maxf(1.0, EngineState::getSingleton().getRealValue("planet.geoDetail"));
+        mLOD.mGeoFactor = height / (geoDetail * fov);
+        mLOD.mGeoFactorSquared = mLOD.mGeoFactor * mLOD.mGeoFactor;
+
+        Real texDetail = maxf(1.0, EngineState::getSingleton().getRealValue("planet.texDetail"));
+        mLOD.mTexFactor = height / (texDetail * fov);
+        mLOD.mTexFactorSquared = mLOD.mTexFactor * mLOD.mTexFactor;
     }
 }
 
@@ -412,4 +442,37 @@ const Matrix3 PlanetCube::getFaceTransform(int face) {
 }
 
 
+    PlanetCube::CubeFrameListener::CubeFrameListener(PlanetCube* cube) : mCube(cube) {
+        Ogre::Root::getSingleton().addFrameListener(this);
+    }
+    
+    PlanetCube::CubeFrameListener::~CubeFrameListener() {
+        Ogre::Root::getSingleton().removeFrameListener(this);
+    }
+    
+    bool PlanetCube::CubeFrameListener::frameStarted(const FrameEvent& evt) {
+        // Handle delayed requests (for rendering new tiles).
+        mCube->handleRenderRequests();
+        return true;
+    }
+    
+	bool PlanetCube::CubeFrameListener::frameRenderingQueued(const FrameEvent& evt) {
+        if (!getBool("planet.treeFreeze")) {
+            // Prune the LOD tree
+            mCube->pruneTree();
+
+            // Update LOD requests.
+            mCube->handleInlineRequests();
+        }
+        return true;
+    }
+    
+    bool PlanetCube::CubeFrameListener::frameEnded(const FrameEvent& evt) {
+        return true;
+    }
+    
+
+    bool PlanetCube::RequestComparePriority::operator()(const Request& a, const Request& b) const {
+        return (a.mNode->getPriority() > b.mNode->getPriority());
+    }
 };

@@ -19,14 +19,15 @@ namespace NFSpace {
 ApplicationFrameListener::ApplicationFrameListener(RenderWindow* window, SceneManager* sceneManager)
 : mWindow(window), mSceneManager(sceneManager), mCamera(0), mTranslateVector(Vector3::ZERO), mCurrentSpeed(0), mNumScreenShots(0),
 mMoveScale(0.0f), mRotScale(0.0f), mTimeUntilNextToggle(0), mFiltering(TFO_BILINEAR), mAniso(1),
-mSceneDetailIndex(0), mMoveSpeed(40), mRotateSpeed(18), mDebugOverlay(0), mRun(false),
-mInputManager(0), mMouse(0), mKeyboard(0)
+mSceneDetailIndex(0), mMoveSpeed(40), mRotateSpeed(18), mDebugOverlay(0), mRun(false), mNewPlanet(false),
+mInputManager(0), mMouse(0), mKeyboard(0), mStatsOn(true)
 {
     mLODCamera = mSceneManager->createCamera("LOD Camera");
     SceneNode* node = mSceneManager->getRootSceneNode()->createChildSceneNode();
     node->attachObject(mLODCamera);
     
     mDebugOverlay = OverlayManager::getSingleton().getByName("Core/DebugOverlay");
+    showDebugOverlay(mStatsOn);
 
     size_t windowHnd = 0;
     std::ostringstream windowHndStr;
@@ -168,19 +169,7 @@ bool ApplicationFrameListener::processUnbufferedKeyInput(const FrameEvent& evt)
 
     if(mKeyboard->isKeyDown(OIS::KC_TAB) && mTimeUntilNextToggle <=0)
     {
-        EngineState::getSingleton().setValue("planet.seed", getInt("planet.seed") + 1);
-
-        srand(time(0) % 65536);
-        Real radius = randf();
-        Real height = randf() * .25;
-        Real norm = 100.f / (radius + height);
-        EngineState::getSingleton().setValue("planet.radius", radius * norm);
-        EngineState::getSingleton().setValue("planet.height", height * norm);
-
-        PlanetMovable* planetMovable;
-        SceneNode *planetNode = mSceneManager->getSceneNode("PlanetNode");
-        planetMovable = (PlanetMovable*)planetNode->getAttachedObject(0);
-        planetMovable->refresh(PlanetMovableFactory::getDefaultDescriptor());
+        mNewPlanet = TRUE;
 
         /*
         mSceneManager->destroyMovableObject((PlanetMovable*)planetNode->getAttachedObject(0));
@@ -189,6 +178,12 @@ bool ApplicationFrameListener::processUnbufferedKeyInput(const FrameEvent& evt)
         planetNode->attachObject(planetMovable);
          */
         
+        mTimeUntilNextToggle = 0.5;
+    }
+
+    if(mKeyboard->isKeyDown(OIS::KC_J) && mTimeUntilNextToggle <=0)
+    {
+        EngineState::getSingleton().setValue("planet.treeFreeze", !EngineState::getSingleton().getBoolValue("planet.treeFreeze"));
         mTimeUntilNextToggle = 0.5;
     }
     
@@ -337,13 +332,31 @@ bool ApplicationFrameListener::frameRenderingQueued(const FrameEvent& evt)
     if( !mMouse->buffered() || !mKeyboard->buffered() )
         moveCamera();
     
-    // Do cube maintenance.
-    Planet::doMaintenance();
     return true;
 }
 
 bool ApplicationFrameListener::frameEnded(const FrameEvent& evt) {
     updateStats();
+    
+    if (mNewPlanet) {
+        mNewPlanet = false;
+        
+        EngineState::getSingleton().setValue("planet.seed", getInt("planet.seed") + 1);
+        
+        srand(time(0) % 65536);
+        Real radius = randf();
+        Real height = randf() * .25;
+        Real norm = 100.f / (radius + height);
+        EngineState::getSingleton().setValue("planet.radius", radius * norm);
+        EngineState::getSingleton().setValue("planet.height", height * norm);
+        
+        PlanetMovable* planetMovable;
+        SceneNode *planetNode = mSceneManager->getSceneNode("PlanetNode");
+        planetMovable = (PlanetMovable*)planetNode->getAttachedObject(0);
+        planetMovable->refresh(PlanetMovableFactory::getDefaultDescriptor());
+        
+    }
+    
     return true;
 }
 

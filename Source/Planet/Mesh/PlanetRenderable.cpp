@@ -480,11 +480,11 @@ void PlanetRenderable::updateRenderQueue(RenderQueue* queue) {
 void PlanetRenderable::_updateRenderQueue(RenderQueue* queue) {
     SimpleRenderable::_updateRenderQueue(queue);
 
-    if (mWireBoundingBox == NULL) {
-        mWireBoundingBox = OGRE_NEW WireBoundingBox();
-        mWireBoundingBox->setupBoundingBox(mBox);
-    }
-    queue->addRenderable(mWireBoundingBox);
+//    if (mWireBoundingBox == NULL) {
+//        mWireBoundingBox = OGRE_NEW WireBoundingBox();
+//        mWireBoundingBox->setupBoundingBox(mBox);
+//    }
+//    queue->addRenderable(mWireBoundingBox);
 }
 
 const String& PlanetRenderable::getMovableType(void) const {
@@ -492,12 +492,12 @@ const String& PlanetRenderable::getMovableType(void) const {
     return movType;
 }
 
-void PlanetRenderable::setFrameOfReference(SimpleFrustum& frustum, Vector3 cameraPosition, Vector3 cameraPlane, Real sphereClip, Real lodDetailFactorSquared) {
+void PlanetRenderable::setFrameOfReference(PlanetLODConfiguration& lod) {
     // Bounding box clipping.
-    mIsClipped = !frustum.isVisible(mBox);
+    mIsClipped = !lod.mCameraFrustum.isVisible(mBox);
 
     // Get vector from center to camera and normalize it.
-    Vector3 positionOffset = cameraPosition - mCenter;
+    Vector3 positionOffset = lod.mCameraPosition - mCenter;
     Vector3 viewDirection = positionOffset;
     
     // Find the offset between the center of the grid and the grid point closest to the camera (rough approx).
@@ -511,28 +511,36 @@ void PlanetRenderable::setFrameOfReference(SimpleFrustum& frustum, Vector3 camer
     // Spherical distance map clipping.
     Vector3 referenceCoordinate = mCenter + referenceOffset;
     referenceCoordinate.normalise();
-    mIsFarAway = (cameraPlane.dotProduct(referenceCoordinate) < sphereClip);
+    mIsFarAway = (lod.mSpherePlane.dotProduct(referenceCoordinate) < lod.mSphereClip);
     mIsClipped = mIsClipped || mIsFarAway;
     
-    // Now find the closest point to the camera (approx).
-    positionOffset += referenceOffset;
+    // Find the position offset to the nearest point to the camera (approx).
+    Vector3 nearPositionOffset = positionOffset + referenceOffset;
+
+    // Determine LOD priority.
+    Vector3 priorityAngle = nearPositionOffset;
+    priorityAngle.normalise();
+    mLODPriority = -priorityAngle.dotProduct(lod.mCameraFront) / nearPositionOffset.length();
     
     // Determine factor to shrink LOD by due to perspective foreshortening.
     // Pad shortening factor based on LOD level to compensate for grid curving.
-    Real lodSpan = mPlanetRadius / ((1 << mQuadTreeNode->mLOD) * positionOffset.length());
+    Real lodSpan = mPlanetRadius / ((1 << mQuadTreeNode->mLOD) * nearPositionOffset.length());
     viewDirection.normalise();
     Real lodShorten = minf(1.0f, mSurfaceNormal.crossProduct(viewDirection).length() + lodSpan);
     Real lodShortenSquared = lodShorten * lodShorten;
-    mIsInLODRange = positionOffset.squaredLength() > maxf(mDistanceSquared, mChildDistanceSquared) * lodDetailFactorSquared * lodShortenSquared;
+    mIsInLODRange = nearPositionOffset.squaredLength() > maxf(mDistanceSquared, mChildDistanceSquared) * lod.mGeoFactorSquared * lodShortenSquared;
 
-    // Calculate texel resolution
-//    positionOffset -= referenceOffset;
-    float distance = positionOffset.length(); // Distance to tile center
-    float faceSize = mScaleFactor * (mPlanetRadius * Math::PI / 2); // Curved width/height of texture cube face on the sphere
+    // Calculate texel resolution relative to near grid-point (approx).
+    float distance = nearPositionOffset.length(); // Distance to point
+    nearPositionOffset.normalise();
+    float isotropy = mSurfaceNormal.dotProduct(positionOffset); // Perspective texture foreshortening along long axis
+    float isolimit = 1.0;//minf(1.0, (.5 + isotropy) * 8); // Beyond the limit of anisotropic filtering, no point in applying high res
+    float faceSize = mScaleFactor * (mPlanetRadius * Math::PI); // Curved width/height of texture cube face on the sphere
     float res = faceSize / (1 << mMapTile->getNode()->mLOD) / mMap->getWidth(); // Size of a single texel in world units
-    float screenres = distance / getInt("screenWidth"); // Size of a screen pixel in world units at given distance.
     
-    mIsInMIPRange = res < screenres;
+    //setCustomParameter(9, Vector4(minf(1.0, (isotropy + .5)), 1, 1, 1));
+    
+    mIsInMIPRange = res * lod.mTexFactor * isolimit < distance;
 }
 
 const bool PlanetRenderable::isClipped() const {
@@ -550,9 +558,12 @@ const bool PlanetRenderable::isInLODRange() const {
 const bool PlanetRenderable::isInMIPRange() const {
     return mIsInMIPRange;
 }
+
+const Real PlanetRenderable::getLODPriority(void) const {
+    return mLODPriority;
+}
     
-Real PlanetRenderable::getBoundingRadius(void) const
-{
+Real PlanetRenderable::getBoundingRadius(void) const {
     return Math::Sqrt(std::max(mBox.getMaximum().squaredLength(), mBox.getMinimum().squaredLength()));
 }
 

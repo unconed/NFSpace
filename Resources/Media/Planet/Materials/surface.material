@@ -51,9 +51,10 @@ material Planet/Surface
       {
         tex_address_mode clamp
         //filtering linear linear none
-        filtering anisotropic anisotropic linear
+        filtering linear linear linear
+        //filtering anisotropic anisotropic linear
         colour_op replace
-        max_anisotropy 4
+        //max_anisotropy 4
       }
     }
   }

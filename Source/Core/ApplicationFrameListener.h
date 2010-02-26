@@ -24,7 +24,6 @@ public:
 	//Adjust mouse clipping area
 	virtual void windowResized(RenderWindow* rw);
 	virtual void windowClosed(RenderWindow* rw);    
-    bool frameStarted(const FrameEvent& evt);
     void setCamera(Camera* camera);
 
     virtual void updateStats();
@@ -32,6 +31,7 @@ public:
     virtual bool processUnbufferedMouseInput(const FrameEvent& evt);
     virtual bool processUnbufferedKeyInput(const FrameEvent& evt);
     virtual void showDebugOverlay(bool show);
+    virtual bool frameStarted(const FrameEvent& evt);
     virtual bool frameRenderingQueued(const FrameEvent& evt);
 	virtual bool frameEnded(const FrameEvent& evt);
 private:
@@ -54,6 +54,8 @@ private:
     unsigned int mNumScreenShots;
     int mSceneDetailIndex;
 
+    bool mNewPlanet;
+    
     bool mRun;
 	float mMoveScale;
 	float mSpeedLimit;

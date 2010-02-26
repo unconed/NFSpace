@@ -52,12 +52,17 @@ class PlanetCube {
         Request(QuadTreeNode* node, int type) : mNode(node), mType(type) {};
     };
 
+    class RequestComparePriority {
+    public:
+        bool operator()(const Request& a, const Request& b) const;
+    }; 
+
 public:
     
     typedef set<PlanetCube*> PlanetCubeSet;
     typedef list<Request> RequestQueue;
     typedef set<QuadTreeNode*> NodeSet;
-    typedef priority_queue<QuadTreeNode*, vector<QuadTreeNode*>, QuadTreeNodeCompare> NodeHeap;
+    typedef priority_queue<QuadTreeNode*, vector<QuadTreeNode*>, QuadTreeNodeCompareLastOpened> NodeHeap;
 
     /**
      * Constructor
@@ -67,10 +72,7 @@ public:
 
     static const Quaternion getFaceCamera(int face);
     static const Matrix3 getFaceTransform(int face);
-    static void doMaintenance();
         
-    static PlanetCubeSet sCubes;
-    
     const Real getScale() const;
     virtual void updateRenderQueue(RenderQueue* queue, const Matrix4& fullTransform);
     void setCamera(Camera* camera);
@@ -84,32 +86,43 @@ protected:
 
     void request(QuadTreeNode* node, int type, bool priority = false);
     void unrequest(QuadTreeNode* node);
-    void handleRequests();
-    void handleRenderable(QuadTreeNode* node);
-    void handleMapTile(QuadTreeNode* node);
-    void handleSplit(QuadTreeNode* node);
-    void handleMerge(QuadTreeNode* node);
+    void handleRequests(RequestQueue& queue);
+    void handleRenderRequests();
+    void handleInlineRequests();
+        
+    bool handleRenderable(QuadTreeNode* node);
+    bool handleMapTile(QuadTreeNode* node);
+    bool handleSplit(QuadTreeNode* node);
+    bool handleMerge(QuadTreeNode* node);
 
     void pruneTree();
     void refreshMapTile(QuadTreeNode* node, PlanetMapTile* tile);
+
+    class CubeFrameListener : public FrameListener {
+        PlanetCube* mCube;
+    public:
+        CubeFrameListener(PlanetCube* cube);
+        virtual ~CubeFrameListener();
+        virtual bool frameStarted(const FrameEvent& evt);
+		virtual bool frameRenderingQueued(const FrameEvent& evt);
+        virtual bool frameEnded(const FrameEvent& evt);
+    };
     
+    CubeFrameListener* mFrameListener;
+
+    RequestQueue mInlineRequests;
+    RequestQueue mRenderRequests;
     QuadTree* mFaces[6];
-    RequestQueue mRequests;
     NodeSet mOpenNodes;
-    int mPruneOffset;
     
     MovableObject* mProxy;
     PlanetMap* mMap;
-    
-    int mFrameCounter;
-    Timer* mTimer;
-    
-    SimpleFrustum mLODFrustum;
+
     Camera* mLODCamera;
-    Vector3 mLODPosition;
-    Real mLODPixelFactor;
-    Vector3 mLODCameraPlane;
-    Real mLODSphereClip;
+    PlanetLODConfiguration mLOD;
+
+    int mFrameCounter;
+    Timer* mTimer;    
 };
 
 };

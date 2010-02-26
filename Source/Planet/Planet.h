@@ -10,6 +10,8 @@
 #ifndef Planet_H
 #define Planet_H
 
+#include "SimpleFrustum.h"
+
 namespace NFSpace {
 
     class PlanetBrush;
@@ -21,13 +23,12 @@ namespace NFSpace {
     class PlanetCube;
     class QuadTree;
     class QuadTreeNode;
-    class QuadTreeNodeCompare;
+    class QuadTreeNodeCompareLastOpened;
+    class QuadTreeNodeComparePriority;
     class PlanetRenderable;
-
+    
 namespace Planet {
     enum Face { RIGHT, LEFT, TOP, BOTTOM, FRONT, BACK };
-    
-    void doMaintenance();
 };
     
     struct PlanetStats {
@@ -42,6 +43,23 @@ namespace Planet {
         static int gpuMemoryUsage;
     };
     
+    struct PlanetLODConfiguration {
+        int mLimit;
+        
+        SimpleFrustum mCameraFrustum;
+        Vector3 mCameraPosition;
+        Vector3 mCameraFront;
+        
+        Vector3 mSpherePlane;
+        Real mSphereClip;
+        
+        Real mGeoFactor;
+        Real mGeoFactorSquared;
+        
+        Real mTexFactor;
+        Real mTexFactorSquared;
+    };
+
 };
 
 #endif

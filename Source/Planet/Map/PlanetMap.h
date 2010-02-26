@@ -39,8 +39,9 @@ public:
     ~PlanetMap();
     
     void drawBrush(SceneNode* brushesNode, Vector3 position, Vector2 scale, Vector3 up);
-    PlanetMapTile* generateTile(QuadTreeNode* node);
-    PlanetMapTile* generateTile(int face, int lod, int x, int y);
+    void resetTile();
+    bool prepareTile(QuadTreeNode* node);
+    PlanetMapTile* finalizeTile(QuadTreeNode* node);
 
 protected:
     void initHelperScene();
@@ -57,6 +58,12 @@ protected:
     SceneManager* mSceneManager;
     Camera* mCamera;
 
+    // These hold work-in-progress
+    int mStep;
+    TexturePtr mHeightTexture;
+    Image mHeightImage;
+    TexturePtr mNormalTexture;
+    
     SceneNode* mHeightMapBrushes;
 
     PlanetMapBuffer* mMapBuffer[2];

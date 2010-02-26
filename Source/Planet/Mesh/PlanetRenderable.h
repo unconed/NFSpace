@@ -41,11 +41,12 @@ public:
     Real getBoundingRadius();
     const PlanetMapTile* getMapTile();
 
-    void setFrameOfReference(SimpleFrustum& frustum, Vector3 cameraPosition, Vector3 cameraPlane, Real sphereClip, Real lodDetailFactorSquared);
+    void setFrameOfReference(PlanetLODConfiguration& lod);
     const bool isInLODRange() const;
     const bool isClipped() const;
     const bool isInMIPRange() const;
     const bool isFarAway() const;
+    const Real getLODPriority() const;
     
     virtual void updateRenderQueue(RenderQueue* queue);
     Vector3 mSurfaceNormal;
@@ -88,6 +89,7 @@ protected:
     bool mIsClipped;
     bool mIsInMIPRange;
     bool mIsFarAway;
+    Real mLODPriority;
     
     WireBoundingBox* mWireBoundingBox;
     const QuadTreeNode* mQuadTreeNode;

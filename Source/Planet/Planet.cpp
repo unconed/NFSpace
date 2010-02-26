@@ -23,10 +23,4 @@ namespace NFSpace {
     int PlanetStats::hotTiles = 0;
     int PlanetStats::gpuMemoryUsage = 0;
 
-    namespace Planet {
-        void doMaintenance() {
-            PlanetCube::doMaintenance();
-        }
-    }
-    
 };

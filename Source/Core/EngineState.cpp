@@ -34,10 +34,11 @@ EngineState::EngineState() {
     setValue("screenHeight", 768);
 
     // Run-time values
-    setValue("planet.lodDetail", 6.f);
-    setValue("planet.lodLimit", 8);
-    setValue("planet.radius", 60.0f);
-    setValue("planet.height", 40.f);
+    setValue("planet.lodLimit", 12);
+    setValue("planet.geoDetail", 6.f);
+    setValue("planet.texDetail", 1.f);
+    setValue("planet.radius", 85.0f);
+    setValue("planet.height", 15.f);
 
     setValue("planet.gridSize", 17);    
     setValue("planet.textureSize", 257);    
@@ -45,9 +46,9 @@ EngineState::EngineState() {
     setValue("planet.pagerTimeSlot", 1.f);
 
     //setValue("planet.seed", 1007);    
-    setValue("planet.seed", 32489);
+    setValue("planet.seed",  1137);
 //    setValue("planet.seed", (int)(time(0) & 0xFFFF));
-    setValue("planet.brushes", 200);    
+    setValue("planet.brushes", 250);    
     
     //dumpValues();
 };

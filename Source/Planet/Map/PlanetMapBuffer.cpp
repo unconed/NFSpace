@@ -152,7 +152,7 @@ PixelFormat PlanetMapBuffer::getPixelFormat(int type) {
         case MAP_TYPE_WORKSPACE:
             return PF_FLOAT16_RGBA;
         case MAP_TYPE_HEIGHT:
-            return PF_FLOAT16_RGBA;
+            return PF_FLOAT16_R;
 //            return PF_FLOAT16_R;
         case MAP_TYPE_NORMAL:
             return PF_FLOAT16_RGB;
@@ -213,7 +213,7 @@ void PlanetMapBuffer::renderTile(int face, int lod, int x, int y, bool transform
     
     
     // Render the frame to the texture.
-    mRenderTexture->update();
+    mRenderTexture->update(false);
 }
 
 }

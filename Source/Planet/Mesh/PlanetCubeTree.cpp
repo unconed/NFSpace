@@ -9,6 +9,7 @@
 
 #include "PlanetCubeTree.h"
 #include "EngineState.h"
+#include "PlanetCube.h"
 
 namespace NFSpace {
 
@@ -74,11 +75,15 @@ void QuadTreeNode::propagateLODDistances() {
     }
 }
 
+bool QuadTreeNode::prepareMapTile(PlanetMap* map) {
+    return map->prepareTile(this);
+}
+
 void QuadTreeNode::createMapTile(PlanetMap* map) {
     if (mMapTile) {
         throw "Creating map tile that already exists.";
     }
-    mMapTile = map->generateTile(this);
+    mMapTile = map->finalizeTile(this);
 }
 
 void QuadTreeNode::destroyMapTile() {
@@ -149,7 +154,7 @@ bool QuadTreeNode::willRender() {
     return true;
 }
 
-int QuadTreeNode::render(RenderQueue* queue, int lodLimit, SimpleFrustum& frustum, Vector3 cameraPosition, Vector3 cameraPlane, Real sphereClip, Real lodDetailFactorSquared) {
+int QuadTreeNode::render(RenderQueue* queue, PlanetLODConfiguration& lod) {
     // Determine if this node's children are render-ready.
     bool willRenderChildren = true;
     for (int i = 0; i < 4; ++i) {
@@ -165,7 +170,7 @@ int QuadTreeNode::render(RenderQueue* queue, int lodLimit, SimpleFrustum& frustu
         // Recurse down, calculating min recursion level of all children.
         int level = 9999;
         for (int i = 0; i < 4; ++i) {
-            level = min(level, mChildren[i]->render(queue, lodLimit, frustum, cameraPosition, cameraPlane, sphereClip, lodDetailFactorSquared));
+            level = min(level, mChildren[i]->render(queue, lod));
         }
         // If we are a shallow node.
         if (!mRequestRenderable && level <= 1) {
@@ -177,7 +182,7 @@ int QuadTreeNode::render(RenderQueue* queue, int lodLimit, SimpleFrustum& frustu
     
     // If we are renderable, check LOD/visibility.
     if (mRenderable) {
-        mRenderable->setFrameOfReference(frustum, cameraPosition, cameraPlane, sphereClip, lodDetailFactorSquared);
+        mRenderable->setFrameOfReference(lod);
         
         // If invisible, return immediately.
         if (mRenderable->isClipped()) {
@@ -199,11 +204,11 @@ int QuadTreeNode::render(RenderQueue* queue, int lodLimit, SimpleFrustum& frustu
             }
             // Otherwise try to get native res tile data.
             else {
-                // Make sure no parents are waiting for tile data.
+                // Make sure no parents are waiting for tile data update.
                 QuadTreeNode *ancestor = this;
                 bool parentRequest = false;
                 while (ancestor && !ancestor->mMapTile && !ancestor->mPageOut) {
-                    if (ancestor->mRequestMapTile) {
+                    if (ancestor->mRequestMapTile || ancestor->mRequestRenderable) {
                         parentRequest = true;
                         break;
                     }
@@ -235,7 +240,7 @@ int QuadTreeNode::render(RenderQueue* queue, int lodLimit, SimpleFrustum& frustu
                     // Recurse down, calculating min recursion level of all children.
                     int level = 9999;
                     for (int i = 0; i < 4; ++i) {
-                        level = min(level, mChildren[i]->render(queue, lodLimit, frustum, cameraPosition, cameraPlane, sphereClip, lodDetailFactorSquared));
+                        level = min(level, mChildren[i]->render(queue, lod));
                     }
                     // If we are a shallow node with a tile that is not being rendered or close to being rendered.
                     if (level > 1 && mMapTile && mMapTile->getReferences() == 1) {
@@ -274,6 +279,14 @@ int QuadTreeNode::render(RenderQueue* queue, int lodLimit, SimpleFrustum& frustu
         return 1;
     }
     return 0;
+}
+    
+const Real QuadTreeNode::getPriority() const {
+    if (!mRenderable) {
+        if (mParent) { return mParent->getPriority(); }
+        return 0;
+    }
+    return mRenderable->getLODPriority();
 }
 
 unsigned long QuadTreeNode::getGPUMemoryUsage() {

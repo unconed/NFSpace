@@ -17,11 +17,10 @@ struct QuadTreeNode;
     
 };
 
-#include "SimpleFrustum.h"
 #include "PlanetMap.h"
-#include "PlanetCube.h"
 #include "PlanetRenderable.h"
 
+#include "Planet.h"
 #include "Utility.h"
 
 namespace NFSpace {
@@ -32,19 +31,27 @@ struct QuadTreeNode {
     
     QuadTreeNode(PlanetCube* cube);
     ~QuadTreeNode();
-    void propagateLODDistances();
-    void createMapTile(PlanetMap* map);
-    void destroyMapTile();
-    void createRenderable(PlanetMapTile* map);
-    void destroyRenderable();
+
     void attachChild(QuadTreeNode* child, int position);
     void detachChild(int position);
     bool isSplit();
     
-    unsigned long getGPUMemoryUsage();
-    int render(RenderQueue* queue, int lodLimit, SimpleFrustum& frustum, Vector3 cameraPosition, Vector3 cameraPlane, Real sphereClip, Real lodDetailFactorSquared);
-    bool willRender();
+    void propagateLODDistances();
+
+    const Real getPriority() const;
+
+    bool prepareMapTile(PlanetMap* map);
+    void createMapTile(PlanetMap* map);
+    void destroyMapTile();
     
+    void createRenderable(PlanetMapTile* map);
+    void destroyRenderable();
+    
+    bool willRender();
+    int render(RenderQueue* queue, PlanetLODConfiguration& lod);
+
+    unsigned long getGPUMemoryUsage();
+
     int mFace;
     int mLOD;
     int mX;
@@ -84,12 +91,13 @@ struct QuadTree {
 };
 
 // Quadtree node comparison for LOD age.
-class QuadTreeNodeCompare {
+class QuadTreeNodeCompareLastOpened {
     public:
     bool operator()(const QuadTreeNode* a, const QuadTreeNode* b) const {
         return (a->mLastOpened > b->mLastOpened);
     }
 };
+  
     
 };
 
